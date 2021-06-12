@@ -12,5 +12,6 @@ void mostrarMenuOpciones();
 void mostrarMenuDesbloqueo();
 void mostrarMarcas();
 void esperarEnter();
+void convertirMayuscula(char *);
 
 #endif

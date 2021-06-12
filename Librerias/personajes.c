@@ -11,23 +11,25 @@ tipoPersonaje * copiarInformacion(char * lineaLeida)
     tipoPersonaje * nuevoPersonaje = malloc (sizeof(tipoPersonaje));
 	char * fragmento;
 
-	//Posicion X
+    //ID Personaje
 	fragmento = strtok(lineaLeida, ",");
 	nuevoPersonaje->ID = strtol(fragmento, NULL, 10);
 
-	//Posicion Y
+	//Nombre Personaje
 	fragmento = strtok(NULL, ",");
 	strcpy(nuevoPersonaje->nombre, fragmento);
 
-	//ID
+	//Personaje desbloqueado
 	fragmento = strtok(NULL, ",");
 	nuevoPersonaje->desbloqueado = strtol(fragmento, NULL, 10);
 
+    //Marcas del Personaje
     for(int i = 0; i < 10; i++)
     {
         fragmento = strtok(NULL, ",");
 	    nuevoPersonaje->marcas[i] = strtol(fragmento, NULL, 10);
     }
+
 	return nuevoPersonaje;
 }
 
@@ -47,6 +49,29 @@ void importarArchivoPersonajes(HashMap * mapaPersonajes)
     } 
 
     fclose(archivo);
+}
+
+void desbloquearPersonajes(HashMap * mapaPersonajes, char * nombrePersonaje)
+{
+    tipoPersonaje * aux = searchMap(mapaPersonajes, nombrePersonaje);
+    if(aux != NULL)
+    {
+        if(aux->desbloqueado != 1)
+        {
+            aux->desbloqueado = 1;
+            printf(green"\n%s ahora esta desbloqueado!\n"reset, aux->nombre);
+        }
+        else
+        {
+            printf(red"\nEl personaje ingresado ya se encuentra desbloqueado\n"reset);
+            return;
+        }
+    }
+    else
+    {
+        printf(red"\nEl personaje ingresado no existe\n"reset);
+        return;
+    }
 }
 
 void mostrarPersonajes(HashMap * mapaPersonajes)

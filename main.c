@@ -5,10 +5,10 @@
 #include "Librerias/TDA_Mapa/hashmap.h"
 #include "Librerias/personajes.h"
 
-void menuDesbloqueo()
+void menuDesbloqueo(HashMap * mapaPersonajes)
 {
 	int opcion;
-
+	char nombrePersonaje[20];
 	do
 	{
 		mostrarMenuDesbloqueo();
@@ -20,6 +20,12 @@ void menuDesbloqueo()
 		switch (opcion)
 		{
 		case 1:
+			printf("\nIngrese el nombre del personaje: ");
+			getchar();
+			scanf("%19[^\n]s", nombrePersonaje);
+			convertirMayuscula(nombrePersonaje);			
+			desbloquearPersonajes(mapaPersonajes, nombrePersonaje);
+			esperarEnter();
 			break;
 		
 		case 2:
@@ -35,7 +41,6 @@ void menuDesbloqueo()
 			printf(red"\nLa opcion ingresada no existe\n"reset);
 			break;
 		}
-		esperarEnter();
 		printf(cls);
 	}while(opcion != 0);
 }
@@ -56,7 +61,7 @@ int main()
 		switch (opcion)
 		{
 			case 1:
-				menuDesbloqueo();
+				menuDesbloqueo(mapaPersonajes);
 				break;
 			case 2:
 				
@@ -76,6 +81,7 @@ int main()
 
 			case 6:
 				mostrarPersonajes(mapaPersonajes);
+				esperarEnter();
 				break;
 
 			case 7:
@@ -94,7 +100,6 @@ int main()
 				printf(red"\nLa opcion ingresada no existe\n"reset);
 				break;
 		}
-		esperarEnter();
 		printf(cls);
 	}while(opcion != 0);
 	printf("\nFin del Programa\n\n");

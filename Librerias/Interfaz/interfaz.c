@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
 #define red "\e[1;91m"
 #define green "\e[1;92m" 
@@ -17,7 +19,7 @@ void mostrarMenuOpciones()
 	printf("7.)Mostrar todos los Items\n");
 	printf("8.)Mostrar todos los Logros\n");
 	printf("9.)Mostrar a todos los Enemigos\n\n");
-	printf("0.)Salir del Programa\n");
+	printf(red"0.)Salir del Programa\n"reset);
 	printf("\nElija una opcion: ");
 }
 
@@ -27,7 +29,7 @@ void mostrarMenuDesbloqueo()
 	printf("2.)Encontre un Item\n");
 	printf("3.)Desbloquear un Logro\n");
 	printf("4.)Encontre un Enemigo\n\n");
-	printf("0.)Salir del Menu\n");
+	printf(red"0.)Salir del Menu\n"reset);
 	printf("\nElija una opcion: ");
 }	
 
@@ -74,5 +76,15 @@ void mostrarMarcas(int i)
 	case 9:
 		printf("Deliriun ");
 		break;
+	}
+}
+
+void convertirMayuscula(char * cadena)
+{
+	int largo = strlen(cadena);
+	
+	for(int i = 0; i < largo; i++)
+	{
+		cadena[i] = toupper(cadena[i]);
 	}
 }

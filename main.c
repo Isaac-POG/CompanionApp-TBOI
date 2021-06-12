@@ -64,7 +64,7 @@ int main()
 				menuDesbloqueo(mapaPersonajes);
 				break;
 			case 2:
-				
+				guardarInfoPersonajes(mapaPersonajes);
 				break;
 
 			case 3:

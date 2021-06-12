@@ -91,10 +91,10 @@ void mostrarPersonajes(HashMap * mapaPersonajes)
                 if(aux->desbloqueado == 0) printf(red"Bloqueado    ");
                 else printf(green"Desbloqueado ");
 
-                for(int i = 0; i < 10; i++)
+                for(int j = 0; j < 10; j++)
                 {
-                    mostrarMarcas(i);
-                    if(aux->marcas[i] == 0) printf(red"NO ");
+                    mostrarMarcas(j);
+                    if(aux->marcas[j] == 0) printf(red"NO ");
                     else printf(green"SI ");
                 }
             }
@@ -102,4 +102,30 @@ void mostrarPersonajes(HashMap * mapaPersonajes)
         }
         printf(reset"\n");
     }
+}
+
+void guardarInfoPersonajes(HashMap * mapaPersonajes)
+{
+    FILE * archivo = fopen("characters.txt", "w");
+    if(archivo == NULL) return;
+    fprintf(archivo,"ID,Personaje,Desbloqueado,Marcas\n");
+    
+    for(int i = 1; i < 16; i++)
+    {
+        tipoPersonaje * aux = firstMap(mapaPersonajes);
+        while(aux != NULL)
+        {    
+            if(i == aux->ID)
+            {
+                fprintf(archivo, "%i,%s,%i", aux->ID, aux->nombre, aux->desbloqueado);
+                for(int j = 0; j < 10; j++)
+                {
+                    fprintf(archivo, ",%i", aux->marcas[j]);
+                }
+            }
+            aux = nextMap(mapaPersonajes);
+        }
+        fprintf(archivo,"\n");
+    }
+    fclose(archivo);
 }

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <windows.h>
+#include <stdlib.h>
 
 #include "Librerias/Interfaz/interfaz.h"
 #include "Librerias/TDA_Mapa/hashmap.h"
@@ -16,7 +16,6 @@ void menuDesbloqueo(HashMap * mapaPersonajes)
 		printf(cls);
 		if(opcion == 0) return;
 
-
 		switch (opcion)
 		{
 		case 1:
@@ -29,12 +28,21 @@ void menuDesbloqueo(HashMap * mapaPersonajes)
 			break;
 		
 		case 2:
+			printf("\nIngrese el nombre del personaje: ");
+			getchar();
+			scanf("%19[^\n]s", nombrePersonaje);
+			convertirMayuscula(nombrePersonaje);
+			avanceMarcasLogros(mapaPersonajes, nombrePersonaje);			
+			esperarEnter();
 			break;
 
 		case 3:
 			break;
 
 		case 4:
+			break;
+
+		case 5:
 			break;
 
 		default:
@@ -63,6 +71,7 @@ int main()
 			case 1:
 				menuDesbloqueo(mapaPersonajes);
 				break;
+
 			case 2:
 				guardarInfoPersonajes(mapaPersonajes);
 				break;

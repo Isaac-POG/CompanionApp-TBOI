@@ -26,9 +26,10 @@ void mostrarMenuOpciones()
 void mostrarMenuDesbloqueo()
 {
 	printf("\n1.)Desbloquear un Personaje\n");
-	printf("2.)Encontre un Item\n");
-	printf("3.)Desbloquear un Logro\n");
-	printf("4.)Encontre un Enemigo\n\n");
+	printf("2.)Avance en Marcas de logro\n");
+	printf("3.)Encontre un Item\n");
+	printf("4.)Desbloquear un Logro\n");
+	printf("5.)Encontre un Enemigo\n\n");
 	printf(red"0.)Salir del Menu\n"reset);
 	printf("\nElija una opcion: ");
 }	
@@ -77,6 +78,19 @@ void mostrarMarcas(int i)
 		printf("Deliriun ");
 		break;
 	}
+}
+
+void mostrarPersonaje(char * nombre, int * marcas)
+{
+	printf(yellow"\n%s ", nombre);
+	for(int i = 0; i < 10; i++)
+	{
+		mostrarMarcas(i);
+		if(marcas[i] == 0) printf(red"NO ");
+		else printf(green"SI ");
+		printf(reset);
+	}
+	printf("\n");
 }
 
 void convertirMayuscula(char * cadena)

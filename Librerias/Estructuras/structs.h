@@ -1,3 +1,6 @@
+#ifndef STRUCTS_H
+#define STRUCTS_H
+
 typedef struct tipoPersonaje
 {
     int ID;
@@ -25,3 +28,5 @@ typedef struct tipoEnemigo
     char ubicacion[50];
     int encontrado;
 }tipoEnemigo;
+
+#endif

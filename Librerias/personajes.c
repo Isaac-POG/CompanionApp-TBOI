@@ -129,3 +129,57 @@ void guardarInfoPersonajes(HashMap * mapaPersonajes)
     }
     fclose(archivo);
 }
+
+void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
+{
+    tipoPersonaje * aux = searchMap(mapaPersonajes, nombrePersonaje);
+    int  opcion;
+    char respuesta[3];
+
+    if(aux != NULL)
+    {
+        if(aux->desbloqueado == 1)
+        {
+            mostrarPersonaje(aux->nombre, aux->marcas);
+            do
+            {
+                printf("\nHa logrado una nueva marca (SI/NO): ");
+                getchar();
+                scanf("%2s", respuesta);
+                convertirMayuscula(respuesta);
+            } while (strcmp(respuesta, "SI") != 0 && strcmp(respuesta,"NO") != 0);
+            
+            if(strcmp(respuesta, "SI") == 0)
+            {
+                printf("\n");
+                for(int i = 0; i < 10; i++)
+                {
+                    printf(yellow"%i) ", i + 1);
+                    mostrarMarcas(i);
+                    printf(reset"\n");
+                }
+
+                do
+                {
+                    printf(reset"\nCual marca logro: ");
+                    scanf("%i", &opcion);
+                    if(opcion < 1 || opcion > 10) printf(red"\nNo existe tal marca\n"reset);
+                } while (opcion < 1 || opcion > 10);
+                
+                if(aux->marcas[opcion - 1] == 1) printf("La marca ya se logro");
+                else aux->marcas[opcion - 1] = 1;
+                
+                mostrarPersonaje(aux->nombre, aux->marcas);
+            }
+        }
+        else
+        {
+            printf(red"\nEl personaje %s no se encuentra desbloqueado\n"reset, aux->nombre);
+        }
+    }
+    else
+    {
+        printf(red"\nEl personaje ingresado no existe\n"reset);
+        return;
+    }
+}

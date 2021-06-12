@@ -1,28 +1,95 @@
 #include <stdio.h>
+#include <windows.h>
 
-#include "Interfaz/interfaz.h"
+#include "Librerias/Interfaz/interfaz.h"
+
+void menuDesbloqueo()
+{
+	int opcion;
+
+	do
+	{
+		mostrarMenuDesbloqueo();
+		scanf("%i", &opcion);
+		printf(cls);
+		if(opcion == 0) return;
+
+
+		switch (opcion)
+		{
+		case 1:
+			break;
+		
+		case 2:
+			break;
+
+		case 3:
+			break;
+
+		case 4:
+			break;
+
+		default:
+			printf("\nLa opcion ingresada no existe\n");
+			break;
+		}
+	}while(opcion != 0);
+}
 
 int main()
 {
-	int opcion1;
-	int opcion2;
+	int opcion;
+
 	do
 	{
-		mostrarMenuGuardado();
-		scanf("%i", &opcion1);
+		mostrarMenuOpciones();
+		scanf("%i", &opcion);
 		printf(cls);
-		if(opcion1 == 0) break;
-		
-		do
+		if(opcion == 0) break;
+
+		switch (opcion)
 		{
-			mostrarMenuOpciones();
-			scanf("%i", &opcion2);
-			printf(cls);
-			if(opcion2 == 0) break;
-		}while(opcion2 != 0);
+			case 1:
+				menuDesbloqueo();
+				break;
+			case 2:
+				
+				break;
 
-	}while(opcion1 > -1 && opcion1 < 4);
+			case 3:
+				
+				break;
 
+			case 4:
+				
+				break;
+			
+			case 5:
+				
+				break;
+
+			case 6:
+				
+				break;
+
+			case 7:
+				
+				break;
+
+			case 8:
+				
+				break;
+
+			case 9:
+				
+				break;
+
+			default:
+				printf("\nLa opcion ingresada no existe\n");
+				break;
+		}
+
+	}while(opcion != 0);
 	printf("\nFin del Programa\n\n");
 
 	return 0;

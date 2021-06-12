@@ -6,6 +6,8 @@
 #define green "\e[1;92m" 
 #define yellow "\e[1;93m"
 #define blue "\e[1;94m"
+#define cian "\e[1;96m"
+#define purple "\e[1;95m"
 #define reset "\e[0m"
 
 void mostrarMenuOpciones()
@@ -44,7 +46,7 @@ void esperarEnter()
 
 void mostrarMarcas(int i)
 {
-	printf(blue);
+	printf(purple);
 	switch (i)
 	{
 	case 0:
@@ -87,7 +89,8 @@ void mostrarPersonaje(char * nombre, int * marcas)
 	{
 		mostrarMarcas(i);
 		if(marcas[i] == 0) printf(red"NO ");
-		else printf(green"SI ");
+		else if(marcas[i] == 1) printf(blue"NORMAL ");
+		else printf(green"DIFICIL ");
 		printf(reset);
 	}
 	printf("\n");

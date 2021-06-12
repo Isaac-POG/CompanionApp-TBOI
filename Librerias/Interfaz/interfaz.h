@@ -6,6 +6,7 @@
 #define green "\e[1;92m" 
 #define yellow "\e[1;93m"
 #define blue "\e[1;94m"
+#define purple "\e[1;95m"
 #define reset "\e[0m"
 
 void mostrarMenuOpciones();

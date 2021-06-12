@@ -95,7 +95,8 @@ void mostrarPersonajes(HashMap * mapaPersonajes)
                 {
                     mostrarMarcas(j);
                     if(aux->marcas[j] == 0) printf(red"NO ");
-                    else printf(green"SI ");
+                    else if(aux->marcas[j] == 1) printf(blue"NORMAL ");
+                    else printf(green"DIFICIL ");
                 }
             }
             aux = nextMap(mapaPersonajes);
@@ -134,7 +135,7 @@ void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
 {
     tipoPersonaje * aux = searchMap(mapaPersonajes, nombrePersonaje);
     int  opcion;
-    char respuesta[3];
+    char respuesta[10];
 
     if(aux != NULL)
     {
@@ -144,8 +145,7 @@ void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
             do
             {
                 printf("\nHa logrado una nueva marca (SI/NO): ");
-                getchar();
-                scanf("%2s", respuesta);
+                scanf("%9s", respuesta);
                 convertirMayuscula(respuesta);
             } while (strcmp(respuesta, "SI") != 0 && strcmp(respuesta,"NO") != 0);
             
@@ -166,8 +166,21 @@ void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
                     if(opcion < 1 || opcion > 10) printf(red"\nNo existe tal marca\n"reset);
                 } while (opcion < 1 || opcion > 10);
                 
-                if(aux->marcas[opcion - 1] == 1) printf("La marca ya se logro");
-                else aux->marcas[opcion - 1] = 1;
+                if(aux->marcas[opcion - 1] == 2) printf(red"\nLa marca ya se logro\n"reset);
+                else
+                {
+                    
+                    do
+                    {
+                        printf("\nLo realizo en " blue"NORMAL " reset"O "blue"DIFICIL"reset": ");
+                        scanf("%9s", respuesta);
+                        convertirMayuscula(respuesta);
+                        if(strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0) printf(red"\nNo existe tal opcion\n"reset);
+                    } while (strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0);
+                    
+                    if(strcmp("NORMAL", respuesta) == 0) aux->marcas[opcion - 1] = 1;
+                    else aux->marcas[opcion - 1] = 2;
+                }
                 
                 mostrarPersonaje(aux->nombre, aux->marcas);
             }

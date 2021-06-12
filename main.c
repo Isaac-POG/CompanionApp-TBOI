@@ -19,6 +19,7 @@ void menuDesbloqueo(HashMap * mapaPersonajes)
 		switch (opcion)
 		{
 		case 1:
+			printf(yellow"[ISAAC][MAGDALANE][CAIN][JUDAS][???][EVE][SAMSON][AZAZEL][LAZARUS][EDEN][THE LOST][LILITH][THE KEEPER][APOLLYON][THE FORGOTTEN]\n"reset);
 			printf("\nIngrese el nombre del personaje: ");
 			getchar();
 			scanf("%19[^\n]s", nombrePersonaje);
@@ -28,6 +29,7 @@ void menuDesbloqueo(HashMap * mapaPersonajes)
 			break;
 		
 		case 2:
+			printf(yellow"[ISAAC][MAGDALANE][CAIN][JUDAS][???][EVE][SAMSON][AZAZEL][LAZARUS][EDEN][THE LOST][LILITH][THE KEEPER][APOLLYON][THE FORGOTTEN]\n"reset);
 			printf("\nIngrese el nombre del personaje: ");
 			getchar();
 			scanf("%19[^\n]s", nombrePersonaje);

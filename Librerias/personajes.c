@@ -94,8 +94,8 @@ void mostrarPersonajes(HashMap * mapaPersonajes)
                 for(int j = 0; j < 10; j++)
                 {
                     mostrarMarcas(j);
-                    if(aux->marcas[j] == 0) printf(red"NO ");
-                    else if(aux->marcas[j] == 1) printf(blue"NORMAL ");
+                    if(aux->marcas[j] == 0) printf(red"NO      ");
+                    else if(aux->marcas[j] == 1) printf(blue"NORMAL  ");
                     else printf(green"DIFICIL ");
                 }
             }

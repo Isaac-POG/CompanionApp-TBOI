@@ -50,34 +50,34 @@ void mostrarMarcas(int i)
 	switch (i)
 	{
 	case 0:
-		printf("Mom's Heart ");
+		printf("/Mom's Heart ");
 		break;
 	case 1:
-		printf("Isaac ");
+		printf("/Isaac ");
 		break;
 	case 2:
-		printf("Boss Rush ");
+		printf("/Boss Rush ");
 		break;
 	case 3:
-		printf("Satan ");
+		printf("/Satan ");
 		break;
 	case 4:
-		printf("??? ");
+		printf("/??? ");
 		break;
 	case 5:
-		printf("The Lamb ");
+		printf("/The Lamb ");
 		break;
 	case 6:
-		printf("Mega Satan ");
+		printf("/Mega Satan ");
 		break;
 	case 7:
-		printf("Ultra Greed ");
+		printf("/Ultra Greed ");
 		break;
 	case 8:
-		printf("Hush ");
+		printf("/Hush ");
 		break;
 	case 9:
-		printf("Deliriun ");
+		printf("/Deliriun ");
 		break;
 	}
 }

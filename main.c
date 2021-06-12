@@ -2,6 +2,8 @@
 #include <windows.h>
 
 #include "Librerias/Interfaz/interfaz.h"
+#include "Librerias/TDA_Mapa/hashmap.h"
+#include "Librerias/personajes.h"
 
 void menuDesbloqueo()
 {
@@ -30,7 +32,7 @@ void menuDesbloqueo()
 			break;
 
 		default:
-			printf("\nLa opcion ingresada no existe\n");
+			printf(red"\nLa opcion ingresada no existe\n"reset);
 			break;
 		}
 	}while(opcion != 0);
@@ -40,6 +42,9 @@ int main()
 {
 	int opcion;
 
+	HashMap * mapaPersonajes = createMap(10);
+	importarArchivoPersonajes(mapaPersonajes);
+	
 	do
 	{
 		mostrarMenuOpciones();
@@ -69,7 +74,8 @@ int main()
 				break;
 
 			case 6:
-				
+				mostrarPersonajes(mapaPersonajes);
+				Sleep(2500);
 				break;
 
 			case 7:
@@ -85,12 +91,15 @@ int main()
 				break;
 
 			default:
-				printf("\nLa opcion ingresada no existe\n");
+				printf(red"\nLa opcion ingresada no existe\n"reset);
 				break;
 		}
+		printf(cls);
 
 	}while(opcion != 0);
 	printf("\nFin del Programa\n\n");
+
+	free(mapaPersonajes);
 
 	return 0;
 }

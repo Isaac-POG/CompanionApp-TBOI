@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+#define red "\e[1;91m"
+#define green "\e[1;92m" 
+#define yellow "\e[1;93m"
+#define blue "\e[1;94m"
+#define reset "\e[0m"
+
 void mostrarMenuOpciones()
 {
 	printf("\n1.)Menu de desbloqueo\n");
@@ -24,3 +30,41 @@ void mostrarMenuDesbloqueo()
 	printf("0.)Salir del Menu\n");
 	printf("\nElija una opcion: ");
 }	
+
+void mostrarMarcas(int i)
+{
+	printf(blue);
+	switch (i)
+	{
+	case 0:
+		printf("Mom's Heart ");
+		break;
+	case 1:
+		printf("Isaac ");
+		break;
+	case 2:
+		printf("Boss Rush ");
+		break;
+	case 3:
+		printf("Satan ");
+		break;
+	case 4:
+		printf("??? ");
+		break;
+	case 5:
+		printf("The Lamb ");
+		break;
+	case 6:
+		printf("Mega Satan ");
+		break;
+	case 7:
+		printf("Ultra Greed ");
+		break;
+	case 8:
+		printf("Hush ");
+		break;
+	case 9:
+		printf("Deliriun ");
+		break;
+	}
+}

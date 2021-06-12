@@ -1,5 +1,6 @@
 typedef struct tipoPersonaje
 {
+    int ID;
     char nombre[13];
     int desbloqueado;
     int marcas[10];

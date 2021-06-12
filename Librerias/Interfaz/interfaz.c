@@ -105,3 +105,22 @@ void convertirMayuscula(char * cadena)
 		cadena[i] = toupper(cadena[i]);
 	}
 }
+
+void mostrarNombres()
+{
+	printf(red"["yellow"ISAAC"red"] ");
+	printf(red"["yellow"MAGDALANE"red"] ");
+	printf(red"["yellow"CAIN"red"] ");
+	printf(red"["yellow"JUDAS"red"] ");
+	printf(red"["yellow"???"red"] ");
+	printf(red"["yellow"EVE"red"] ");
+	printf(red"["yellow"SAMSON"red"] ");
+	printf(red"["yellow"AZAZEL"red"] ");
+	printf(red"["yellow"LAZARUS"red"] ");
+	printf(red"["yellow"EDEN"red"] ");
+	printf(red"["yellow"THE LOST"red"] ");
+	printf(red"["yellow"LILITH"red"] ");
+	printf(red"["yellow"THE KEEPER"red"] ");
+	printf(red"["yellow"APOLLYON"red"] ");
+	printf(red"["yellow"THE FORGOTTEN"red"]\n");
+}

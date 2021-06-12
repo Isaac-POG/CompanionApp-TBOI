@@ -15,5 +15,6 @@ void mostrarMarcas();
 void esperarEnter();
 void convertirMayuscula(char *);
 void mostrarPersonaje(char *, int *);
+void mostrarNombres();
 
 #endif

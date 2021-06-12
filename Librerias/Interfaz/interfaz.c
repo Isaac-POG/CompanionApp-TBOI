@@ -31,6 +31,14 @@ void mostrarMenuDesbloqueo()
 	printf("\nElija una opcion: ");
 }	
 
+void esperarEnter()
+{
+	char enter;
+	printf("\nIngrese cualquier numero para continuar...  ");
+	getchar();
+	scanf("%c",&enter);
+}
+
 void mostrarMarcas(int i)
 {
 	printf(blue);

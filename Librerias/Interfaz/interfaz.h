@@ -11,5 +11,6 @@
 void mostrarMenuOpciones();
 void mostrarMenuDesbloqueo();
 void mostrarMarcas();
+void esperarEnter();
 
 #endif

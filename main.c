@@ -35,16 +35,16 @@ void menuDesbloqueo()
 			printf(red"\nLa opcion ingresada no existe\n"reset);
 			break;
 		}
+		esperarEnter();
+		printf(cls);
 	}while(opcion != 0);
 }
 
 int main()
 {
 	int opcion;
-
 	HashMap * mapaPersonajes = createMap(10);
 	importarArchivoPersonajes(mapaPersonajes);
-	int enter;
 	
 	do
 	{
@@ -76,9 +76,6 @@ int main()
 
 			case 6:
 				mostrarPersonajes(mapaPersonajes);
-				printf("\nIngrese cualquier numero para continuar...  ");
-				scanf("%d",&enter);
-				//Sleep(2500);
 				break;
 
 			case 7:
@@ -97,8 +94,8 @@ int main()
 				printf(red"\nLa opcion ingresada no existe\n"reset);
 				break;
 		}
+		esperarEnter();
 		printf(cls);
-
 	}while(opcion != 0);
 	printf("\nFin del Programa\n\n");
 

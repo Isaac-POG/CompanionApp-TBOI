@@ -59,8 +59,11 @@ void mostrarPersonajes(HashMap * mapaPersonajes)
             if(i == aux->ID)
             {
                 printf(yellow"%s ", aux->nombre);
+                for(int largo = strlen(aux->nombre) ; largo < 13 ; largo++){
+                    printf(" ");
+                }
                 
-                if(aux->desbloqueado == 0) printf(red"Bloqueado ");
+                if(aux->desbloqueado == 0) printf(red"Bloqueado    ");
                 else printf(green"Desbloqueado ");
 
                 for(int i = 0; i < 10; i++)

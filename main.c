@@ -44,6 +44,7 @@ int main()
 
 	HashMap * mapaPersonajes = createMap(10);
 	importarArchivoPersonajes(mapaPersonajes);
+	int enter;
 	
 	do
 	{
@@ -75,7 +76,9 @@ int main()
 
 			case 6:
 				mostrarPersonajes(mapaPersonajes);
-				Sleep(2500);
+				printf("\nIngrese cualquier numero para continuar...  ");
+				scanf("%d",&enter);
+				//Sleep(2500);
 				break;
 
 			case 7:

@@ -1,403 +1,404 @@
-1;Magdalene;Unlocked a new character.;Consigue 7 contenedores de corazón o más a la vez.
-2;Cain;Unlocked a new character.;Llega a tener 55 monedas en una misma partida.
-3;Judas;Unlocked a new character.;Derrota a Satan
-4;The Womb;Chapter 4 - The Womb unlocked.;Derrota a Mom
-5;The Harbingers;The horsemen are loose.;Derrota a Mom
-6;A Cube of Meat;Unlocked a new item.;Derrota a Mom
-7;The Book of Revelations;Unlocked a new item.;Derrota a un Jinete del Apocalipsis
-8;A Noose;Unlocked a new item.;Derrota a Mom's Heart 3 veces
-9;The Nail;Unlocked a new item.;Completa la Boss Rush como Azazel.
-10;A Quarter;Unlocked a new item.;Derrota a Mom's Heart 8 veces.
-11;A Fetus in a Jar;Unlocked a new item.;Derrota a Mom's Heart 9 veces.
-12;A Small Rock;Unlocked a new item.;Destruye 100 rocas marcadas.
-13;Monstro's Tooth;Unlocked a new item.;Supera el capítulo 1.
-14;Lil' Chubby;Unlocked a new item.;Supera el capítulo 2.
-15;Loki's Horns;Unlocked a new item.;Derrota a Lokii.
-16;Something From The Future;New boss in the basement!;Supera The Basement 40 veces.
-17;Something Cute;New boss in the caves!;Supera el capítulo 2 30 veces.
-18;Something Sticky;New boss in the depths!;Supera el capítulo 3 20 veces.
-19;A Bandage;Unlocked a new item.;Crea una Super Bandage Girl recogiendo 4 Ball of Bandages en una misma partida.
-20;A Cross;Unlocked a new item.;Derrota a Isaac como Magdalene.
-21;A Bag of Pennies;Unlocked a new item.;Derrota a Isaac como Cain.
-22;The Book of Sin;Unlocked a new item.;Derrota a todos los 7 pecados capitales
-23;Little Gish;Unlocked a new item.;Derrota a Gish.
-24;Little Steven;Unlocked a new item.;Derrota a Steven.
-25;Little C.H.A.D.;Unlocked a new item.;Derrota a C.H.A.D..
-26;A Gamekid;Unlocked a new item.;Visita 10 Arcades
-27;A Halo;Unlocked a new item.;Derrota a Mom, Mom's Heart o It Lives usando The Bible.
-28;Mr. Mega;Unlocked a new item.;Destruye 10 rocas marcadas.
-29;The D6;Isaac now holds the D6!;Derrota a Isaac como ???.
-30;The Scissors;Unlocked a new item.;Muere 100 veces.
-31;The Parasite;Unlocked a new item.;Consigue 2 de los siguientes objetos en una misma partida: Bob's Rotten Head, Dead Cat, Cricket's Head, Tammy's Head.
-32;???;Unlocked a new character.;Derrota a Mom's Heart 10 veces.
-33;Everything Is Terrible!!!;The game just got harder!;Derrota a Mom's Heart 5 veces.
-34;It Lives!;Your future's past waits.;Derrota a Mom's Heart 11 veces.
-35;Mom's Contact;Unlocked a new item.;Consigue 3 objetos de mamá en una misma partida.
-36;The Necronomicon;Unlocked a new item.;Usa XIII - Death 4 veces
-37;Basement Boy;Beat basement without taking damage.;Supera el capítulo 1 sin recibir daño.
-38;Spelunker Boy;Beat caves without taking damage.;Supera el capítulo 2 sin recibir daño.
-39;Dark Boy;Beat depths without taking damage.;Supera el capítulo 3 sin recibir daño.
-40;Mama's Boy;Beat womb without taking damage.;Supera el capítulo 4 sin recibir daño.
-41;Golden God!;You are the best!!;Derrota a ??? y The Lamb.
-42;Eve;Unlocked a new character.;No recojas ningún tipo de corazón en 2 pisos seguidos.
-43;Mom's Knife;Unlocked a new item.;Derrota a Satan como Isaac.
-44;The Razor;Unlocked a new item.;Derrota a Satan como Eve.
-45;Guardian Angel;Unlocked a new item.;Derrota a Satan como Magdalene.
-46;A Bag of Bombs;Unlocked a new item.;Derrota a Satan como Cain.
-47;Demon Baby;Unlocked a new item.;Derrota a The Lamb como Azazel.
-48;Forget Me Now;Unlocked a new item.;Derrota a Satan como ???.
-49;The D20;Unlocked a new item.;Derrota a ??? como Isaac.
-50;Celtic Cross;Unlocked a new item.;Derrota a ??? como Magdalene.
-51;Abel;Unlocked a new item.;Derrota a The Lamb como Cain.
-52;Curved Horn;Unlocked a new item.;Derrota a The Lamb como Judas.
-53;Sacrificial Dagger;Unlocked a new item.;Derrota a ??? como Eve.
-54;Bloody Lust;Unlocked a new item.;Derrota a Isaac como Samson.
-55;Blood Penny;Unlocked a new item.;Derrota a ??? como Samson.
-56;Blood Rights;Unlocked a new item.;Derrota a Satan como Samson.
-57;The Polaroid;Unlocked a new item.;Derrota a Isaac 5 veces.
-58;Dad's Key;Unlocked a new item.;Consigue las 2 piezas de llaves de los ángeles en una misma partida.
-59;Blue Candle;Unlocked a new item.;Dona 900 monedas a la máquina de donaciones.
-60;Burnt Penny;Unlocked a new item.;Completa el desafío #13: Beans!.
-61;Lucky Toe;Unlocked a new item.;Haz explotar a 20 tenderos.
-62;Epic Fetus;Unlocked a new item.;Completa el desafío #19: The Family Man.
-63;SMB Super Fan;Unlocked a new item.;Completa el desafío #14: It's in the Cards.
-64;Counterfeit Coin;Unlocked a new item.;Juega al trile 100 veces
-65;Guppy's Hairball;Unlocked a new item.;Conviértete en Guppy
-66;A Forgotten Horseman;Unlocked a new boss!;Toma 10 objetos de la habitación del ángel.
-67;Samson;Unlocked a new character.;Supera 2 pisos seguidos sin recibir daño.
-68;Something Icky;New boss in the womb!;Derrota a Isaac 10 veces.
-69;!Platinum God!;OMG!;Consigue todos los objetos, desbloquea todos los secretos y finales, excepto The Lost y sus desbloqueables (hasta Rebirth).
-70;Isaac's Head;Unlocked a new item.;Completa la Boss Rush como Isaac.
-71;Maggy's Faith;Unlocked a new item.;Derrota a The Lamb como Magdalene.
-72;Judas' Tongue;Unlocked a new item.;Derrota a Satan como Judas.
-73;???'s Soul;Unlocked a new item.;Derrota a The Lamb como ???.
-74;Samson's Lock;Unlocked a new item.;Derrota a The Lamb como Samson.
-75;Cain's Eye;Unlocked a new item.;Derrota a ??? como Cain.
-76;Eve's Bird Foot;Unlocked a new item.;Derrota a Isaac como Eve.
-77;The Left Hand;Unlocked a new item.;Derrota a Ultra Pride con cualquier personaje, o a ??? como Judas.
-78;The Negative;Unlocked a new item.;Derrota a Satan 5 veces.
-79;Azazel;Unlocked a new character.;Realiza 3 pactos con el demonio en una misma partida.
-80;Lazarus;Unlocked a new character.;Llega a tener 4 o más corazones de alma a la vez.
-81;Eden;Unlocked a new character.;Completa el capítulo 4.
-82;The Lost;Unlocked a new character.;Antes de Rebirth: Desbloquea a The Lost. A partir de Afterbirth: Muere en una Habitación del Sacrificio mientras sostienes Missing Poster.
-83;Dead Boy;Beat Chest or Dark Room without taking damage.;Completa el capítulo 6 sin recibir daño.
-84;The Real Platinum God;111% now stop playing!;Consigue todos los objetos y desbloquea todos los finales (hasta Rebirth).
-85;Lucky Rock;Destroy 100 rocks.;Destruye 100 rocas.
-86;The Cellar;Alt stage to the basement.;Derrota a todos los jefes de The Basement (no es necesario derrotarlos en The Basement).
-87;The Catacombs;Alt stage to the caves.;Derrota a todos los jefes de The Caves(no es necesario derrotarlos en The Caves).
-88;The Necropolis;Alt stage to the depths.;Derrota a todos los jefes de The Depths(no es necesario derrotarlos en The Depths).
-89;Rune of Hagalaz;Unlocked a new item.;Completa el desafío #1: Pitch Black.
-90;Rune of Jera;Unlocked a new item.;Completa el desafío #2: High Brow.
-91;Rune of Ehwaz;Unlocked a new item.;Completa el desafío #3: Head Trauma.
-92;Rune of Dagaz;Unlocked a new item.;Completa el desafío #4: Darkness Falls.
-93;Rune of Ansuz;Unlocked a new item.;Completa el desafío #5: The Tank.
-94;Rune of Perthro;Unlocked a new item.;Completa el desafío #6: Solar System.
-95;Rune of Berkano;Unlocked a new item.;Completa el desafío #20: Purist.
-96;Rune of Algiz;Unlocked a new item.;Completa el desafío #8: Cat Got Your Tongue.
-97;Chaos Card;Unlocked a new item.;Completa el desafío #9: Demo Man.
-98;Credit Card;Unlocked a new item.;Completa el desafío #10: Cursed!.
-99;Rules Card;Unlocked a new item.;Completa el desafío #11: Glass Cannon (Challenge).
-100;Card Against Humanity;Unlocked a new item.;Completa el desafío #12: When Life Gives You Lemons.
-101;Swallowed Penny;Unlocked a new item.;Completa el desafío #15: Slow Roll.
-102;Robo-Baby 2.0;Unlocked a new item.;Completa el desafío #16: Computer Savvy.
-103;Death's Touch;Unlocked a new item.;Completa el desafío #17: Waka Waka.
-104;Technology .5;Unlocked a new item.;Completa el desafío #18: The Host.
-105;Missing No.;Unlocked a new item.;Completa la Boss Rush como Lazarus.
-106;Isaac's Tears;Unlocked a new item.;Derrota a Isaac como Isaac.
-107;Guillotine;Unlocked a new item.;Derrota a Isaac como Judas.
-108;Judas' Shadow;Unlocked a new item.;Completa la Boss Rush como Judas.
-109;Maggy's Bow;Unlocked a new item.;Completa la Boss Rush como Magdalene.
-110;Cain's Other Eye;Unlocked a new item.;Completa la Boss Rush como Cain.
-111;Black Lipstick;Unlocked a new item.;Derrota a The Lamb como Eve.
-112;Eve's Mascara;Unlocked a new item.;Completa la Boss Rush como Eve.
-113;Fate;Unlocked a new item.;Derrota a ??? como ???.
-114;???'s Only Friend;Unlocked a new item.;Completa la Boss Rush como ???.
-115;Samson's Chains;Unlocked a new item.;Completa la Boss Rush como Samson.
-116;Lazarus' Rags;Unlocked a new item.;Derrota a Isaac como Lazarus.
-117;Broken Ankh;Unlocked a new item.;Derrota a Satan como Lazarus.
-118;Store Credit;Unlocked a new item.;Derrota a ??? como Lazarus.
-119;Pandora's Box;Unlocked a new item.;Derrota a The Lamb como Lazarus.
-120;Suicide King;Unlocked a new item.;Completa el desafío #7: Suicide King (Challenge).
-121;Blank Card;Unlocked a new item.;Derrota a Isaac como Eden.
-122;Book of Secrets;Unlocked a new item.;Derrota a Satan como Eden.
-123;Mysterious Paper;Unlocked a new item.;Derrota a ??? como Eden
-124;Mystery Sack;Unlocked a new item.;Derrota a The Lamb como Eden.
-125;Undefined;Unlocked a new item.;Completa la Boss Rush como Eden.
-126;Satanic Bible;Unlocked a new item.;Derrota a Isaac como Azazel.
-127;Daemon's Tail;Unlocked a new item.;Derrota a Satan como Azazel.
-128;Abaddon;Unlocked a new item.;Derrota a ??? como Azazel.
-129;Isaac's Heart;Unlocked a new item.;Derrota a Isaac como The Lost.
-130;The Mind;Unlocked a new item.;Derrota a Satan como The Lost.
-131;The Body;Unlocked a new item.;Derrota a ??? como The Lost.
-132;The Soul;Unlocked a new item.;Derrota a The Lamb como The Lost.
-133;The D100;Unlocked a new item.;Completa la Boss Rush como The Lost.
-134;Blue Map;Unlocked a new item.;Dona 10 monedas a la máquina de donaciones.
-135;There's Options;Unlocked a new item.;Dona 50 monedas a la máquina de donaciones.
-136;Black Candle;Unlocked a new item;Dona 150 monedas a la máquina de donaciones.
-137;Red Candle;Unlocked a new item.;Dona 400 monedas a la máquina de donaciones.
-138;Stop Watch;Unlocked a new item;Dona 999 monedas a la máquina de donaciones.
-139;Wire Coat Hanger;Unlocked a new item.;Derrota a Mom's Heart 4 veces.
-140;Ipecac;Unlocked a new item.;Derrota a Mom's Heart 6 veces.
-141;Experimental Treatment;Unlocked a new item.;Derrota a Mom's Heart 7 veces.
-142;Krampus;Unlocked another miniboss!;Consigue 20 objetos de la Habitación del Diablo.
-143;Head of Krampus;Unlocked a new item.;Derrota a Krampus.
-144;Super Meat Boy;Built him out of meat cubes.;Crea un Super Meat Boy consiguiendo 4 Cube of Meat en una misma partida.
-145;Butter Bean;Unlocked a new item.;Destruye 100 pilas de popó.
-146;Little Baggy;Unlocked a new item.;Consigue dos de cualquiera de los siguientes objetos: Roid Rage, The Virus, Growth Hormones, Experimental Treatment o Speed Ball.
-147;Blood Bag;Unlocked a new item.;Usa la máquina de donación de sangre 30 veces.
-148;The D4;Unlocked a new item.;Explota 30 máquinas de Arcade.
-149;Missing Poster;Unlocked a new item.;Derrota a The Lamb como Isaac.
-150;Rubber Cement;Unlocked a new item.;Derrota a Mom's Heart 2 veces.
-151;Store Upgrade lv.1;Donated 20 pennies to the shop.;Dona 20 monedas a la máquina de donaciones.
-152;Store Upgrade lv.2;Donated 100 pennies to the shop.;Dona 100 monedas a la máquina de donaciones.
-153;Store Upgrade lv.3;Donated 200 pennies to the shop.;Dona 200 monedas a la máquina de donaciones.
-154;Store Upgrade lv.4;Donated 600 pennies to the shop.;Dona 600 monedas a la máquina de donaciones.
-155;Angels;They are waiting.;Completa el capítulo 6
-156;Godhead;Unlocked a new item.;Consigue todas las marcas en modo difícil con The Lost.
-157;Darkness Falls;Unlocked Challenge #4.;Derrota a Mom's Heart 11 veces.
-158;The Tank;Unlocked Challenge #5.;Consigue tener 7 o más contenedores de vida roja a la vez.
-159;Solar System;Unlocked Challenge #6.;Derrota a Mom's Heart 3 veces.
-160;Suicide King 2;Unlocked Challenge #7.;Derrota a Mom's Heart 11 veces.
-161;Cat Got Your Tongue;Unlocked Challenge #8.;Conviértete en Guppy
-162;Demo Man;Unlocked Challenge #9.;Derrota a Mom's Heart 9 veces.
-163;Cursed!;Unlocked Challenge #10.;Consigue tener 7 o más contenedores de vida roja a la vez.
-164;Glass Cannon;Unlocked Challenge #11.;Derrota a Lokii y completa el desafío #19: The Family Man.
-165;The Family Man;Unlocked Challenge #19.;Consigue las 2 piezas de llaves de los ángeles en una misma partida.
-166;Purist;Unlocked Challenge #20.;Derrota a Mom.
-167;Lost Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo difícil como Isaac.
-168;Cute Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo difícil como Magdalene.
-169;Crow Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo difícil como Eve.
-170;Shadow Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo difícil como Judas.
-171;Glass Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo difícil como Cain.
-172;Wrapped Baby;Unlocked a new co-player baby.;Rebirth: Derrota a Mom's Heart en modo difícil como Azazel. A partir de Afterbirth: Derrota a Mom's Heart en modo difícil como Lazarus.
-173;Begotten Baby;Unlocked a new co-player baby.;Rebirth: Derrota a Mom's Heart en modo difícil como Lazarus. A partir de Afterbirth: Derrota a Mom's Heart en modo difícil como Azazel.
-174;Dead Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo difícil como ???.
-175;-0- Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo difícil como The Lost.
-176;Glitch Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo difícil como Eden.
-177;Fighting Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo difícil como Samson.
-178;Lord of the Flies;You became Lord of the Flies.;Conviértete en Beelzebub
-179;Fart Baby;Unlocked a new item.;Derrota a Hush como Isaac.
-180;Purity;Unlocked a new item.;Derrota a Hush como Magdalene.
-181;D12;Unlocked a new item.;Derrota a Hush como Cain.
-182;Betrayal;Unlocked a new item.;Derrota a Hush como Judas.
-183;Fate's Reward;Unlocked a new item.;Derrota a Hush como ???.
-184;Athame;Unlocked a new item.;Derrota a Hush como Eve.
-185;Blind Rage;Unlocked a new item.;Derrota a Hush como Samson.
-186;Maw of the Void;Unlocked a new item.;Derrota a Hush como Azazel.
-187;Empty Vessel;Unlocked a new item.;Derrota a Hush como Lazarus.
-188;Eden's Blessing;Unlocked a new item.;Derrota a Hush como Eden.
-189;Sworn Protector;Unlocked a new item.;Derrota a Hush como The Lost.
-190;Incubus;Unlocked a new item.;Derrota a Hush como Lilith.
-191;Keeper now holds... A Penny!;Unlocked a new item.;Derrota a Hush como Keeper.
-192;Lil' Chest;Unlocked a new item.;Derrota a Ultra Greed como Isaac.
-193;Censer;Unlocked a new item.;Derrota a Ultra Greed como Magdalene.
-194;Evil Eye;Unlocked a new item.;Derrota a Ultra Greed como Cain.
-195;My Shadow;Unlocked a new item.;Derrota a Ultra Greed como Judas.
-196;Cracked Dice;Unlocked a new item.;Derrota a Ultra Greed como ???.
-197;Black Feather;Unlocked a new item.;Derrota a Ultra Greed como Eve.
-198;Lusty Blood;Unlocked a new item.;Derrota a Ultra Greed como Samson.
-199;Lilith;Unlocked a new character.;Derrota a Ultra Greed como Azazel.
-200;Key Bum;Unlocked a new item.;Derrota a Ultra Greed como Lazarus.
-201;GB Bug;Unlocked a new item.;Derrota a Ultra Greed como Eden.
-202;Zodiac;Unlocked a new item.;Derrota a Ultra Greed como The Lost.
-203;Box of Friends;Unlocked a new item.;Derrota a Ultra Greed como Lilith.
-204;Rib of Greed;Unlocked a new item.;Derrota a Ultra Greed como Keeper.
-205;Cry Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Isaac.
-206;Red Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Magdalene.
-207;Green Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Cain.
-208;Brown Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Judas.
-209;Blue Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como ???.
-210;Lil' Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Eve.
-211;Rage Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Samson.
-212;Black Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Azazel.
-213;Long Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Lazarus.
-214;Yellow Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Eden.
-215;White Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como The Lost.
-216;Big Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Lilith.
-217;Noose Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Keeper.
-218;Rune Bag;Unlocked a new item.;Derrota a Isaac como Lilith.
-219;Cambion Conception;Unlocked a new item.;Derrota a ??? como Lilith.
-220;Serpent's Kiss;Unlocked a new item.;Derrota a Satan como Lilith.
-221;Succubus;Unlocked a new item.;Derrota a The Lamb como Lilith.
-222;Immaculate Conception;Unlocked a new item.;Completa la Boss Rush como Lilith.
-223;Goat Head Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo difícil como Lilith.
-224;Gold Heart;Unlocked a new item.;Completa el desafío #21: XXXXXXXXL.
-225;Get out of Jail Free Card;Unlocked a new item.;Completa el desafío #22: SPEED!.
-226;Gold Bomb;Unlocked a new item.;Completa el desafío #23: Blue Bomber.
-227;2 new pills;Unlocked a new item.;Completa el desafío #24: PAY TO PLAY.
-228;2 new pills 2;Unlocked a new item.;Completa el desafío #25: Have a Heart.
-229;Poker Chip;Unlocked a new item.;Completa el desafío #26: I RULE!.
-230;Stud Finder;Unlocked a new item.;Completa el desafío #27: BRAINS!.
-231;D8;Unlocked a new item.;Completa el desafío #28: PRIDE DAY!.
-232;Kidney Stone;Unlocked a new item.;Afterbirth: Completa el desafío #30: The Guardian. Afterbirth+: Completa el desafío #29: Onan's Streak.
-233;Blank Rune;Unlocked a new item.;Afterbirth: Completa el desafío #29: Onan's Streak. Afterbirth+: Completa el desafío #30: The Guardian.
-234;Blue Womb;Unlocked a hidden chapter.;Derrota a Mom's Heart 10 veces.
-235;1001%;Nerd x 1000000;Desbloquea todos los secretos y finales, y consigue todos los objetos (hasta Afterbirth).
-236;Keeper holds Wooden Nickel;Unlocked a new starting item.;Derrota a Isaac como Keeper.
-237;Keeper holds Store Key;Unlocked a new starting item.;Derrota a Satan como Keeper.
-238;Deep Pockets;Unlocked a new item.;Derrota a ??? como Keeper.
-239;Karma;Unlocked a new item.;Derrota a The Lamb como Keeper.
-240;Sticky Nickels;Unlocked a new item.;Completa la Boss Rush como Keeper.
-241;Super Greed Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo difícil como Keeper.
-242;Lucky Pennies;Unlocked a new item.;Dona 1 moneda a la máquina de donaciones de Greed.
-243;Special Hanging Shopkeepers;Unlocked a secret.;Dona 10 monedas a la máquina de donaciones de Greed.
-244;Wooden Nickel;Unlocked a new item.;Dona 30 monedas a la máquina de donaciones de Greed.
-245;Cain holds Paperclip;Unlocked a new starting item.;Dona 68 monedas a la máquina de donaciones de Greed.
-246;Everything is Terrible 2!!!;Greed just got harder!;Dona 111 monedas a la máquina de donaciones de Greed.
-247;Special Shopkeepers;Unlocked a secret.;Dona 234 monedas a la máquina de donaciones de Greed.
-248;Eve now holds Razor Blade;Unlocked a new starting item.;Dona 439 monedas a la máquina de donaciones de Greed.
-249;Store Key;Unlocked a new item.;Dona 666 monedas a la máquina de donaciones de Greed.
-250;Lost holds Holy Mantle;Unlocked a new starting item.;Dona 879 monedas a la máquina de donaciones de Greed.
-251;Keeper;Unlocked a new character.;Dona 1000 monedas a la máquina de donaciones de Greed.
-252;Hive Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como ???.
-253;Buddy Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como Isaac.
-254;Colorful Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como Magdalene.
-255;Whore Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como Eve.
-256;Cracked Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como Eden.
-257;Dripping Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como Lazarus.
-258;Blinding Baby;Unlocked a new co-player baby.;Usa Blank Card con XIX - The Sun.
-259;Sucky Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como Azazel.
-260;Dark Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como Lilith.
-261;Picky Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como Cain.
-262;Revenge Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como Samson.
-263;Belial Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como Judas.
-264;Sale Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como Keeper.
-265;XXXXXXXXL;Unlocked Challenge #21.;Derrota a Mom.
-266;SPEED!;Unlocked Challenge #22.;Derrota a Mom.
-267;Blue Bomber;Unlocked Challenge #23.;Destruye 10 rocas marcadas y derrota a Mom's Heart 11 veces
-268;PAY TO PLAY;Unlocked Challenge #24.;Derrota a Isaac como Cain.
-269;Have a Heart;Unlocked Challenge #25.;Derrota a Mom.
-270;I RULE!;Unlocked Challenge #26.;Derrota a ??? o The Lamb, y derrota a Satan como Isaac.
-271;BRAINS!;Unlocked Challenge #27.;Derrota a Isaac 5 veces.
-272;PRIDE DAY!;Unlocked Challenge #28.;Derrota a Mom.
-273;Onan's Streak;Unlocked Challenge #29.;Derrota a Mom.
-274;The Guardian;Unlocked Challenge #30.;Derrota a Mom.
-275;Generosity;If only everyone was as generous as you are..;Dona 999 monedas a la máquina de donaciones de Greed.
-276;Mega;Unlocked..;Derrota a Mega Satan con todos los personajes.
-277;Backasswards;Unlocked a new challenge.;Derrota a ??? o The Lamb.
-278;Aprils fool;Unlocked a new challenge.;Derrota a Mom.
-279;Pokey Mans;Unlocked a new challenge.;Derrota a Mom's Heart 11 veces.
-280;Ultra Hard;Unlocked a new challenge.;Derrota a ??? o The Lamb. Es necesario tener The Polaroid o The Negative, y no contará si se llega a través de la Habitación del Sacrificio.
-281;PONG;Unlocked a new challenge.;Derrota a Isaac 5 veces.
-282;D Infinity;Unlocked a new item.;Derrota a Delirium como Isaac.
-283;Eucharist;Unlocked a new item.;Derrota a Delirium como Magdalene.
-284;Silver Dollar;Unlocked a new item.;Derrota a Delirium como Cain.
-285;Shade;Unlocked a new item.;Derrota a Delirium como Judas.
-286;King Baby;Unlocked a new co-player baby.;Derrota a Delirium como ???.
-287;Bloody Crown;Unlocked a new item.;Derrota a Delirium como Samson.
-288;Dull Razor;Unlocked a new item.;Derrota a Delirium como Eve.
-289;Eden's Soul;Unlocked a new item.;Derrota a Delirium como Eden.
-290;Dark Prince's Crown;Unlocked a new item.;Derrota a Delirium como Azazel.
-291;Compound Fracture;Unlocked a new item.;Derrota a Delirium como Lazarus.
-292;Euthanasia;Unlocked a new item.;Derrota a Delirium como Lilith.
-293;Holy Card;Unlocked a new item.;Derrota a Delirium como The Lost.
-294;Crooked Penny;Unlocked a new item.;Derrota a Delirium como Keeper.
-295;Void;Unlocked a new item.;Derrota a Delirium como Apollyon.
-296;D1;Unlocked a new item.;Derrota a Ultra Greedier como Isaac.
-297;Glyph of Balance;Unlocked a new item.;Derrota a Ultra Greedier como Magdalene.
-298;Sack of Sacks;Unlocked a new item.;Derrota a Ultra Greedier como Cain.
-299;Eye of Belial;Unlocked a new item.;Derrota a Ultra Greedier como Judas.
-300;Meconium;Unlocked a new item.;Derrota a Ultra Greedier como ???.
-301;Stem Cell;Unlocked a new item.;Derrota a Ultra Greedier como Samson.
-302;Crow Heart;Unlocked a new item.;Derrota a Ultra Greedier como Eve.
-303;Metronome;Unlocked a new item.;Derrota a Ultra Greedier como Eden.
-304;Bat Wing;Unlocked a new item.;Derrota a Ultra Greedier como Azazel.
-305;Plan C;Unlocked a new item.;Derrota a Ultra Greedier como Lazarus.
-306;Duality;Unlocked a new item.;Derrota a Ultra Greedier como Lilith.
-307;Dad's Lost Coin;Unlocked a new item.;Derrota a Ultra Greedier como The Lost.
-308;Eye of Greed;Unlocked a new item.;Derrota a Ultra Greedier como Keeper.
-309;Black Rune;Unlocked a new item.;Derrota a Ultra Greedier como Apollyon.
-310;Locust of Wrath;Unlocked a new item.;Derrota a Isaac como Apollyon.
-311;Locust of Pestilence;Unlocked a new item.;Derrota a Satan como Apollyon.
-312;Locust of Famine;Unlocked a new item.;Derrota a ??? como Apollyon.
-313;Locust of Death;Unlocked a new item.;Derrota a The Lamb como Apollyon.
-314;Locust of Conquest;Unlocked a new item.;Completa la Boss Rush como Apollyon.
-315;Hushy;Unlocked a new item.;Derrota a Hush como Apollyon.
-316;Brown Nugget;Unlocked a new item.;Derrota a Ultra Greed como Apollyon.
-317;Mort Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Apollyon.
-318;Smelter;Unlocked a new item.;Derrota a Mom's Heart o It Lives! en modo difícil como Apollyon.
-319;Apollyon Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como Apollyon.
-320;New Area;Unlocked a new area.;Derrota a Hush.
-321;Once More with Feeling!;Unlocked a new item.;Completa una Victory Lap después de derrotar a The Lamb.
-322;Hat trick!;Unlocked a new item.;Consigue una racha de 3 victorias.
-323;5 Nights at Mom's;Unlocked super special rocks.;Consigue una racha de 5 victorias usando personajes diferentes.
-324;Sin collector;Unlocked a new item.;Completa el bestiario.
-325;Dedication;Unlocked a new item.;Participa en 31 desafíos diarios (no tienen que ser consecutivos, y se cuentan aunque el jugador muera en la primera habitación).
-326;ZIP!;Unlocked a new item.;Derrota a The Lamb en menos de 20 minutos.
-327;It's the Key;Unlocked a new item.;Derrota a The Lamb sin tomar corazones, monedas ni bombas durante toda la partida.
-328;Mr. Resetter!;Unlocked a new item.;Reinicia 7 veces seguidas. En consolas: consigue una racha de 10 derrotas.
-329;Living on the edge;Unlocked a new item.;Completa un piso después de The Basement I, de principio a fin, con con sólo medio corazón de vida (puede usarse a The Lost).
-330;U Broke It!;Unlocked a new item.;Consigue 50 objetos en una misma partida.
-331;Laz Bleeds More!;Unlocked a new starting item.;Completa el desafío #31: Backasswards.
-332;Maggy Now Holds a Pill!;Unlocked a new starting item.;Completa el desafío #32: Aprils Fool.
-333;Charged Key;Unlocked a new item.;Completa el desafío #33: Pokey Mans.
-334;Samson Feels Healthy!;Unlocked a new starting item.;Completa el desafío #34: Ultra Hard.
-335;Greed's Gullet;Unlocked a new item.;Completa el desafío #35: Pong.
-336;The Marathon;Unlocked a new item.;Consigue una racha de 5 victorias en los desafíos diarios.
-337;RERUN;Unlocked the power of RERUN.;Completa 3 Victory Laps y comienza la cuarta.
-338;Delirious;Unlocked a new item.;Derrota a Delirium.
-339;1000000%;Just Stop!;Consigue todos los objetos, desbloquea todos los secretos y finales, y completa el bestiario.
-340;Apollyon;Unlocked a new character.;Derrota a Mega Satan.
-341;Greedier!;New mode unlocked!;Dona 500 monedas a la máquina de donaciones de Greed.
-342;Burning Basement;Alt stage to the basement.;Derrota a Mom's Heart 11 veces.
-343;Flooded Caves;Alt stage to the caves.;Derrota a It Lives 16 veces.
-344;Dank Depths;Alt stage to the depths.;Derrota a It Lives 21 veces.
-345;Scarred Womb;Alt stage to the womb.;Derrota a It Lives 30 veces.
-346;Something wicked this way comes!;Unlocked new bosses!;Derrota a ??? con 3 personajes diferentes.
-347;Something wicked this way comes+!;Unlocked even more bosses!;Derrota a ??? con 6 personajes diferentes.
-348;The gate is open!;Unlocked new enemies!;Derrota a The Lamb.
-349;Black Hole;Unlocked a new item.;Derrota 20 portales.
-350;Mystery Gift;Unlocked a new item.;Destruye 500 rocas.
-351;Sprinkler;Unlocked a new item.;Supera el capítulo 1 sin recibir daño.
-352;Angry Fly;Unlocked a new item.;Conviértete en Beelzebub
-353;Bozo;Unlocked a new item.;Destruye 5 cacas arcoiris.
-354;Broken Modem;Unlocked a new item.;Completa 7 desafíos diarios (tocando el trofeo del final).
-355;Buddy in a Box;Unlocked a new item.;Consigue 5 familiares en una misma partida.
-356;Fast Bombs;Unlocked a new item.;Derrota a Little Horn 20 veces.
-357;Lil Delirium;Unlocked a new item.;Derrota a Delirium por primera vez.
-358;Hairpin;Unlocked a new item.;Recarga usando baterías 20 veces.
-359;Wooden Cross;Unlocked a new item.;Duerme en una cama.
-360;Butter!;Unlocked a new item.;Completa 2 Victory Laps y comienza la tercera.
-361;Huge Growth;Unlocked a new item.;Crece de tamaño 5 veces en una misma partida. Pueden usarse el efecto de píldoras de "One Makes you Larger", XI - Strength o Magic Mushroom.
-362;Ancient Recall;Unlocked a new item.;Use cartas y runas 20 veces.
-363;Era Walk;Unlocked a new item.;Posee Broken Watch y Stop Watch al mismo tiempo.
-364;Coupon;Unlocked a new item.;Compra en las tiendas, pactos o mercado negro 50 veces.
-365;Telekinesis;Unlocked a new item.;Supera el capítulo 2 sin recibir daño.
-366;Moving Box;Unlocked a new item.;Usa Pandora's Box en Dark Room.
-367;Jumper Cables;Unlocked a new item.;Consigue 3 de los siguientes objetos y baratijas en una misma partida: 9 Volt, The Battery, Car Battery, AAA Battery, Watch Battery.
-368;Leprosy;Unlocked a new item.;Supera el capítulo 3 sin recibir daño.
-369;Technology Zero;Unlocked a new item.;Consigue 2 objetos de tecnología en una misma partida.
-370;Filigree Feather;Unlocked a new item.;Consigue las 2 piezas de llaves de los ángeles en una misma partida.
-371;Mr. ME!;Unlocked a new item.;Abre 20 cofres dorados.
-372;7 Seals;Unlocked a new item.;Derrota a los 5 Jinetes del Apocalipsis.
-373;Angelic Prism;Unlocked a new item.;Derrota a un Angel 10 veces.
-374;Pop!;Unlocked a new item.;Supera el capítulo 4 sin recibir daño.
-375;Door Stop;Unlocked a new item.;Rompe las puertas y los muros de la Habitación Secreta 50 veces.
-376;Death's List;Unlocked a new item.;Realiza 25 pactos.
-377;Haemolacria;Unlocked a new item.;Consigue Blood Clot 10 veces
-378;Lachryphagy;Unlocked a new item.;Consigue 10 objetos (o píldoras) que mejoren la cadencia de disparo en una misma partida.
-379;Schoolbag;Unlocked a new item.;Entra a todas las tiendas desde el capítulo 1 hasta el capítulo 3 en una misma partida.
-380;Trisagion;Unlocked a new item.;Consigue 25 objetos de la habitación del ángel.
-381;Extension Cord;Unlocked a new item.;Consigue The Battery, 9 Volt y Car Battery en una misma partida.
-382;Flat Stone;Unlocked a new item.;Consigue Rubber Cement 5 veces.
-383;Sacrificial Altar;Unlocked a new item.;Realiza 50 pactos.
-384;Lil Spewer;Unlocked a new item.;Muere por tu propia explosión de Ipecac, Bob's Rotten Head o Horf!.
-385;Blanket;Unlocked a new item.;Duerme en 10 camas.
-386;Marbles;Unlocked a new item.;Usa 5 píldoras de Gulp! en una misma partida.
-387;Mystery Egg;Unlocked a new item.;Ten 3 monstruos aliados en una misma habitación.
-388;Rotten Penny;Unlocked a new item.;Ten 20 moscas azules a la vez.
-389;Baby-Bender;Unlocked a new item.;Usa I - the Magician o Telepathy for Dummies mientras ya tienes un efecto de lágrimas teledirigidas.
-390;The Forgotten;Unlocked a new character.;Desbloquea a The Forgotten.
-391;Bone Heart;Unlocked a new item.;Desbloquea a The Forgotten.
-392;Marrow;Unlocked a new item.;Derrota a Mom's Heart o It Lives! en modo difícil como The Forgotten.
-393;Slipped Rib;Unlocked a new item.;Derrota a Isaac como The Forgotten.
-394;Pointy Rib;Unlocked a new item.;Derrota a Satan como The Forgotten.
-395;Jaw Bone;Unlocked a new item.;Derrota a ??? como The Forgotten.
-396;Brittle Bones;Unlocked a new item.;Derrota a The Lamb como The Forgotten.
-397;Divorce Papers;Unlocked a new item.;Completa la Boss Rush como The Forgotten.
-398;Hallowed Ground;Unlocked a new item.;Derrota a Hush como The Forgotten.
-399;Finger Bone;Unlocked a new item.;Derrota a Ultra Greed como The Forgotten.
-400;Dad's Ring;Unlocked a new item.;Derrota a Ultra Greedier como The Forgotten.
-401;Book of the Dead;Unlocked a new item.;Derrota a Delirium como The Forgotten.
-402;Bone Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo difícil como The Forgotten.
-403;Bound Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como The Forgotten.
+ID,Desbloqueado,Nombre de Logros,Descripcion,Como conseguirlo
+1;0;Magdalene;Unlocked a new character.;Consigue 7 contenedores de corazon o mas a la vez.
+2;0;Cain;Unlocked a new character.;Llega a tener 55 monedas en una misma partida.
+3;0;Judas;Unlocked a new character.;Derrota a Satan
+4;0;The Womb;Chapter 4 - The Womb unlocked.;Derrota a Mom
+5;0;The Harbingers;The horsemen are loose.;Derrota a Mom
+6;0;A Cube of Meat;Unlocked a new item.;Derrota a Mom
+7;0;The Book of Revelations;Unlocked a new item.;Derrota a un Jinete del Apocalipsis
+8;0;A Noose;Unlocked a new item.;Derrota a Mom's Heart 3 veces
+9;0;The Nail;Unlocked a new item.;Completa la Boss Rush como Azazel.
+10;0;A Quarter;Unlocked a new item.;Derrota a Mom's Heart 8 veces.
+11;0;A Fetus in a Jar;Unlocked a new item.;Derrota a Mom's Heart 9 veces.
+12;0;A Small Rock;Unlocked a new item.;Destruye 100 rocas marcadas.
+13;0;Monstro's Tooth;Unlocked a new item.;Supera el capitulo 1.
+14;0;Lil' Chubby;Unlocked a new item.;Supera el capitulo 2.
+15;0;Loki's Horns;Unlocked a new item.;Derrota a Lokii.
+16;0;Something From The Future;New boss in the basement!;Supera The Basement 40 veces.
+17;0;Something Cute;New boss in the caves!;Supera el capitulo 2 30 veces.
+18;0;Something Sticky;New boss in the depths!;Supera el capitulo 3 20 veces.
+19;0;A Bandage;Unlocked a new item.;Crea una Super Bandage Girl recogiendo 4 Ball of Bandages en una misma partida.
+20;0;A Cross;Unlocked a new item.;Derrota a Isaac como Magdalene.
+21;0;A Bag of Pennies;Unlocked a new item.;Derrota a Isaac como Cain.
+22;0;The Book of Sin;Unlocked a new item.;Derrota a todos los 7 pecados capitales
+23;0;Little Gish;Unlocked a new item.;Derrota a Gish.
+24;0;Little Steven;Unlocked a new item.;Derrota a Steven.
+25;0;Little C.H.A.D.;Unlocked a new item.;Derrota a C.H.A.D..
+26;0;A Gamekid;Unlocked a new item.;Visita 10 Arcades
+27;0;A Halo;Unlocked a new item.;Derrota a Mom, Mom's Heart o It Lives usando The Bible.
+28;0;Mr. Mega;Unlocked a new item.;Destruye 10 rocas marcadas.
+29;0;The D6;Isaac now holds the D6!;Derrota a Isaac como ???.
+30;0;The Scissors;Unlocked a new item.;Muere 100 veces.
+31;0;The Parasite;Unlocked a new item.;Consigue 2 de los siguientes objetos en una misma partida: Bob's Rotten Head, Dead Cat, Cricket's Head, Tammy's Head.
+32;0;???;Unlocked a new character.;Derrota a Mom's Heart 10 veces.
+33;0;Everything Is Terrible!!!;The game just got harder!;Derrota a Mom's Heart 5 veces.
+34;0;It Lives!;Your future's past waits.;Derrota a Mom's Heart 11 veces.
+35;0;Mom's Contact;Unlocked a new item.;Consigue 3 objetos de mama en una misma partida.
+36;0;The Necronomicon;Unlocked a new item.;Usa XIII - Death 4 veces
+37;0;Basement Boy;Beat basement without taking damage.;Supera el capitulo 1 sin recibir daño.
+38;0;Spelunker Boy;Beat caves without taking damage.;Supera el capitulo 2 sin recibir daño.
+39;0;Dark Boy;Beat depths without taking damage.;Supera el capitulo 3 sin recibir daño.
+40;0;Mama's Boy;Beat womb without taking damage.;Supera el capitulo 4 sin recibir daño.
+41;0;Golden God!;You are the best!!;Derrota a ??? y The Lamb.
+42;0;Eve;Unlocked a new character.;No recojas ningun tipo de corazon en 2 pisos seguidos.
+43;0;Mom's Knife;Unlocked a new item.;Derrota a Satan como Isaac.
+44;0;The Razor;Unlocked a new item.;Derrota a Satan como Eve.
+45;0;Guardian Angel;Unlocked a new item.;Derrota a Satan como Magdalene.
+46;0;A Bag of Bombs;Unlocked a new item.;Derrota a Satan como Cain.
+47;0;Demon Baby;Unlocked a new item.;Derrota a The Lamb como Azazel.
+48;0;Forget Me Now;Unlocked a new item.;Derrota a Satan como ???.
+49;0;The D20;Unlocked a new item.;Derrota a ??? como Isaac.
+50;0;Celtic Cross;Unlocked a new item.;Derrota a ??? como Magdalene.
+51;0;Abel;Unlocked a new item.;Derrota a The Lamb como Cain.
+52;0;Curved Horn;Unlocked a new item.;Derrota a The Lamb como Judas.
+53;0;Sacrificial Dagger;Unlocked a new item.;Derrota a ??? como Eve.
+54;0;Bloody Lust;Unlocked a new item.;Derrota a Isaac como Samson.
+55;0;Blood Penny;Unlocked a new item.;Derrota a ??? como Samson.
+56;0;Blood Rights;Unlocked a new item.;Derrota a Satan como Samson.
+57;0;The Polaroid;Unlocked a new item.;Derrota a Isaac 5 veces.
+58;0;Dad's Key;Unlocked a new item.;Consigue las 2 piezas de llaves de los angeles en una misma partida.
+59;0;Blue Candle;Unlocked a new item.;Dona 900 monedas a la maquina de donaciones.
+60;0;Burnt Penny;Unlocked a new item.;Completa el desafio #13: Beans!.
+61;0;Lucky Toe;Unlocked a new item.;Haz explotar a 20 tenderos.
+62;0;Epic Fetus;Unlocked a new item.;Completa el desafio #19: The Family Man.
+63;0;SMB Super Fan;Unlocked a new item.;Completa el desafio #14: It's in the Cards.
+64;0;Counterfeit Coin;Unlocked a new item.;Juega al trile 100 veces
+65;0;Guppy's Hairball;Unlocked a new item.;Conviertete en Guppy
+66;0;A Forgotten Horseman;Unlocked a new boss!;Toma 10 objetos de la habitacion del angel.
+67;0;Samson;Unlocked a new character.;Supera 2 pisos seguidos sin recibir daño.
+68;0;Something Icky;New boss in the womb!;Derrota a Isaac 10 veces.
+69;0;!Platinum God!;OMG!;Consigue todos los objetos, desbloquea todos los secretos y finales, excepto The Lost y sus desbloqueables (hasta Rebirth).
+70;0;Isaac's Head;Unlocked a new item.;Completa la Boss Rush como Isaac.
+71;0;Maggy's Faith;Unlocked a new item.;Derrota a The Lamb como Magdalene.
+72;0;Judas' Tongue;Unlocked a new item.;Derrota a Satan como Judas.
+73;0;???'s Soul;Unlocked a new item.;Derrota a The Lamb como ???.
+74;0;Samson's Lock;Unlocked a new item.;Derrota a The Lamb como Samson.
+75;0;Cain's Eye;Unlocked a new item.;Derrota a ??? como Cain.
+76;0;Eve's Bird Foot;Unlocked a new item.;Derrota a Isaac como Eve.
+77;0;The Left Hand;Unlocked a new item.;Derrota a Ultra Pride con cualquier personaje, o a ??? como Judas.
+78;0;The Negative;Unlocked a new item.;Derrota a Satan 5 veces.
+79;0;Azazel;Unlocked a new character.;Realiza 3 pactos con el demonio en una misma partida.
+80;0;Lazarus;Unlocked a new character.;Llega a tener 4 o mas corazones de alma a la vez.
+81;0;Eden;Unlocked a new character.;Completa el capitulo 4.
+82;0;The Lost;Unlocked a new character.;Antes de Rebirth: Desbloquea a The Lost. A partir de Afterbirth: Muere en una Habitacion del Sacrificio mientras sostienes Missing Poster.
+83;0;Dead Boy;Beat Chest or Dark Room without taking damage.;Completa el capitulo 6 sin recibir daño.
+84;0;The Real Platinum God;111% now stop playing!;Consigue todos los objetos y desbloquea todos los finales (hasta Rebirth).
+85;0;Lucky Rock;Destroy 100 rocks.;Destruye 100 rocas.
+86;0;The Cellar;Alt stage to the basement.;Derrota a todos los jefes de The Basement (no es necesario derrotarlos en The Basement).
+87;0;The Catacombs;Alt stage to the caves.;Derrota a todos los jefes de The Caves(no es necesario derrotarlos en The Caves).
+88;0;The Necropolis;Alt stage to the depths.;Derrota a todos los jefes de The Depths(no es necesario derrotarlos en The Depths).
+89;0;Rune of Hagalaz;Unlocked a new item.;Completa el desafio #1: Pitch Black.
+90;0;Rune of Jera;Unlocked a new item.;Completa el desafio #2: High Brow.
+91;0;Rune of Ehwaz;Unlocked a new item.;Completa el desafio #3: Head Trauma.
+92;0;Rune of Dagaz;Unlocked a new item.;Completa el desafio #4: Darkness Falls.
+93;0;Rune of Ansuz;Unlocked a new item.;Completa el desafio #5: The Tank.
+94;0;Rune of Perthro;Unlocked a new item.;Completa el desafio #6: Solar System.
+95;0;Rune of Berkano;Unlocked a new item.;Completa el desafio #20: Purist.
+96;0;Rune of Algiz;Unlocked a new item.;Completa el desafio #8: Cat Got Your Tongue.
+97;0;Chaos Card;Unlocked a new item.;Completa el desafio #9: Demo Man.
+98;0;Credit Card;Unlocked a new item.;Completa el desafio #10: Cursed!.
+99;0;Rules Card;Unlocked a new item.;Completa el desafio #11: Glass Cannon (Challenge).
+100;0;Card Against Humanity;Unlocked a new item.;Completa el desafio #12: When Life Gives You Lemons.
+101;0;Swallowed Penny;Unlocked a new item.;Completa el desafio #15: Slow Roll.
+102;0;Robo-Baby 2.0;Unlocked a new item.;Completa el desafio #16: Computer Savvy.
+103;0;Death's Touch;Unlocked a new item.;Completa el desafio #17: Waka Waka.
+104;0;Technology .5;Unlocked a new item.;Completa el desafio #18: The Host.
+105;0;Missing No.;Unlocked a new item.;Completa la Boss Rush como Lazarus.
+106;0;Isaac's Tears;Unlocked a new item.;Derrota a Isaac como Isaac.
+107;0;Guillotine;Unlocked a new item.;Derrota a Isaac como Judas.
+108;0;Judas' Shadow;Unlocked a new item.;Completa la Boss Rush como Judas.
+109;0;Maggy's Bow;Unlocked a new item.;Completa la Boss Rush como Magdalene.
+110;0;Cain's Other Eye;Unlocked a new item.;Completa la Boss Rush como Cain.
+111;0;Black Lipstick;Unlocked a new item.;Derrota a The Lamb como Eve.
+112;0;Eve's Mascara;Unlocked a new item.;Completa la Boss Rush como Eve.
+113;0;Fate;Unlocked a new item.;Derrota a ??? como ???.
+114;0;???'s Only Friend;Unlocked a new item.;Completa la Boss Rush como ???.
+115;0;Samson's Chains;Unlocked a new item.;Completa la Boss Rush como Samson.
+116;0;Lazarus' Rags;Unlocked a new item.;Derrota a Isaac como Lazarus.
+117;0;Broken Ankh;Unlocked a new item.;Derrota a Satan como Lazarus.
+118;0;Store Credit;Unlocked a new item.;Derrota a ??? como Lazarus.
+119;0;Pandora's Box;Unlocked a new item.;Derrota a The Lamb como Lazarus.
+120;0;Suicide King;Unlocked a new item.;Completa el desafio #7: Suicide King (Challenge).
+121;0;Blank Card;Unlocked a new item.;Derrota a Isaac como Eden.
+122;0;Book of Secrets;Unlocked a new item.;Derrota a Satan como Eden.
+123;0;Mysterious Paper;Unlocked a new item.;Derrota a ??? como Eden
+124;0;Mystery Sack;Unlocked a new item.;Derrota a The Lamb como Eden.
+125;0;Undefined;Unlocked a new item.;Completa la Boss Rush como Eden.
+126;0;Satanic Bible;Unlocked a new item.;Derrota a Isaac como Azazel.
+127;0;Daemon's Tail;Unlocked a new item.;Derrota a Satan como Azazel.
+128;0;Abaddon;Unlocked a new item.;Derrota a ??? como Azazel.
+129;0;Isaac's Heart;Unlocked a new item.;Derrota a Isaac como The Lost.
+130;0;The Mind;Unlocked a new item.;Derrota a Satan como The Lost.
+131;0;The Body;Unlocked a new item.;Derrota a ??? como The Lost.
+132;0;The Soul;Unlocked a new item.;Derrota a The Lamb como The Lost.
+133;0;The D100;Unlocked a new item.;Completa la Boss Rush como The Lost.
+134;0;Blue Map;Unlocked a new item.;Dona 10 monedas a la maquina de donaciones.
+135;0;There's Options;Unlocked a new item.;Dona 50 monedas a la maquina de donaciones.
+136;0;Black Candle;Unlocked a new item;Dona 150 monedas a la maquina de donaciones.
+137;0;Red Candle;Unlocked a new item.;Dona 400 monedas a la maquina de donaciones.
+138;0;Stop Watch;Unlocked a new item;Dona 999 monedas a la maquina de donaciones.
+139;0;Wire Coat Hanger;Unlocked a new item.;Derrota a Mom's Heart 4 veces.
+140;0;Ipecac;Unlocked a new item.;Derrota a Mom's Heart 6 veces.
+141;0;Experimental Treatment;Unlocked a new item.;Derrota a Mom's Heart 7 veces.
+142;0;Krampus;Unlocked another miniboss!;Consigue 20 objetos de la Habitacion del Diablo.
+143;0;Head of Krampus;Unlocked a new item.;Derrota a Krampus.
+144;0;Super Meat Boy;Built him out of meat cubes.;Crea un Super Meat Boy consiguiendo 4 Cube of Meat en una misma partida.
+145;0;Butter Bean;Unlocked a new item.;Destruye 100 pilas de popo.
+146;0;Little Baggy;Unlocked a new item.;Consigue dos de cualquiera de los siguientes objetos: Roid Rage, The Virus, Growth Hormones, Experimental Treatment o Speed Ball.
+147;0;Blood Bag;Unlocked a new item.;Usa la maquina de donacion de sangre 30 veces.
+148;0;The D4;Unlocked a new item.;Explota 30 maquinas de Arcade.
+149;0;Missing Poster;Unlocked a new item.;Derrota a The Lamb como Isaac.
+150;0;Rubber Cement;Unlocked a new item.;Derrota a Mom's Heart 2 veces.
+151;0;Store Upgrade lv.1;Donated 20 pennies to the shop.;Dona 20 monedas a la maquina de donaciones.
+152;0;Store Upgrade lv.2;Donated 100 pennies to the shop.;Dona 100 monedas a la maquina de donaciones.
+153;0;Store Upgrade lv.3;Donated 200 pennies to the shop.;Dona 200 monedas a la maquina de donaciones.
+154;0;Store Upgrade lv.4;Donated 600 pennies to the shop.;Dona 600 monedas a la maquina de donaciones.
+155;0;Angels;They are waiting.;Completa el capitulo 6
+156;0;Godhead;Unlocked a new item.;Consigue todas las marcas en modo dificil con The Lost.
+157;0;Darkness Falls;Unlocked Challenge #4.;Derrota a Mom's Heart 11 veces.
+158;0;The Tank;Unlocked Challenge #5.;Consigue tener 7 o mas contenedores de vida roja a la vez.
+159;0;Solar System;Unlocked Challenge #6.;Derrota a Mom's Heart 3 veces.
+160;0;Suicide King 2;Unlocked Challenge #7.;Derrota a Mom's Heart 11 veces.
+161;0;Cat Got Your Tongue;Unlocked Challenge #8.;Conviertete en Guppy
+162;0;Demo Man;Unlocked Challenge #9.;Derrota a Mom's Heart 9 veces.
+163;0;Cursed!;Unlocked Challenge #10.;Consigue tener 7 o mas contenedores de vida roja a la vez.
+164;0;Glass Cannon;Unlocked Challenge #11.;Derrota a Lokii y completa el desafio #19: The Family Man.
+165;0;The Family Man;Unlocked Challenge #19.;Consigue las 2 piezas de llaves de los angeles en una misma partida.
+166;0;Purist;Unlocked Challenge #20.;Derrota a Mom.
+167;0;Lost Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo dificil como Isaac.
+168;0;Cute Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo dificil como Magdalene.
+169;0;Crow Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo dificil como Eve.
+170;0;Shadow Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo dificil como Judas.
+171;0;Glass Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo dificil como Cain.
+172;0;Wrapped Baby;Unlocked a new co-player baby.;Rebirth: Derrota a Mom's Heart en modo dificil como Azazel. A partir de Afterbirth: Derrota a Mom's Heart en modo dificil como Lazarus.
+173;0;Begotten Baby;Unlocked a new co-player baby.;Rebirth: Derrota a Mom's Heart en modo dificil como Lazarus. A partir de Afterbirth: Derrota a Mom's Heart en modo dificil como Azazel.
+174;0;Dead Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo dificil como ???.
+175;0;-0- Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo dificil como The Lost.
+176;0;Glitch Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo dificil como Eden.
+177;0;Fighting Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo dificil como Samson.
+178;0;Lord of the Flies;You became Lord of the Flies.;Conviertete en Beelzebub
+179;0;Fart Baby;Unlocked a new item.;Derrota a Hush como Isaac.
+180;0;Purity;Unlocked a new item.;Derrota a Hush como Magdalene.
+181;0;D12;Unlocked a new item.;Derrota a Hush como Cain.
+182;0;Betrayal;Unlocked a new item.;Derrota a Hush como Judas.
+183;0;Fate's Reward;Unlocked a new item.;Derrota a Hush como ???.
+184;0;Athame;Unlocked a new item.;Derrota a Hush como Eve.
+185;0;Blind Rage;Unlocked a new item.;Derrota a Hush como Samson.
+186;0;Maw of the Void;Unlocked a new item.;Derrota a Hush como Azazel.
+187;0;Empty Vessel;Unlocked a new item.;Derrota a Hush como Lazarus.
+188;0;Eden's Blessing;Unlocked a new item.;Derrota a Hush como Eden.
+189;0;Sworn Protector;Unlocked a new item.;Derrota a Hush como The Lost.
+190;0;Incubus;Unlocked a new item.;Derrota a Hush como Lilith.
+191;0;Keeper now holds... A Penny!;Unlocked a new item.;Derrota a Hush como Keeper.
+192;0;Lil' Chest;Unlocked a new item.;Derrota a Ultra Greed como Isaac.
+193;0;Censer;Unlocked a new item.;Derrota a Ultra Greed como Magdalene.
+194;0;Evil Eye;Unlocked a new item.;Derrota a Ultra Greed como Cain.
+195;0;My Shadow;Unlocked a new item.;Derrota a Ultra Greed como Judas.
+196;0;Cracked Dice;Unlocked a new item.;Derrota a Ultra Greed como ???.
+197;0;Black Feather;Unlocked a new item.;Derrota a Ultra Greed como Eve.
+198;0;Lusty Blood;Unlocked a new item.;Derrota a Ultra Greed como Samson.
+199;0;Lilith;Unlocked a new character.;Derrota a Ultra Greed como Azazel.
+200;0;Key Bum;Unlocked a new item.;Derrota a Ultra Greed como Lazarus.
+201;0;GB Bug;Unlocked a new item.;Derrota a Ultra Greed como Eden.
+202;0;Zodiac;Unlocked a new item.;Derrota a Ultra Greed como The Lost.
+203;0;Box of Friends;Unlocked a new item.;Derrota a Ultra Greed como Lilith.
+204;0;Rib of Greed;Unlocked a new item.;Derrota a Ultra Greed como Keeper.
+205;0;Cry Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Isaac.
+206;0;Red Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Magdalene.
+207;0;Green Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Cain.
+208;0;Brown Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Judas.
+209;0;Blue Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como ???.
+210;0;Lil' Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Eve.
+211;0;Rage Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Samson.
+212;0;Black Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Azazel.
+213;0;Long Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Lazarus.
+214;0;Yellow Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Eden.
+215;0;White Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como The Lost.
+216;0;Big Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Lilith.
+217;0;Noose Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Keeper.
+218;0;Rune Bag;Unlocked a new item.;Derrota a Isaac como Lilith.
+219;0;Cambion Conception;Unlocked a new item.;Derrota a ??? como Lilith.
+220;0;Serpent's Kiss;Unlocked a new item.;Derrota a Satan como Lilith.
+221;0;Succubus;Unlocked a new item.;Derrota a The Lamb como Lilith.
+222;0;Immaculate Conception;Unlocked a new item.;Completa la Boss Rush como Lilith.
+223;0;Goat Head Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo dificil como Lilith.
+224;0;Gold Heart;Unlocked a new item.;Completa el desafio #21: XXXXXXXXL.
+225;0;Get out of Jail Free Card;Unlocked a new item.;Completa el desafio #22: SPEED!.
+226;0;Gold Bomb;Unlocked a new item.;Completa el desafio #23: Blue Bomber.
+227;0;2 new pills;Unlocked a new item.;Completa el desafio #24: PAY TO PLAY.
+228;0;2 new pills 2;Unlocked a new item.;Completa el desafio #25: Have a Heart.
+229;0;Poker Chip;Unlocked a new item.;Completa el desafio #26: I RULE!.
+230;0;Stud Finder;Unlocked a new item.;Completa el desafio #27: BRAINS!.
+231;0;D8;Unlocked a new item.;Completa el desafio #28: PRIDE DAY!.
+232;0;Kidney Stone;Unlocked a new item.;Afterbirth: Completa el desafio #30: The Guardian. Afterbirth+: Completa el desafio #29: Onan's Streak.
+233;0;Blank Rune;Unlocked a new item.;Afterbirth: Completa el desafio #29: Onan's Streak. Afterbirth+: Completa el desafio #30: The Guardian.
+234;0;Blue Womb;Unlocked a hidden chapter.;Derrota a Mom's Heart 10 veces.
+235;0;1001%;Nerd x 1000000;Desbloquea todos los secretos y finales, y consigue todos los objetos (hasta Afterbirth).
+236;0;Keeper holds Wooden Nickel;Unlocked a new starting item.;Derrota a Isaac como Keeper.
+237;0;Keeper holds Store Key;Unlocked a new starting item.;Derrota a Satan como Keeper.
+238;0;Deep Pockets;Unlocked a new item.;Derrota a ??? como Keeper.
+239;0;Karma;Unlocked a new item.;Derrota a The Lamb como Keeper.
+240;0;Sticky Nickels;Unlocked a new item.;Completa la Boss Rush como Keeper.
+241;0;Super Greed Baby;Unlocked a new co-player baby.;Derrota a Mom's Heart en modo dificil como Keeper.
+242;0;Lucky Pennies;Unlocked a new item.;Dona 1 moneda a la maquina de donaciones de Greed.
+243;0;Special Hanging Shopkeepers;Unlocked a secret.;Dona 10 monedas a la maquina de donaciones de Greed.
+244;0;Wooden Nickel;Unlocked a new item.;Dona 30 monedas a la maquina de donaciones de Greed.
+245;0;Cain holds Paperclip;Unlocked a new starting item.;Dona 68 monedas a la maquina de donaciones de Greed.
+246;0;Everything is Terrible 2!!!;Greed just got harder!;Dona 111 monedas a la maquina de donaciones de Greed.
+247;0;Special Shopkeepers;Unlocked a secret.;Dona 234 monedas a la maquina de donaciones de Greed.
+248;0;Eve now holds Razor Blade;Unlocked a new starting item.;Dona 439 monedas a la maquina de donaciones de Greed.
+249;0;Store Key;Unlocked a new item.;Dona 666 monedas a la maquina de donaciones de Greed.
+250;0;Lost holds Holy Mantle;Unlocked a new starting item.;Dona 879 monedas a la maquina de donaciones de Greed.
+251;0;Keeper;Unlocked a new character.;Dona 1000 monedas a la maquina de donaciones de Greed.
+252;0;Hive Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como ???.
+253;0;Buddy Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como Isaac.
+254;0;Colorful Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como Magdalene.
+255;0;Whore Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como Eve.
+256;0;Cracked Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como Eden.
+257;0;Dripping Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como Lazarus.
+258;0;Blinding Baby;Unlocked a new co-player baby.;Usa Blank Card con XIX - The Sun.
+259;0;Sucky Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como Azazel.
+260;0;Dark Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como Lilith.
+261;0;Picky Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como Cain.
+262;0;Revenge Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como Samson.
+263;0;Belial Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como Judas.
+264;0;Sale Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como Keeper.
+265;0;XXXXXXXXL;Unlocked Challenge #21.;Derrota a Mom.
+266;0;SPEED!;Unlocked Challenge #22.;Derrota a Mom.
+267;0;Blue Bomber;Unlocked Challenge #23.;Destruye 10 rocas marcadas y derrota a Mom's Heart 11 veces
+268;0;PAY TO PLAY;Unlocked Challenge #24.;Derrota a Isaac como Cain.
+269;0;Have a Heart;Unlocked Challenge #25.;Derrota a Mom.
+270;0;I RULE!;Unlocked Challenge #26.;Derrota a ??? o The Lamb, y derrota a Satan como Isaac.
+271;0;BRAINS!;Unlocked Challenge #27.;Derrota a Isaac 5 veces.
+272;0;PRIDE DAY!;Unlocked Challenge #28.;Derrota a Mom.
+273;0;Onan's Streak;Unlocked Challenge #29.;Derrota a Mom.
+274;0;The Guardian;Unlocked Challenge #30.;Derrota a Mom.
+275;0;Generosity;If only everyone was as generous as you are..;Dona 999 monedas a la maquina de donaciones de Greed.
+276;0;Mega;Unlocked..;Derrota a Mega Satan con todos los personajes.
+277;0;Backasswards;Unlocked a new challenge.;Derrota a ??? o The Lamb.
+278;0;Aprils fool;Unlocked a new challenge.;Derrota a Mom.
+279;0;Pokey Mans;Unlocked a new challenge.;Derrota a Mom's Heart 11 veces.
+280;0;Ultra Hard;Unlocked a new challenge.;Derrota a ??? o The Lamb. Es necesario tener The Polaroid o The Negative, y no contara si se llega a traves de la Habitacion del Sacrificio.
+281;0;PONG;Unlocked a new challenge.;Derrota a Isaac 5 veces.
+282;0;D Infinity;Unlocked a new item.;Derrota a Delirium como Isaac.
+283;0;Eucharist;Unlocked a new item.;Derrota a Delirium como Magdalene.
+284;0;Silver Dollar;Unlocked a new item.;Derrota a Delirium como Cain.
+285;0;Shade;Unlocked a new item.;Derrota a Delirium como Judas.
+286;0;King Baby;Unlocked a new co-player baby.;Derrota a Delirium como ???.
+287;0;Bloody Crown;Unlocked a new item.;Derrota a Delirium como Samson.
+288;0;Dull Razor;Unlocked a new item.;Derrota a Delirium como Eve.
+289;0;Eden's Soul;Unlocked a new item.;Derrota a Delirium como Eden.
+290;0;Dark Prince's Crown;Unlocked a new item.;Derrota a Delirium como Azazel.
+291;0;Compound Fracture;Unlocked a new item.;Derrota a Delirium como Lazarus.
+292;0;Euthanasia;Unlocked a new item.;Derrota a Delirium como Lilith.
+293;0;Holy Card;Unlocked a new item.;Derrota a Delirium como The Lost.
+294;0;Crooked Penny;Unlocked a new item.;Derrota a Delirium como Keeper.
+295;0;Void;Unlocked a new item.;Derrota a Delirium como Apollyon.
+296;0;D1;Unlocked a new item.;Derrota a Ultra Greedier como Isaac.
+297;0;Glyph of Balance;Unlocked a new item.;Derrota a Ultra Greedier como Magdalene.
+298;0;Sack of Sacks;Unlocked a new item.;Derrota a Ultra Greedier como Cain.
+299;0;Eye of Belial;Unlocked a new item.;Derrota a Ultra Greedier como Judas.
+300;0;Meconium;Unlocked a new item.;Derrota a Ultra Greedier como ???.
+301;0;Stem Cell;Unlocked a new item.;Derrota a Ultra Greedier como Samson.
+302;0;Crow Heart;Unlocked a new item.;Derrota a Ultra Greedier como Eve.
+303;0;Metronome;Unlocked a new item.;Derrota a Ultra Greedier como Eden.
+304;0;Bat Wing;Unlocked a new item.;Derrota a Ultra Greedier como Azazel.
+305;0;Plan C;Unlocked a new item.;Derrota a Ultra Greedier como Lazarus.
+306;0;Duality;Unlocked a new item.;Derrota a Ultra Greedier como Lilith.
+307;0;Dad's Lost Coin;Unlocked a new item.;Derrota a Ultra Greedier como The Lost.
+308;0;Eye of Greed;Unlocked a new item.;Derrota a Ultra Greedier como Keeper.
+309;0;Black Rune;Unlocked a new item.;Derrota a Ultra Greedier como Apollyon.
+310;0;Locust of Wrath;Unlocked a new item.;Derrota a Isaac como Apollyon.
+311;0;Locust of Pestilence;Unlocked a new item.;Derrota a Satan como Apollyon.
+312;0;Locust of Famine;Unlocked a new item.;Derrota a ??? como Apollyon.
+313;0;Locust of Death;Unlocked a new item.;Derrota a The Lamb como Apollyon.
+314;0;Locust of Conquest;Unlocked a new item.;Completa la Boss Rush como Apollyon.
+315;0;Hushy;Unlocked a new item.;Derrota a Hush como Apollyon.
+316;0;Brown Nugget;Unlocked a new item.;Derrota a Ultra Greed como Apollyon.
+317;0;Mort Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como Apollyon.
+318;0;Smelter;Unlocked a new item.;Derrota a Mom's Heart o It Lives! en modo dificil como Apollyon.
+319;0;Apollyon Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como Apollyon.
+320;0;New Area;Unlocked a new area.;Derrota a Hush.
+321;0;Once More with Feeling!;Unlocked a new item.;Completa una Victory Lap despues de derrotar a The Lamb.
+322;0;Hat trick!;Unlocked a new item.;Consigue una racha de 3 victorias.
+323;0;5 Nights at Mom's;Unlocked super special rocks.;Consigue una racha de 5 victorias usando personajes diferentes.
+324;0;Sin collector;Unlocked a new item.;Completa el bestiario.
+325;0;Dedication;Unlocked a new item.;Participa en 31 desafios diarios (no tienen que ser consecutivos, y se cuentan aunque el jugador muera en la primera habitacion).
+326;0;ZIP!;Unlocked a new item.;Derrota a The Lamb en menos de 20 minutos.
+327;0;It's the Key;Unlocked a new item.;Derrota a The Lamb sin tomar corazones, monedas ni bombas durante toda la partida.
+328;0;Mr. Resetter!;Unlocked a new item.;Reinicia 7 veces seguidas. En consolas: consigue una racha de 10 derrotas.
+329;0;Living on the edge;Unlocked a new item.;Completa un piso despues de The Basement I, de principio a fin, con con solo medio corazon de vida (puede usarse a The Lost).
+330;0;U Broke It!;Unlocked a new item.;Consigue 50 objetos en una misma partida.
+331;0;Laz Bleeds More!;Unlocked a new starting item.;Completa el desafio #31: Backasswards.
+332;0;Maggy Now Holds a Pill!;Unlocked a new starting item.;Completa el desafio #32: Aprils Fool.
+333;0;Charged Key;Unlocked a new item.;Completa el desafio #33: Pokey Mans.
+334;0;Samson Feels Healthy!;Unlocked a new starting item.;Completa el desafio #34: Ultra Hard.
+335;0;Greed's Gullet;Unlocked a new item.;Completa el desafio #35: Pong.
+336;0;The Marathon;Unlocked a new item.;Consigue una racha de 5 victorias en los desafios diarios.
+337;0;RERUN;Unlocked the power of RERUN.;Completa 3 Victory Laps y comienza la cuarta.
+338;0;Delirious;Unlocked a new item.;Derrota a Delirium.
+339;0;1000000%;Just Stop!;Consigue todos los objetos, desbloquea todos los secretos y finales, y completa el bestiario.
+340;0;Apollyon;Unlocked a new character.;Derrota a Mega Satan.
+341;0;Greedier!;New mode unlocked!;Dona 500 monedas a la maquina de donaciones de Greed.
+342;0;Burning Basement;Alt stage to the basement.;Derrota a Mom's Heart 11 veces.
+343;0;Flooded Caves;Alt stage to the caves.;Derrota a It Lives 16 veces.
+344;0;Dank Depths;Alt stage to the depths.;Derrota a It Lives 21 veces.
+345;0;Scarred Womb;Alt stage to the womb.;Derrota a It Lives 30 veces.
+346;0;Something wicked this way comes!;Unlocked new bosses!;Derrota a ??? con 3 personajes diferentes.
+347;0;Something wicked this way comes+!;Unlocked even more bosses!;Derrota a ??? con 6 personajes diferentes.
+348;0;The gate is open!;Unlocked new enemies!;Derrota a The Lamb.
+349;0;Black Hole;Unlocked a new item.;Derrota 20 portales.
+350;0;Mystery Gift;Unlocked a new item.;Destruye 500 rocas.
+351;0;Sprinkler;Unlocked a new item.;Supera el capitulo 1 sin recibir daño.
+352;0;Angry Fly;Unlocked a new item.;Conviertete en Beelzebub
+353;0;Bozo;Unlocked a new item.;Destruye 5 cacas arcoiris.
+354;0;Broken Modem;Unlocked a new item.;Completa 7 desafios diarios (tocando el trofeo del final).
+355;0;Buddy in a Box;Unlocked a new item.;Consigue 5 familiares en una misma partida.
+356;0;Fast Bombs;Unlocked a new item.;Derrota a Little Horn 20 veces.
+357;0;Lil Delirium;Unlocked a new item.;Derrota a Delirium por primera vez.
+358;0;Hairpin;Unlocked a new item.;Recarga usando baterias 20 veces.
+359;0;Wooden Cross;Unlocked a new item.;Duerme en una cama.
+360;0;Butter!;Unlocked a new item.;Completa 2 Victory Laps y comienza la tercera.
+361;0;Huge Growth;Unlocked a new item.;Crece de tamaño 5 veces en una misma partida. Pueden usarse el efecto de pildoras de "One Makes you Larger", XI - Strength o Magic Mushroom.
+362;0;Ancient Recall;Unlocked a new item.;Use cartas y runas 20 veces.
+363;0;Era Walk;Unlocked a new item.;Posee Broken Watch y Stop Watch al mismo tiempo.
+364;0;Coupon;Unlocked a new item.;Compra en las tiendas, pactos o mercado negro 50 veces.
+365;0;Telekinesis;Unlocked a new item.;Supera el capitulo 2 sin recibir daño.
+366;0;Moving Box;Unlocked a new item.;Usa Pandora's Box en Dark Room.
+367;0;Jumper Cables;Unlocked a new item.;Consigue 3 de los siguientes objetos y baratijas en una misma partida: 9 Volt, The Battery, Car Battery, AAA Battery, Watch Battery.
+368;0;Leprosy;Unlocked a new item.;Supera el capitulo 3 sin recibir daño.
+369;0;Technology Zero;Unlocked a new item.;Consigue 2 objetos de tecnologia en una misma partida.
+370;0;Filigree Feather;Unlocked a new item.;Consigue las 2 piezas de llaves de los angeles en una misma partida.
+371;0;Mr. ME!;Unlocked a new item.;Abre 20 cofres dorados.
+372;0;7 Seals;Unlocked a new item.;Derrota a los 5 Jinetes del Apocalipsis.
+373;0;Angelic Prism;Unlocked a new item.;Derrota a un Angel 10 veces.
+374;0;Pop!;Unlocked a new item.;Supera el capitulo 4 sin recibir daño.
+375;0;Door Stop;Unlocked a new item.;Rompe las puertas y los muros de la Habitacion Secreta 50 veces.
+376;0;Death's List;Unlocked a new item.;Realiza 25 pactos.
+377;0;Haemolacria;Unlocked a new item.;Consigue Blood Clot 10 veces
+378;0;Lachryphagy;Unlocked a new item.;Consigue 10 objetos (o pildoras) que mejoren la cadencia de disparo en una misma partida.
+379;0;Schoolbag;Unlocked a new item.;Entra a todas las tiendas desde el capitulo 1 hasta el capitulo 3 en una misma partida.
+380;0;Trisagion;Unlocked a new item.;Consigue 25 objetos de la habitacion del angel.
+381;0;Extension Cord;Unlocked a new item.;Consigue The Battery, 9 Volt y Car Battery en una misma partida.
+382;0;Flat Stone;Unlocked a new item.;Consigue Rubber Cement 5 veces.
+383;0;Sacrificial Altar;Unlocked a new item.;Realiza 50 pactos.
+384;0;Lil Spewer;Unlocked a new item.;Muere por tu propia explosion de Ipecac, Bob's Rotten Head o Horf!.
+385;0;Blanket;Unlocked a new item.;Duerme en 10 camas.
+386;0;Marbles;Unlocked a new item.;Usa 5 pildoras de Gulp! en una misma partida.
+387;0;Mystery Egg;Unlocked a new item.;Ten 3 monstruos aliados en una misma habitacion.
+388;0;Rotten Penny;Unlocked a new item.;Ten 20 moscas azules a la vez.
+389;0;Baby-Bender;Unlocked a new item.;Usa I - the Magician o Telepathy for Dummies mientras ya tienes un efecto de lagrimas teledirigidas.
+390;0;The Forgotten;Unlocked a new character.;Desbloquea a The Forgotten.
+391;0;Bone Heart;Unlocked a new item.;Desbloquea a The Forgotten.
+392;0;Marrow;Unlocked a new item.;Derrota a Mom's Heart o It Lives! en modo dificil como The Forgotten.
+393;0;Slipped Rib;Unlocked a new item.;Derrota a Isaac como The Forgotten.
+394;0;Pointy Rib;Unlocked a new item.;Derrota a Satan como The Forgotten.
+395;0;Jaw Bone;Unlocked a new item.;Derrota a ??? como The Forgotten.
+396;0;Brittle Bones;Unlocked a new item.;Derrota a The Lamb como The Forgotten.
+397;0;Divorce Papers;Unlocked a new item.;Completa la Boss Rush como The Forgotten.
+398;0;Hallowed Ground;Unlocked a new item.;Derrota a Hush como The Forgotten.
+399;0;Finger Bone;Unlocked a new item.;Derrota a Ultra Greed como The Forgotten.
+400;0;Dad's Ring;Unlocked a new item.;Derrota a Ultra Greedier como The Forgotten.
+401;0;Book of the Dead;Unlocked a new item.;Derrota a Delirium como The Forgotten.
+402;0;Bone Baby;Unlocked a new co-player baby.;Consigue todas las marcas en modo dificil como The Forgotten.
+403;0;Bound Baby;Unlocked a new co-player baby.;Derrota a Mega Satan como The Forgotten.

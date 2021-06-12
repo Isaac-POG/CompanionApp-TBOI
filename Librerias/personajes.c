@@ -6,7 +6,7 @@
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
 
-tipoPersonaje * copiarInformacion(char * lineaLeida)
+tipoPersonaje * copiarInformacionPersonaje(char * lineaLeida)
 {
     tipoPersonaje * nuevoPersonaje = malloc (sizeof(tipoPersonaje));
 	char * fragmento;
@@ -44,7 +44,7 @@ void importarArchivoPersonajes(HashMap * mapaPersonajes)
 
     while(fgets(lineaLeida, 99, archivo))
     {
-        tipoPersonaje * nuevoPersonaje = copiarInformacion(lineaLeida);
+        tipoPersonaje * nuevoPersonaje = copiarInformacionPersonaje(lineaLeida);
         insertMap(mapaPersonajes, nuevoPersonaje->nombre, nuevoPersonaje);
     } 
 

@@ -4,11 +4,13 @@
 #include "Librerias/Interfaz/interfaz.h"
 #include "Librerias/TDA_Mapa/hashmap.h"
 #include "Librerias/personajes.h"
+#include "Librerias/logros.h"
 
-void menuDesbloqueo(HashMap * mapaPersonajes)
+void menuDesbloqueo(HashMap * mapaPersonajes,HashMap *mapaLogros)
 {
 	int opcion;
 	char nombrePersonaje[20];
+	int idBuscar;
 	do
 	{
 		mostrarMenuDesbloqueo();
@@ -42,6 +44,10 @@ void menuDesbloqueo(HashMap * mapaPersonajes)
 			break;
 
 		case 4:
+			printf("Ingrese el ID del logro a desbloquear: ");
+			scanf("%d",&idBuscar);
+			desbloquearLogro(mapaLogros, idBuscar);
+			esperarEnter();
 			break;
 
 		case 5:
@@ -58,8 +64,11 @@ void menuDesbloqueo(HashMap * mapaPersonajes)
 int main()
 {
 	int opcion;
+	int idBuscar;
 	HashMap * mapaPersonajes = createMap(10);
+	HashMap * mapaLogros = createMap(576);
 	importarArchivoPersonajes(mapaPersonajes);
+	importarArchivoLogros(mapaLogros);
 	
 	do
 	{
@@ -71,7 +80,7 @@ int main()
 		switch (opcion)
 		{
 			case 1:
-				menuDesbloqueo(mapaPersonajes);
+				menuDesbloqueo(mapaPersonajes,mapaLogros);
 				break;
 
 			case 2:
@@ -83,7 +92,10 @@ int main()
 				break;
 
 			case 4:
-				
+				printf("Ingrese el ID del logro a buscar: ");
+				scanf("%d",&idBuscar);
+				buscarLogroEspecifico(mapaLogros, idBuscar);
+				esperarEnter();
 				break;
 			
 			case 5:
@@ -100,7 +112,8 @@ int main()
 				break;
 
 			case 8:
-				
+				mostrarLogros(mapaLogros);
+				esperarEnter();
 				break;
 
 			case 9:
@@ -116,6 +129,7 @@ int main()
 	printf("\nFin del Programa\n\n");
 
 	free(mapaPersonajes);
+	free(mapaLogros);
 
 	return 0;
 }

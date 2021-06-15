@@ -4,8 +4,8 @@
 typedef struct tipoPersonaje
 {
     int ID;
-    char nombre[13];
     int desbloqueado;
+    char nombre[13];
     int marcas[10];
 
 }tipoPersonaje;
@@ -13,8 +13,9 @@ typedef struct tipoPersonaje
 typedef struct tipoItem
 {
     int ID;
-    char nombre[40];
     int encontrado;
+    char nombre[25];
+    char efecto[300];
 }tipoItem;
 
 typedef struct tipoLogro

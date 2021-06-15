@@ -5,6 +5,7 @@
 #include "Librerias/TDA_Mapa/hashmap.h"
 #include "Librerias/personajes.h"
 #include "Librerias/logros.h"
+#include "Librerias/items.h"
 
 void menuDesbloqueo(HashMap * mapaPersonajes,HashMap *mapaLogros)
 {
@@ -67,9 +68,10 @@ int main()
 	int idBuscar;
 	HashMap * mapaPersonajes = createMap(10);
 	HashMap * mapaLogros = createMap(576);
+	HashMap * mapaItems = createMap(600);
 	importarArchivoPersonajes(mapaPersonajes);
 	importarArchivoLogros(mapaLogros);
-	
+	importarArchivoItems(mapaItems);	
 	do
 	{
 		mostrarMenuOpciones();
@@ -108,7 +110,8 @@ int main()
 				break;
 
 			case 7:
-				
+				mostrarTodosItems(mapaItems);
+				esperarEnter();
 				break;
 
 			case 8:

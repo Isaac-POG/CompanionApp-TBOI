@@ -7,10 +7,10 @@
 #include "Librerias/logros.h"
 #include "Librerias/items.h"
 
-void menuDesbloqueo(HashMap * mapaPersonajes,HashMap *mapaLogros)
+void menuDesbloqueo(HashMap * mapaPersonajes,HashMap *mapaLogros, HashMap * mapaItems)
 {
 	int opcion;
-	char nombrePersonaje[20];
+	char nombreBuscado[40];
 	int idBuscar;
 	do
 	{
@@ -25,9 +25,9 @@ void menuDesbloqueo(HashMap * mapaPersonajes,HashMap *mapaLogros)
 			mostrarNombres();
 			printf("\nIngrese el nombre del personaje: ");
 			getchar();
-			scanf("%19[^\n]s", nombrePersonaje);
-			convertirMayuscula(nombrePersonaje);			
-			desbloquearPersonajes(mapaPersonajes, nombrePersonaje);
+			scanf("%39[^\n]s", nombreBuscado);
+			convertirMayuscula(nombreBuscado);			
+			desbloquearPersonajes(mapaPersonajes, nombreBuscado);
 			esperarEnter();
 			break;
 		
@@ -35,13 +35,19 @@ void menuDesbloqueo(HashMap * mapaPersonajes,HashMap *mapaLogros)
 			mostrarNombres();
 			printf("\nIngrese el nombre del personaje: ");
 			getchar();
-			scanf("%19[^\n]s", nombrePersonaje);
-			convertirMayuscula(nombrePersonaje);
-			avanceMarcasLogros(mapaPersonajes, nombrePersonaje);			
+			scanf("%19[^\n]s", nombreBuscado);
+			convertirMayuscula(nombreBuscado);
+			avanceMarcasLogros(mapaPersonajes, nombreBuscado);			
 			esperarEnter();
 			break;
 
 		case 3:
+			printf("\nIngrese el nombre del item: ");
+			getchar();
+			scanf("%19[^\n]s", nombreBuscado);
+			convertirMayuscula(nombreBuscado);
+			encontrarItem(mapaItems, nombreBuscado);			
+			esperarEnter();
 			break;
 
 		case 4:
@@ -82,7 +88,7 @@ int main()
 		switch (opcion)
 		{
 			case 1:
-				menuDesbloqueo(mapaPersonajes,mapaLogros);
+				menuDesbloqueo(mapaPersonajes,mapaLogros, mapaItems);
 				break;
 
 			case 2:

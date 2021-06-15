@@ -76,13 +76,14 @@ void mostrarLogros(HashMap * mapaLogros){
     }
 }
 
-void buscarLogroEspecifico(HashMap * mapaLogros, int id){
+void buscarLogroEspecifico(HashMap * mapaLogros, int id)
+{
     tipoLogro * aux = searchMap(mapaLogros,&id);
     if(!aux){
-        printf("El logro que ingreso no existe\n");
+        printf(red"\nEl logro que ingreso no existe\n"reset);
         return;
     }
-    printf(yellow"ID: %d ",aux->ID);
+    printf(yellow"\nID: %d ",aux->ID);
 
     if(aux->desbloqueado){
         printf(green"Desbloqueado");
@@ -98,7 +99,7 @@ void buscarLogroEspecifico(HashMap * mapaLogros, int id){
 void desbloquearLogro(HashMap * mapaLogros, int id){
     tipoLogro * aux = searchMap(mapaLogros,&id);
     if(!aux){
-        printf("El logro que ingreso no existe\n");
+        printf(red"\nEl logro que ingreso no existe\n"reset);
         return;
     }
     if(aux->desbloqueado){
@@ -107,7 +108,7 @@ void desbloquearLogro(HashMap * mapaLogros, int id){
     }
     aux->desbloqueado = 1;
 
-    printf(yellow"ID: %d ",aux->ID);
+    printf(yellow"\nID: %d ",aux->ID);
 
     if(aux->desbloqueado){
         printf(green"Desbloqueado");

@@ -122,5 +122,5 @@ void mostrarNombres()
 	printf(red"["yellow"LILITH"red"] ");
 	printf(red"["yellow"THE KEEPER"red"] ");
 	printf(red"["yellow"APOLLYON"red"] ");
-	printf(red"["yellow"THE FORGOTTEN"red"]\n");
+	printf(red"["yellow"THE FORGOTTEN"red"]\n"reset);
 }

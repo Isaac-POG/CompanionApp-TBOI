@@ -48,6 +48,7 @@ void importarArchivoItems(HashMap * mapaItems)
 
 void mostrarTodosItems(HashMap * mapaItems)
 {
+	printf("\n");
 	for(int i = 1; i < 553; i++)
 	{
 		tipoItem * aux = firstMap(mapaItems);
@@ -56,10 +57,33 @@ void mostrarTodosItems(HashMap * mapaItems)
 			if(aux->ID == i)
 			{
 				printf("%s ", aux->nombre);
-				if(aux->encontrado == 0) printf(red"No encontrado\n"reset);
-				else printf(green"Encontrado\n", reset);
+				if(aux->encontrado == 0) printf(red"No encontrado \n"reset);
+				else printf(green"Encontrado \n" reset);
 			}
 			aux = nextMap(mapaItems);
 		}
+	}
+}
+
+void encontrarItem(HashMap * mapaItems, char * nombreItem)
+{
+	tipoItem * itemBuscado = searchMap(mapaItems, nombreItem);
+
+	if(itemBuscado != NULL)
+	{
+		if(itemBuscado->encontrado == 0)
+		{
+			printf(green"\nSe actualizo información del item\n");
+			printf("%s ENCONTRADO\n"reset, nombreItem);
+			itemBuscado->encontrado = 1;
+		}
+		else
+		{
+			printf(red"El item %s ya se habia encontrado"reset, nombreItem);
+		}
+	}
+	else
+	{
+		printf(red"\nEl item con nombre %s no existe\n"reset, nombreItem);
 	}
 }

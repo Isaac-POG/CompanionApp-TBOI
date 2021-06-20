@@ -14,8 +14,10 @@ void mostrarMenuOpciones();
 void mostrarMenuDesbloqueo();
 void mostrarMarcas();
 void esperarEnter();
+int valorNumericoMarca(char * nombreMarca);
 void convertirMayuscula(char *);
 void mostrarPersonaje(char *, int *);
 void mostrarNombres();
+void pantallaInicial();
 
 #endif

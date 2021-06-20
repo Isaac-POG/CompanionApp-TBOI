@@ -16,6 +16,7 @@ typedef struct tipoItem
     int encontrado;
     char nombre[25];
     char efecto[300];
+    char tipoEfecto[7];
 }tipoItem;
 
 typedef struct tipoLogro

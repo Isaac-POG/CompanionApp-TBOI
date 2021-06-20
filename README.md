@@ -10,4 +10,4 @@ Aplicación para almacenar avances y logros del juego The Binding Of Isaac: Afte
 ## Linea de Compilador: 
 ---
 
-- **gcc -o programa Librerias\Estructuras\structs.h Librerias\Interfaz\interfaz.c Librerias\TDA_Mapa\hashmap.c Librerias\items.c Librerias\logros.c Librerias\personajes.c main.c -lm**
+- **gcc -o programa Librerias/Estructuras/structs.h Librerias/Interfaz/interfaz.c Librerias/TDA_Mapa/hashmap.c Librerias/items.c Librerias/logros.c Librerias/personajes.c main.c -lm**

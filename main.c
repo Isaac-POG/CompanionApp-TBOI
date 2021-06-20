@@ -35,7 +35,7 @@ void menuDesbloqueo(HashMap * mapaPersonajes,HashMap *mapaLogros, HashMap * mapa
 			mostrarNombres();
 			printf("\nIngrese el nombre del personaje: ");
 			getchar();
-			scanf("%19[^\n]s", nombreBuscado);
+			scanf("%39[^\n]s", nombreBuscado);
 			convertirMayuscula(nombreBuscado);
 			avanceMarcasLogros(mapaPersonajes, nombreBuscado);			
 			esperarEnter();
@@ -44,7 +44,7 @@ void menuDesbloqueo(HashMap * mapaPersonajes,HashMap *mapaLogros, HashMap * mapa
 		case 3:
 			printf("\nIngrese el nombre del item: ");
 			getchar();
-			scanf("%19[^\n]s", nombreBuscado);
+			scanf("%39[^\n]s", nombreBuscado);
 			convertirMayuscula(nombreBuscado);
 			encontrarItem(mapaItems, nombreBuscado);			
 			esperarEnter();
@@ -70,11 +70,15 @@ void menuDesbloqueo(HashMap * mapaPersonajes,HashMap *mapaLogros, HashMap * mapa
 
 int main()
 {
+	pantallaInicial();
+
 	int opcion;
 	int idBuscar;
+	char nombreBuscado[40];
 	HashMap * mapaPersonajes = createMap(10);
 	HashMap * mapaLogros = createMap(576);
 	HashMap * mapaItems = createMap(600);
+	
 	importarArchivoPersonajes(mapaPersonajes);
 	importarArchivoLogros(mapaLogros);
 	importarArchivoItems(mapaItems);	
@@ -96,7 +100,12 @@ int main()
 				break;
 
 			case 3:
-				
+				printf("\nIngrese el nombre del item: ");
+				getchar();
+				scanf("%39[^\n]s", nombreBuscado);
+				convertirMayuscula(nombreBuscado);			
+				buscarItemEspecifico(mapaItems, nombreBuscado);
+				esperarEnter();
 				break;
 
 			case 4:

@@ -8,7 +8,19 @@
 #define blue "\e[1;94m"
 #define cian "\e[1;96m"
 #define purple "\e[1;95m"
+#define REDHB "\e[0;101m"
+#define cls "\e[1;1H\e[2J"
 #define reset "\e[0m"
+
+void convertirMayuscula(char * cadena)
+{
+	int largo = strlen(cadena);
+	
+	for(int i = 0; i < largo; i++)
+	{
+		cadena[i] = toupper(cadena[i]);
+	}
+}
 
 void mostrarMenuOpciones()
 {
@@ -39,9 +51,55 @@ void mostrarMenuDesbloqueo()
 void esperarEnter()
 {
 	char enter;
-	printf("\nIngrese cualquier numero para continuar...  ");
+	printf("\nIngrese ENTER para continuar...  ");
 	getchar();
 	scanf("%c",&enter);
+}
+
+int valorNumericoMarca(char * nombreMarca)
+{
+	convertirMayuscula(nombreMarca);
+	if(strcmp(nombreMarca, "MOM'S HEART") == 0)
+	{
+		return 0;
+	}
+	else if(strcmp(nombreMarca, "ISAAC") == 0)
+	{
+		return 1;
+	}
+	else if(strcmp(nombreMarca, "BOSS RUSH") == 0)
+	{
+		return 2;
+	}
+	else if(strcmp(nombreMarca, "SATAN") == 0)
+	{
+		return 3;
+	}
+	else if(strcmp(nombreMarca, "???") == 0)
+	{
+		return 4;
+	}
+	else if(strcmp(nombreMarca, "THE LAMB") == 0)
+	{
+		return 5;
+	}
+	else if(strcmp(nombreMarca, "MEGA SATAN") == 0)
+	{
+		return 6;
+	}
+	else if(strcmp(nombreMarca, "ULTRA GREED") == 0)
+	{
+		return 7;
+	}
+	else if(strcmp(nombreMarca, "HUSH") == 0)
+	{
+		return 8;
+	}
+	else if(strcmp(nombreMarca, "DELIRIUM") == 0)
+	{
+		return 9;
+	}
+	else return 10;
 }
 
 void mostrarMarcas(int i)
@@ -96,16 +154,6 @@ void mostrarPersonaje(char * nombre, int * marcas)
 	printf("\n");
 }
 
-void convertirMayuscula(char * cadena)
-{
-	int largo = strlen(cadena);
-	
-	for(int i = 0; i < largo; i++)
-	{
-		cadena[i] = toupper(cadena[i]);
-	}
-}
-
 void mostrarNombres()
 {
 	printf(red"["yellow"ISAAC"red"] ");
@@ -123,4 +171,23 @@ void mostrarNombres()
 	printf(red"["yellow"THE KEEPER"red"] ");
 	printf(red"["yellow"APOLLYON"red"] ");
 	printf(red"["yellow"THE FORGOTTEN"red"]\n"reset);
+}
+
+void pantallaInicial()
+{
+	printf(cls);
+
+	FILE * archivo = fopen("titulo.txt", "r");
+	char lineaLeida[300];
+	
+	while(fgets(lineaLeida, 299, archivo))
+	{
+		printf(purple"%s", lineaLeida);
+	}
+	fclose(archivo);
+
+	char enter;
+	printf("\n\n                                                                 Ingrese "yellow"ENTER "purple"para continuar"reset);
+	scanf("%c",&enter);
+	printf(cls);
 }

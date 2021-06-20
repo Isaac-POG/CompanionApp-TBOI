@@ -27,6 +27,9 @@ tipoItem * copiarInformacionItems(char * lineaLeida)
 	//Efecto
 	fragmento = strtok(NULL, ";");
 	strcpy(aux->efecto, fragmento);
+
+	fragmento = strtok(NULL, ";");
+	strcpy(aux->tipoEfecto, fragmento);
 	return aux;
 }
 
@@ -35,9 +38,9 @@ void importarArchivoItems(HashMap * mapaItems)
 	FILE * archivo = fopen("items.txt", "r");
 	if(archivo == NULL) return;
 
-	char lineaLeida[310];
-	fgets(lineaLeida, 309, archivo);
-	while(fgets(lineaLeida, 309, archivo))
+	char lineaLeida[400];
+	fgets(lineaLeida, 399, archivo);
+	while(fgets(lineaLeida, 399, archivo))
 	{
 		tipoItem * nuevoItem = copiarInformacionItems(lineaLeida);
 		insertMap(mapaItems, nuevoItem->nombre, nuevoItem);
@@ -56,7 +59,7 @@ void mostrarTodosItems(HashMap * mapaItems)
 		{
 			if(aux->ID == i)
 			{
-				printf("%s ", aux->nombre);
+				printf(cian"%s ", aux->nombre);
 				if(aux->encontrado == 0) printf(red"No encontrado \n"reset);
 				else printf(green"Encontrado \n" reset);
 			}
@@ -85,5 +88,23 @@ void encontrarItem(HashMap * mapaItems, char * nombreItem)
 	else
 	{
 		printf(red"\nEl item con nombre %s no existe\n"reset, nombreItem);
+	}
+}
+
+void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
+{
+	tipoItem * itemBuscado = searchMap(mapaItems, nombreItem);
+
+	if(itemBuscado != NULL)
+	{
+		printf(cian"\n%s\n", itemBuscado->nombre);
+		if(itemBuscado->encontrado == 0) printf(red"No encontrado ");
+		else printf(green"Encontrado ");
+		printf(reset"Tipo de Objeto: "yellow"%s\n", itemBuscado->tipoEfecto);
+		printf(reset"Efecto: "purple"%s\n"reset, itemBuscado->efecto);
+	}
+	else
+	{
+		printf(red"\nEl item con nombre %s no existe\n"reset);
 	}
 }

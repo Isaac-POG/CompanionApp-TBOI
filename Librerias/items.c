@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ncurses.h>
 
 #include "TDA_Mapa/hashmap.h"
 #include "Interfaz/interfaz.h"
@@ -51,7 +52,10 @@ void importarArchivoItems(HashMap * mapaItems)
 
 void mostrarTodosItems(HashMap * mapaItems)
 {
-	printf("\n");
+	initscr();
+	scrollok(stdscr, TRUE);
+	noecho();
+	printw("\n");
 	for(int i = 1; i < 553; i++)
 	{
 		tipoItem * aux = firstMap(mapaItems);
@@ -59,52 +63,68 @@ void mostrarTodosItems(HashMap * mapaItems)
 		{
 			if(aux->ID == i)
 			{
-				printf(cian"%s ", aux->nombre);
-				if(aux->encontrado == 0) printf(red"No encontrado \n"reset);
-				else printf(green"Encontrado \n" reset);
+				wprintw(stdscr,"%s ", aux->nombre);
+				if(aux->encontrado == 0) wprintw(stdscr,"No encontrado \n");
+				else wprintw(stdscr,"Encontrado \n" );
 			}
 			aux = nextMap(mapaItems);
 		}
+		if(i % 38 == 0)
+		{
+			printw("\nIngrese cualquier tecla para avanzar\n");
+			getch();
+			clear();
+			wrefresh(stdscr);
+		}
 	}
+	echo();
+	getch();
+	endwin();
 }
 
 void encontrarItem(HashMap * mapaItems, char * nombreItem)
 {
+	initscr();
 	tipoItem * itemBuscado = searchMap(mapaItems, nombreItem);
 
 	if(itemBuscado != NULL)
 	{
 		if(itemBuscado->encontrado == 0)
 		{
-			printf(green"\nSe actualizo información del item\n");
-			printf("%s ENCONTRADO\n"reset, nombreItem);
+			printw("\nSe actualizo información del item\n");
+			printw("%s ENCONTRADO\n", nombreItem);
 			itemBuscado->encontrado = 1;
 		}
 		else
 		{
-			printf(red"El item %s ya se habia encontrado"reset, nombreItem);
+			printw("El item %s ya se habia encontrado", nombreItem);
 		}
 	}
 	else
 	{
-		printf(red"\nEl item con nombre %s no existe\n"reset, nombreItem);
+		printw("\nEl item con nombre %s no existe\n", nombreItem);
 	}
+	getch();
+	endwin();
 }
 
 void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
 {
+	initscr();
 	tipoItem * itemBuscado = searchMap(mapaItems, nombreItem);
-
+	
 	if(itemBuscado != NULL)
 	{
-		printf(cian"\n%s\n", itemBuscado->nombre);
-		if(itemBuscado->encontrado == 0) printf(red"No encontrado ");
-		else printf(green"Encontrado ");
-		printf(reset"Tipo de Objeto: "yellow"%s\n", itemBuscado->tipoEfecto);
-		printf(reset"Efecto: "purple"%s\n"reset, itemBuscado->efecto);
+		printw("\n%s\n", itemBuscado->nombre);
+		if(itemBuscado->encontrado == 0) printw("No encontrado ");
+		else printw("Encontrado ");
+		printw("Tipo de Objeto: ""%s\n", itemBuscado->tipoEfecto);
+		printw("Efecto: ""%s\n", itemBuscado->efecto);
 	}
 	else
 	{
-		printf(red"\nEl item con nombre %s no existe\n"reset);
+		printw("\nEl item con nombre %s no existe\n", nombreItem);
 	}
+	getch();
+	endwin();
 }

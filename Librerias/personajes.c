@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ncurses.h>
 
 #include "TDA_Mapa/hashmap.h"
 #include "Interfaz/interfaz.h"
@@ -53,29 +54,33 @@ void importarArchivoPersonajes(HashMap * mapaPersonajes)
 
 void desbloquearPersonajes(HashMap * mapaPersonajes, char * nombrePersonaje)
 {
+    initscr();
     tipoPersonaje * aux = searchMap(mapaPersonajes, nombrePersonaje);
     if(aux != NULL)
     {
         if(aux->desbloqueado != 1)
         {
             aux->desbloqueado = 1;
-            printf(green"\n%s ahora esta desbloqueado!\n"reset, aux->nombre);
+            printw("\n%s ahora esta desbloqueado!\n", aux->nombre);
         }
         else
         {
-            printf(red"\nEl personaje ingresado ya se encuentra desbloqueado\n"reset);
+            printw("\nEl personaje ingresado ya se encuentra desbloqueado\n");
             return;
         }
     }
     else
     {
-        printf(red"\nEl personaje ingresado no existe\n"reset);
+        printw("\nEl personaje ingresado no existe\n");
         return;
     }
+    getch();
+    endwin();
 }
 
 void mostrarPersonajes(HashMap * mapaPersonajes)
 {
+    initscr();
     for(int i = 1; i < 16; i++)
     {
         tipoPersonaje * aux = firstMap(mapaPersonajes);
@@ -83,26 +88,28 @@ void mostrarPersonajes(HashMap * mapaPersonajes)
         {    
             if(i == aux->ID)
             {
-                printf(yellow"%s ", aux->nombre);
+                printw("%s ", aux->nombre);
                 for(int largo = strlen(aux->nombre) ; largo < 13 ; largo++){
-                    printf(" ");
+                    printw(" ");
                 }
                 
-                if(aux->desbloqueado == 0) printf(red"Bloqueado    ");
-                else printf(green"Desbloqueado ");
+                if(aux->desbloqueado == 0) printw("Bloqueado    ");
+                else printw("Desbloqueado ");
 
                 for(int j = 0; j < 10; j++)
                 {
                     mostrarMarcas(j);
-                    if(aux->marcas[j] == 0) printf(red"NO      ");
-                    else if(aux->marcas[j] == 1) printf(blue"NORMAL  ");
-                    else printf(green"DIFICIL ");
+                    if(aux->marcas[j] == 0) printw("NO      ");
+                    else if(aux->marcas[j] == 1) printw("NORMAL  ");
+                    else printw("DIFICIL ");
                 }
             }
             aux = nextMap(mapaPersonajes);
         }
-        printf(reset"\n");
+        printw("\n");
     }
+    getch();
+    endwin();
 }
 
 void guardarInfoPersonajes(HashMap * mapaPersonajes)
@@ -133,6 +140,7 @@ void guardarInfoPersonajes(HashMap * mapaPersonajes)
 
 void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
 {
+    initscr();
     tipoPersonaje * aux = searchMap(mapaPersonajes, nombrePersonaje);
     int  opcion;
     char respuesta[10];
@@ -145,22 +153,22 @@ void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
 
             do
             {
-                printf(reset"\nCual marca logro: ");
-                scanf("%s", respuesta);
+                printw("\nCual marca logro: ");
+                scanw("%s", respuesta);
                 opcion = valorNumericoMarca(respuesta);
-                if(opcion < 0 || opcion > 9) printf(red"\nNo existe tal marca\n"reset);
+                if(opcion < 0 || opcion > 9) printw("\nNo existe tal marca\n");
             } while (opcion < 0 || opcion > 9);
             
-            if(aux->marcas[opcion - 1] == 2) printf(red"\nLa marca ya se logro\n"reset);
+            if(aux->marcas[opcion - 1] == 2) printw("\nLa marca ya se logro\n");
             else
             {
                 
                 do
                 {
-                    printf("\nLo realizo en " blue"NORMAL " reset"O "blue"DIFICIL"reset": ");
-                    scanf("%9s", respuesta);
+                    printw("\nLo realizo en " "NORMAL " "O ""DIFICIL"": ");
+                    scanw("%9s", respuesta);
                     convertirMayuscula(respuesta);
-                    if(strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0) printf(red"\nNo existe tal opcion\n"reset);
+                    if(strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0) printw("\nNo existe tal opcion\n");
                 } while (strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0);
                 
                 if(strcmp("NORMAL", respuesta) == 0) aux->marcas[opcion] = 1;
@@ -171,12 +179,13 @@ void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
         }
         else
         {
-            printf(red"\nEl personaje %s no se encuentra desbloqueado\n"reset, aux->nombre);
+            printw("\nEl personaje %s no se encuentra desbloqueado\n", aux->nombre);
         }
     }
     else
     {
-        printf(red"\nEl personaje ingresado no existe\n"reset);
-        return;
+        printw("\nEl personaje ingresado no existe\n");
     }
+    getch();
+    endwin();
 }

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ncurses.h>
 
 #include "TDA_Mapa/hashmap.h"
 #include "Interfaz/interfaz.h"
@@ -52,68 +53,85 @@ void importarArchivoLogros(HashMap * mapaLogros){
 }
 
 void mostrarLogros(HashMap * mapaLogros){
+    initscr();
+    scrollok(stdscr, TRUE);
     tipoLogro * aux = firstMap(mapaLogros);
     
     for(int j=1; j<404 ; j++){
         aux = firstMap(mapaLogros);
         while(aux){
             if(j == aux->ID){
-                printf(yellow"ID: %d ",aux->ID);
-                if(aux->ID < 10) printf("  ");
-                else if(aux->ID < 100) printf(" ");
+                wprintw(stdscr,"ID: %d ",aux->ID);
+                if(aux->ID < 10) wprintw(stdscr,"  ");
+                else if(aux->ID < 100) wprintw(stdscr," ");
 
                 if(aux->desbloqueado){
-                    printf(green"Desbloqueado");
+                    wprintw(stdscr,"Desbloqueado");
                 }else{
-                    printf(red"Bloqueado   ");
+                    wprintw(stdscr,"Bloqueado   ");
                 }
-                printf(cian" -> %s\n"reset,aux->nombre);
+                wprintw(stdscr," -> %s\n",aux->nombre);
                 break;
             }
             
             aux = nextMap(mapaLogros);
         }
+        if(j % 38 == 0) 
+        {
+            printw("\nIngrese cualquier tecla para avanzar\n");
+            getch();
+            clear();
+            wrefresh(stdscr);
+        }
     }
+    getch();
+    endwin();
 }
 
 void buscarLogroEspecifico(HashMap * mapaLogros, int id)
 {
+    initscr();
     tipoLogro * aux = searchMap(mapaLogros,&id);
     if(!aux){
-        printf(red"\nEl logro que ingreso no existe\n"reset);
+        printw("\nEl logro que ingreso no existe\n");
+        getch();
         return;
     }
-    printf(yellow"\nID: %d ",aux->ID);
+    printw("\nID: %d ",aux->ID);
 
     if(aux->desbloqueado){
-        printf(green"Desbloqueado");
+        printw("Desbloqueado");
     }else{
-        printf(red"Bloqueado");
+        printw("Bloqueado");
     }
-    printf(cian"\nNombre: %s",aux->nombre);
-    printf(blue"\nDescripcion: %s\n",aux->descripcion);
-    printf(green"Como conseguir:\n%s"reset,aux->comoConseguir);
-
+    printw("\nNombre: %s",aux->nombre);
+    printw("\nDescripcion: %s\n",aux->descripcion);
+    printw("Como conseguir:\n%s",aux->comoConseguir);
+    getch();
+    endwin();
 }
 
 void desbloquearLogro(HashMap * mapaLogros, int id){
+    initscr();
     tipoLogro * aux = searchMap(mapaLogros,&id);
     if(!aux){
-        printf(red"\nEl logro que ingreso no existe\n"reset);
+        printw("\nEl logro que ingreso no existe\n");
         return;
     }
     if(aux->desbloqueado){
-        printf(red"\nEl logro ya estaba desbloqueado de antes\n"reset);
+        printw("\nEl logro ya estaba desbloqueado de antes\n");
         return;
     }
     aux->desbloqueado = 1;
 
-    printf(yellow"\nID: %d ",aux->ID);
+    printw("\nID: %d ",aux->ID);
 
     if(aux->desbloqueado){
-        printf(green"Desbloqueado");
+        printw("Desbloqueado");
     }else{
-        printf(red"Bloqueado");
+        printw("Bloqueado");
     }
-    printf(cian"\nNombre: %s"reset,aux->nombre);
+    printw("\nNombre: %s",aux->nombre);
+    getch();
+    endwin();
 }

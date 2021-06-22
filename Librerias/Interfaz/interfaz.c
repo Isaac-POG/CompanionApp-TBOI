@@ -1,16 +1,7 @@
+#include <ncurses.h>
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-
-#define red "\e[1;91m"
-#define green "\e[1;92m" 
-#define yellow "\e[1;93m"
-#define blue "\e[1;94m"
-#define cian "\e[1;96m"
-#define purple "\e[1;95m"
-#define REDHB "\e[0;101m"
-#define cls "\e[1;1H\e[2J"
-#define reset "\e[0m"
 
 void convertirMayuscula(char * cadena)
 {
@@ -20,40 +11,6 @@ void convertirMayuscula(char * cadena)
 	{
 		cadena[i] = toupper(cadena[i]);
 	}
-}
-
-void mostrarMenuOpciones()
-{
-	printf("\n1.)Menu de desbloqueo\n");
-	printf("2.)Guardar Informacion\n");
-	printf("3.)Buscar un Item Especifico\n");
-	printf("4.)Buscar un Logro Especifico\n");
-	printf("5.)Buscar un Enemigo Especifico\n");
-	printf("6.)Mostrar a todos los Personajes\n");
-	printf("7.)Mostrar todos los Items\n");
-	printf("8.)Mostrar todos los Logros\n");
-	printf("9.)Mostrar a todos los Enemigos\n\n");
-	printf(red"0.)Salir del Programa\n"reset);
-	printf("\nElija una opcion: ");
-}
-
-void mostrarMenuDesbloqueo()
-{
-	printf("\n1.)Desbloquear un Personaje\n");
-	printf("2.)Avance en Marcas de logro\n");
-	printf("3.)Encontre un Item\n");
-	printf("4.)Desbloquear un Logro\n");
-	printf("5.)Encontre un Enemigo\n\n");
-	printf(red"0.)Salir del Menu\n"reset);
-	printf("\nElija una opcion: ");
-}	
-
-void esperarEnter()
-{
-	char enter;
-	printf("\nIngrese ENTER para continuar...  ");
-	getchar();
-	scanf("%c",&enter);
 }
 
 int valorNumericoMarca(char * nombreMarca)
@@ -104,90 +61,95 @@ int valorNumericoMarca(char * nombreMarca)
 
 void mostrarMarcas(int i)
 {
-	printf(purple);
+	initscr();
 	switch (i)
 	{
 	case 0:
-		printf("/Mom's Heart ");
+		printw("/Mom's Heart ");
 		break;
 	case 1:
-		printf("/Isaac ");
+		printw("/Isaac ");
 		break;
 	case 2:
-		printf("/Boss Rush ");
+		printw("/Boss Rush ");
 		break;
 	case 3:
-		printf("/Satan ");
+		printw("/Satan ");
 		break;
 	case 4:
-		printf("/??? ");
+		printw("/??? ");
 		break;
 	case 5:
-		printf("/The Lamb ");
+		printw("/The Lamb ");
 		break;
 	case 6:
-		printf("/Mega Satan ");
+		printw("/Mega Satan ");
 		break;
 	case 7:
-		printf("/Ultra Greed ");
+		printw("/Ultra Greed ");
 		break;
 	case 8:
-		printf("/Hush ");
+		printw("/Hush ");
 		break;
 	case 9:
-		printf("/Deliriun ");
+		printw("/Deliriun ");
 		break;
 	}
+	endwin();
 }
 
 void mostrarPersonaje(char * nombre, int * marcas)
 {
-	printf(yellow"\n%s ", nombre);
+	initscr();
+	printw("\n%s ", nombre);
 	for(int i = 0; i < 10; i++)
 	{
 		mostrarMarcas(i);
-		if(marcas[i] == 0) printf(red"NO ");
-		else if(marcas[i] == 1) printf(blue"NORMAL ");
-		else printf(green"DIFICIL ");
-		printf(reset);
+		if(marcas[i] == 0) printw("NO ");
+		else if(marcas[i] == 1) printw("NORMAL ");
+		else printw("DIFICIL ");
 	}
-	printf("\n");
+	printw("\n");
+	endwin();
 }
 
 void mostrarNombres()
 {
-	printf(red"["yellow"ISAAC"red"] ");
-	printf(red"["yellow"MAGDALANE"red"] ");
-	printf(red"["yellow"CAIN"red"] ");
-	printf(red"["yellow"JUDAS"red"] ");
-	printf(red"["yellow"???"red"] ");
-	printf(red"["yellow"EVE"red"] ");
-	printf(red"["yellow"SAMSON"red"] ");
-	printf(red"["yellow"AZAZEL"red"] ");
-	printf(red"["yellow"LAZARUS"red"] ");
-	printf(red"["yellow"EDEN"red"] ");
-	printf(red"["yellow"THE LOST"red"] ");
-	printf(red"["yellow"LILITH"red"] ");
-	printf(red"["yellow"THE KEEPER"red"] ");
-	printf(red"["yellow"APOLLYON"red"] ");
-	printf(red"["yellow"THE FORGOTTEN"red"]\n"reset);
+	initscr();
+	printw("[""ISAAC""] ");
+	printw("[""MAGDALANE""] ");
+	printw("[""CAIN""] ");
+	printw("[""JUDAS""] ");
+	printw("[""???""] ");
+	printw("[""EVE""] ");
+	printw("[""SAMSON""] ");
+	printw("[""AZAZEL""] ");
+	printw("[""LAZARUS""] ");
+	printw("[""EDEN""] ");
+	printw("[""THE LOST""] ");
+	printw("[""LILITH""] ");
+	printw("[""THE KEEPER""] ");
+	printw("[""APOLLYON""] ");
+	printw("[""THE FORGOTTEN""]\n");
+	endwin();
 }
 
 void pantallaInicial()
 {
-	printf(cls);
+	initscr();
+	clear();
 
 	FILE * archivo = fopen("titulo.txt", "r");
 	char lineaLeida[300];
 	
 	while(fgets(lineaLeida, 299, archivo))
 	{
-		printf(purple"%s", lineaLeida);
+		printw("%s", lineaLeida);
 	}
 	fclose(archivo);
 
-	char enter;
-	printf("\n\n                                                                 Ingrese "yellow"ENTER "purple"para continuar"reset);
-	scanf("%c",&enter);
-	printf(cls);
+	printw("\n                                                               Presione cualquier tecla para continuar\n");
+	getch();
+	clear();
+	endwin();
 }

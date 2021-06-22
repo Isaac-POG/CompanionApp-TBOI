@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <ncurses.h>
 
 #include "Librerias/Interfaz/interfaz.h"
 #include "Librerias/TDA_Mapa/hashmap.h"
@@ -7,147 +7,220 @@
 #include "Librerias/logros.h"
 #include "Librerias/items.h"
 
-void menuDesbloqueo(HashMap * mapaPersonajes,HashMap *mapaLogros, HashMap * mapaItems)
-{
-	int opcion;
-	char nombreBuscado[40];
-	int idBuscar;
-	do
-	{
-		mostrarMenuDesbloqueo();
-		scanf("%i", &opcion);
-		printf(cls);
-		if(opcion == 0) return;
+/* PROTOTIPADO DE FUNCIONES */
 
-		switch (opcion)
-		{
-		case 1:
-			mostrarNombres();
-			printf("\nIngrese el nombre del personaje: ");
-			getchar();
-			scanf("%39[^\n]s", nombreBuscado);
-			convertirMayuscula(nombreBuscado);			
-			desbloquearPersonajes(mapaPersonajes, nombreBuscado);
-			esperarEnter();
-			break;
-		
-		case 2:
-			mostrarNombres();
-			printf("\nIngrese el nombre del personaje: ");
-			getchar();
-			scanf("%39[^\n]s", nombreBuscado);
-			convertirMayuscula(nombreBuscado);
-			avanceMarcasLogros(mapaPersonajes, nombreBuscado);			
-			esperarEnter();
-			break;
+//Funcion que delimita el tamaño del menu a usar
+WINDOW * crearVentana(int cantOpciones);
 
-		case 3:
-			printf("\nIngrese el nombre del item: ");
-			getchar();
-			scanf("%39[^\n]s", nombreBuscado);
-			convertirMayuscula(nombreBuscado);
-			encontrarItem(mapaItems, nombreBuscado);			
-			esperarEnter();
-			break;
+//Funcion para mostrar el subMenu de funciones
+void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems);
 
-		case 4:
-			printf("Ingrese el ID del logro a desbloquear: ");
-			scanf("%d",&idBuscar);
-			desbloquearLogro(mapaLogros, idBuscar);
-			esperarEnter();
-			break;
+//Funcion que inicia las funciones principales del programa
+void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems);
 
-		case 5:
-			break;
+//Funcion para mostrar el menu principal
+void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems);
 
-		default:
-			printf(red"\nLa opcion ingresada no existe\n"reset);
-			break;
-		}
-		printf(cls);
-	}while(opcion != 0);
-}
 
 int main()
 {
 	pantallaInicial();
 
-	int opcion;
-	int idBuscar;
-	char nombreBuscado[40];
+	//Iniciar la libreria ncurses.h
+	initscr();
+	
+	//Creacion de Mapas
 	HashMap * mapaPersonajes = createMap(10);
 	HashMap * mapaLogros = createMap(576);
 	HashMap * mapaItems = createMap(600);
 	
-	importarArchivoPersonajes(mapaPersonajes);
+	//Importacion de Informacion
+	importarArchivoItems(mapaItems);
 	importarArchivoLogros(mapaLogros);
-	importarArchivoItems(mapaItems);	
-	do
-	{
-		mostrarMenuOpciones();
-		scanf("%i", &opcion);
-		printf(cls);
-		if(opcion == 0) break;
+	importarArchivoPersonajes(mapaPersonajes);
+	
+	mostrarMenu(mapaPersonajes, mapaLogros, mapaItems);
 
-		switch (opcion)
-		{
-			case 1:
-				menuDesbloqueo(mapaPersonajes,mapaLogros, mapaItems);
-				break;
-
-			case 2:
-				guardarInfoPersonajes(mapaPersonajes);
-				break;
-
-			case 3:
-				printf("\nIngrese el nombre del item: ");
-				getchar();
-				scanf("%39[^\n]s", nombreBuscado);
-				convertirMayuscula(nombreBuscado);			
-				buscarItemEspecifico(mapaItems, nombreBuscado);
-				esperarEnter();
-				break;
-
-			case 4:
-				printf("Ingrese el ID del logro a buscar: ");
-				scanf("%d",&idBuscar);
-				buscarLogroEspecifico(mapaLogros, idBuscar);
-				esperarEnter();
-				break;
-			
-			case 5:
-				
-				break;
-
-			case 6:
-				mostrarPersonajes(mapaPersonajes);
-				esperarEnter();
-				break;
-
-			case 7:
-				mostrarTodosItems(mapaItems);
-				esperarEnter();
-				break;
-
-			case 8:
-				mostrarLogros(mapaLogros);
-				esperarEnter();
-				break;
-
-			case 9:
-				
-				break;
-
-			default:
-				printf(red"\nLa opcion ingresada no existe\n"reset);
-				break;
-		}
-		printf(cls);
-	}while(opcion != 0);
-	printf("\nFin del Programa\n\n");
-
+	//Libera memoria
 	free(mapaPersonajes);
 	free(mapaLogros);
+	free(mapaItems);
+	
+	clear();
+	printw("FIN DEL PROGRAMA\n");
+	getch();
 
+	//Fin de la libreria ncurses.h
+	endwin();
 	return 0;
+}
+
+WINDOW * crearVentana(int cantOpciones)
+{
+	int xMax, yMax;
+	clear();
+
+    getmaxyx(stdscr, yMax, xMax);
+    WINDOW * ventana = newwin(cantOpciones, 50, yMax/2, 50);
+
+    //Hacer que funcionen las teclas de flecha
+    keypad(ventana, TRUE);
+
+	return ventana;
+}
+
+
+void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems)
+{
+    char opciones[10][40] = {"Menu de Desbloqueo","Guardar Informacion","Buscar un Item Especifico","Buscar un Logro Especifico","Buscar un Enemigo Especifico","Mostrar Todos los Personajes","Mostrar Todos los Items","Mostrar Todos los Logros","Mostrar Todos los Enemigos","Salir del Programa"};
+    int eleccion = -1, iluminar = 0;
+
+    WINDOW * ventana = crearVentana(12);
+    
+    while(eleccion)
+    {
+        //Delimitar el menu
+        box(ventana, 0, 0);
+        refresh();
+
+        //Muestra las opciones
+        for(int i = 0; i < 10; i++)
+        {
+        	//Si es la posicion actual, la ilumina
+            if(i == iluminar) wattron(ventana, A_REVERSE);
+
+            //Si no, la muestra como texto plano
+            mvwprintw(ventana, i+1, 1, opciones[i]);
+            wattroff(ventana, A_REVERSE);
+        }
+
+        //El usuario ingresa alguna entrada desde el teclado (sin necesidad de usar enter)
+        eleccion = wgetch(ventana);
+
+        switch (eleccion) //Dependiendo de la elección
+        {
+        case KEY_UP:
+            iluminar--;
+            if(iluminar == -1) iluminar = 9; //Si llega hasta arriba, mueve el cursor al final del menu
+            break;
+        
+        case KEY_DOWN:
+            iluminar++;
+            if(iluminar == 10) iluminar = 0; //Si llega al final mueve el cursor al inicio del menu
+            break;
+        }
+
+        if(eleccion == 10) //Si se ingreso un enter, significa que se usara una funcion
+        {   
+            if(iluminar == 9) break; //Posicion donde esta el fin del programa
+            funcionesOpcion(iluminar,mapaPersonajes, mapaLogros, mapaItems); //Accede a la funcion presentada
+        }
+
+        wrefresh(ventana); //Recarga la ventana
+    }
+}
+
+void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems)
+{
+	char opciones[6][50] = {"Desbloquear Personaje","Avance de Marcas de Logros","Encontrar Item","Desbloquear Logro","Encontrar Enemigo","Salir del Menu"};
+    int eleccion = -1, iluminar = 0;
+
+    WINDOW * ventana = crearVentana(8);
+    
+    while(eleccion)
+    {
+        //Delimitar el menu
+        box(ventana, 0, 0);
+        refresh();
+    
+        for(int i = 0; i < 6; i++)
+        {
+            if(i == iluminar) wattron(ventana, A_REVERSE);
+            mvwprintw(ventana, i+1, 1, opciones[i]);
+            wattroff(ventana, A_REVERSE);
+        }
+
+        eleccion = wgetch(ventana);
+        switch (eleccion)
+        {
+        case KEY_UP:
+            iluminar--;
+            if(iluminar == -1) iluminar = 5;
+            break;
+        
+        case KEY_DOWN:
+            iluminar++;
+            if(iluminar == 6) iluminar = 0;
+            break;
+
+        default:
+            break;
+        }
+
+        if(eleccion == 10) //Muestra el enter
+        {   
+            if(iluminar == 5) break;
+            funcionesOpcion(iluminar + 9, mapaPersonajes, mapaLogros, mapaItems); 
+        }
+        wrefresh(ventana);
+    }
+}
+
+void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems)
+{
+	char nombreBuscado[40];
+	int idBuscado;
+
+
+	clear();
+	echo();
+
+	switch (opcion)
+	{
+	case 0:
+		mostrarSubMenu(mapaPersonajes, mapaLogros, mapaItems);
+		break;
+	case 1:
+		break;
+		
+	case 2:
+		printw("\nIngrese el nombre del item: ");
+		scanw("%39[^\n]s", nombreBuscado);
+		convertirMayuscula(nombreBuscado);
+		buscarItemEspecifico(mapaItems, nombreBuscado);
+		break;
+	case 3:
+		printw("\nIngrese el nombre del item: ");
+		scanw("%i", &idBuscado);
+		buscarLogroEspecifico(mapaLogros, idBuscado);
+		break;
+	case 4:
+		/* code */
+		break;
+	case 5:
+		mostrarPersonajes(mapaPersonajes);
+		break;
+	case 6:
+		mostrarTodosItems(mapaItems);
+		break;
+	case 7:
+		mostrarLogros(mapaLogros);
+		break;
+	case 8:
+		/* code */
+		break;
+	case 9:
+		break;
+	case 10:
+		break;
+	case 11:
+		break;
+	case 12:
+		break;
+	case 13:
+		break;
+	}
+
+	clear();
+	noecho();
 }

@@ -61,11 +61,10 @@ WINDOW * crearVentana(int cantOpciones)
 	clear();
 
     getmaxyx(stdscr, yMax, xMax);
-    WINDOW * ventana = newwin(cantOpciones, 50, yMax/2, 50);
+    WINDOW * ventana = newwin(cantOpciones, xMax/2, yMax/4, xMax/4);
 
     //Hacer que funcionen las teclas de flecha
     keypad(ventana, TRUE);
-
 	return ventana;
 }
 
@@ -82,7 +81,6 @@ void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaI
         //Delimitar el menu
         box(ventana, 0, 0);
         refresh();
-
         //Muestra las opciones
         for(int i = 0; i < 10; i++)
         {
@@ -116,7 +114,6 @@ void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaI
             funcionesOpcion(iluminar,mapaPersonajes, mapaLogros, mapaItems); //Accede a la funcion presentada
         }
 
-        wrefresh(ventana); //Recarga la ventana
     }
 }
 
@@ -171,7 +168,6 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 	char nombreBuscado[40];
 	int idBuscado;
 
-
 	clear();
 	echo();
 
@@ -181,8 +177,9 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		mostrarSubMenu(mapaPersonajes, mapaLogros, mapaItems);
 		break;
 	case 1:
-		break;
+		guardarInfoPersonajes(mapaPersonajes);
 		
+		break;	
 	case 2:
 		printw("\nIngrese el nombre del item: ");
 		scanw("%39[^\n]s", nombreBuscado);
@@ -190,12 +187,11 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		buscarItemEspecifico(mapaItems, nombreBuscado);
 		break;
 	case 3:
-		printw("\nIngrese el nombre del item: ");
+		printw("\nIngrese el ID del logro: ");
 		scanw("%i", &idBuscado);
 		buscarLogroEspecifico(mapaLogros, idBuscado);
 		break;
 	case 4:
-		/* code */
 		break;
 	case 5:
 		mostrarPersonajes(mapaPersonajes);
@@ -210,12 +206,27 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		/* code */
 		break;
 	case 9:
+		printw("\nIngrese el nombre del personaje a desbloquear: ");
+		scanw("%39[^\n]s", nombreBuscado);
+		convertirMayuscula(nombreBuscado);
+		desbloquearPersonajes(mapaPersonajes, nombreBuscado);
 		break;
 	case 10:
+		printw("\nIngrese el nombre del personaje: ");
+		scanw("%39[^\n]s", nombreBuscado);
+		convertirMayuscula(nombreBuscado);
+		avanceMarcasLogros(mapaPersonajes, nombreBuscado);
 		break;
 	case 11:
+		printw("\nIngrese el nombre del Item que encontro: ");
+		scanw("%39[^\n]s", nombreBuscado);
+		convertirMayuscula(nombreBuscado);
+		encontrarItem(mapaItems, nombreBuscado);
 		break;
 	case 12:
+		printw("\nIngrese el ID del logro que desbloqueo: ");
+		scanw("%i", &idBuscado);
+		desbloquearLogro(mapaLogros, idBuscado);
 		break;
 	case 13:
 		break;

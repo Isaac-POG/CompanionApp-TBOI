@@ -36,8 +36,8 @@ tipoLogro * copiarInformacionLogro(char * lineaLeida)
 }
 
 void importarArchivoLogros(HashMap * mapaLogros){
-    FILE * archivo = fopen("logros.txt", "r");
-    if(archivo == NULL) return;
+    FILE * archivo = fopen("Archivos/logros.txt", "r");
+    if(archivo == NULL){printw("HOLA\n"); return;}
 
     char lineaLeida[200];
 
@@ -114,6 +114,7 @@ void buscarLogroEspecifico(HashMap * mapaLogros, int id)
 void desbloquearLogro(HashMap * mapaLogros, int id){
     initscr();
     tipoLogro * aux = searchMap(mapaLogros,&id);
+    
     if(!aux){
         printw("\nEl logro que ingreso no existe\n");
         return;

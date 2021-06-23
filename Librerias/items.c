@@ -36,8 +36,8 @@ tipoItem * copiarInformacionItems(char * lineaLeida)
 
 void importarArchivoItems(HashMap * mapaItems)
 {
-	FILE * archivo = fopen("items.txt", "r");
-	if(archivo == NULL) return;
+	FILE * archivo = fopen("Archivos/items.txt", "r");
+	if(archivo == NULL){printw("HOA\n"); return;}
 
 	char lineaLeida[400];
 	fgets(lineaLeida, 399, archivo);
@@ -91,7 +91,7 @@ void encontrarItem(HashMap * mapaItems, char * nombreItem)
 	{
 		if(itemBuscado->encontrado == 0)
 		{
-			printw("\nSe actualizo información del item\n");
+			printw("\nSe actualizo informacion del item\n");
 			printw("%s ENCONTRADO\n", nombreItem);
 			itemBuscado->encontrado = 1;
 		}

@@ -36,7 +36,7 @@ tipoPersonaje * copiarInformacionPersonaje(char * lineaLeida)
 
 void importarArchivoPersonajes(HashMap * mapaPersonajes)
 {
-    FILE * archivo = fopen("characters.txt", "r");
+    FILE * archivo = fopen("Archivos/characters.txt", "r");
     if(archivo == NULL) return;
 
     char lineaLeida[100];
@@ -143,7 +143,7 @@ void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
     initscr();
     tipoPersonaje * aux = searchMap(mapaPersonajes, nombrePersonaje);
     int  opcion;
-    char respuesta[10];
+    char respuesta[20];
 
     if(aux != NULL)
     {
@@ -154,7 +154,8 @@ void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
             do
             {
                 printw("\nCual marca logro: ");
-                scanw("%s", respuesta);
+                scanw("%19[^\n]s", respuesta);
+                convertirMayuscula(respuesta);
                 opcion = valorNumericoMarca(respuesta);
                 if(opcion < 0 || opcion > 9) printw("\nNo existe tal marca\n");
             } while (opcion < 0 || opcion > 9);
@@ -166,7 +167,7 @@ void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
                 do
                 {
                     printw("\nLo realizo en " "NORMAL " "O ""DIFICIL"": ");
-                    scanw("%9s", respuesta);
+                    scanw("%19s", respuesta);
                     convertirMayuscula(respuesta);
                     if(strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0) printw("\nNo existe tal opcion\n");
                 } while (strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0);

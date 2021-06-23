@@ -139,7 +139,7 @@ void pantallaInicial()
 	initscr();
 	clear();
 
-	FILE * archivo = fopen("titulo.txt", "r");
+	FILE * archivo = fopen("Archivos/titulo.txt", "r");
 	char lineaLeida[300];
 	
 	while(fgets(lineaLeida, 299, archivo))
@@ -148,7 +148,7 @@ void pantallaInicial()
 	}
 	fclose(archivo);
 
-	printw("\n                                                               Presione cualquier tecla para continuar\n");
+	printw("\n\n\n                                                               Presione cualquier tecla para continuar\n");
 	getch();
 	clear();
 	endwin();

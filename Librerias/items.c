@@ -7,7 +7,6 @@
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
 
-
 tipoItem * copiarInformacionItems(char * lineaLeida)
 {
 	tipoItem * aux = malloc (sizeof(tipoItem));
@@ -29,33 +28,43 @@ tipoItem * copiarInformacionItems(char * lineaLeida)
 	fragmento = strtok(NULL, ";");
 	strcpy(aux->efecto, fragmento);
 
-	fragmento = strtok(NULL, ";");
+	//Tipo de Item
+	fragmento = strtok(NULL, "\n");
 	strcpy(aux->tipoEfecto, fragmento);
+	
 	return aux;
 }
 
 void importarArchivoItems(HashMap * mapaItems)
 {
+	//Se busca el archivo
 	FILE * archivo = fopen("Archivos/items.txt", "r");
-	if(archivo == NULL){printw("HOA\n"); return;}
+	if(archivo == NULL) return;
 
 	char lineaLeida[400];
+
+	//Se elimina la primera linea del archivo
 	fgets(lineaLeida, 399, archivo);
+	
+	//Se copia la informacion de los items
 	while(fgets(lineaLeida, 399, archivo))
 	{
 		tipoItem * nuevoItem = copiarInformacionItems(lineaLeida);
 		insertMap(mapaItems, nuevoItem->nombre, nuevoItem);
 	}
 
+	//Se cierra el archivo
 	fclose(archivo);
 }
 
 void mostrarTodosItems(HashMap * mapaItems)
 {
+	//Inicio del Ncurses.h
 	initscr();
+
+	//Activar el scroll
 	scrollok(stdscr, TRUE);
-	noecho();
-	printw("\n");
+
 	for(int i = 1; i < 553; i++)
 	{
 		tipoItem * aux = firstMap(mapaItems);
@@ -69,16 +78,14 @@ void mostrarTodosItems(HashMap * mapaItems)
 			}
 			aux = nextMap(mapaItems);
 		}
-		if(i % 38 == 0)
+		if(i % 20 == 0 || i == 552)
 		{
-			printw("\nIngrese cualquier tecla para avanzar\n");
+			printw("\nIngrese cualquier tecla para avanzar");
 			getch();
 			clear();
 			wrefresh(stdscr);
 		}
 	}
-	echo();
-	getch();
 	endwin();
 }
 
@@ -127,4 +134,26 @@ void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
 	}
 	getch();
 	endwin();
+}
+
+void guardarInfoItems(HashMap * mapaItems)
+{
+	FILE * archivo = fopen("Archivos/items.txt", "w");
+    if(archivo == NULL) return;
+
+    fprintf(archivo,"ID;ENCONTRADO;NOMBRE;EFECTO;TIPO\n");
+    
+    for(int i = 1; i < 553; i++)
+    {
+        tipoItem * aux = firstMap(mapaItems);
+        while(aux != NULL)
+        {    
+            if(i == aux->ID)
+            {
+                fprintf(archivo, "%i;%i;%s;%s;%s\n", aux->ID, aux->encontrado, aux->nombre, aux->efecto, aux->tipoEfecto);
+            }
+            aux = nextMap(mapaItems);
+        }
+    }
+    fclose(archivo);
 }

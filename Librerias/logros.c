@@ -76,15 +76,14 @@ void mostrarLogros(HashMap * mapaLogros){
             
             aux = nextMap(mapaLogros);
         }
-        if(j % 38 == 0) 
+        if(j % 20 == 0 || j == 403) 
         {
-            printw("\nIngrese cualquier tecla para avanzar\n");
+            printw("\nIngrese cualquier tecla para avanzar");
             getch();
             clear();
             wrefresh(stdscr);
         }
     }
-    getch();
     endwin();
 }
 

@@ -60,7 +60,10 @@ WINDOW * crearVentana(int cantOpciones)
 	int xMax, yMax;
 	clear();
 
+	//Conseguir el tamaño actual de la terminal
     getmaxyx(stdscr, yMax, xMax);
+
+	//Dependiendo del tamaño de la terminal, ajustarlo para nuestro uso
     WINDOW * ventana = newwin(cantOpciones, xMax/2, yMax/4, xMax/4);
 
     //Hacer que funcionen las teclas de flecha
@@ -172,7 +175,10 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		break;
 	case 1:
 		guardarInfoPersonajes(mapaPersonajes);
-		
+		guardarInfoItems(mapaItems);
+		clear();
+		printw("Se guardaron los cambios\nApriete cualquier tecla para avanzar");
+		getch();
 		break;	
 	case 2:
 		printw("\nIngrese el nombre del item: ");

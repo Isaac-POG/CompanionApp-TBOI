@@ -30,9 +30,11 @@ typedef struct tipoLogro
 
 typedef struct tipoEnemigo
 {
-    int nombre;
-    char ubicacion[50];
+    int ID;
     int encontrado;
+    int nombre;
+    int vida;
+    char ubicacion[50];
 }tipoEnemigo;
 
 #endif

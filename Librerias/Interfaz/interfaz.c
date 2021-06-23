@@ -92,7 +92,7 @@ void mostrarMarcas(int i)
 		printw("/Hush ");
 		break;
 	case 9:
-		printw("/Deliriun ");
+		printw("/Delirium ");
 		break;
 	}
 	endwin();

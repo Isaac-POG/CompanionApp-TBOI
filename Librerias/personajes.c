@@ -112,7 +112,7 @@ void mostrarPersonajes(HashMap * mapaPersonajes)
 
 void guardarInfoPersonajes(HashMap * mapaPersonajes)
 {
-    FILE * archivo = fopen("characters.txt", "w");
+    FILE * archivo = fopen("Archivos/characters.txt", "w");
     if(archivo == NULL) return;
     fprintf(archivo,"ID,Personaje,Desbloqueado,Marcas\n");
     

@@ -101,17 +101,14 @@ void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaI
             iluminar--;
             if(iluminar == -1) iluminar = 9; //Si llega hasta arriba, mueve el cursor al final del menu
             break;
-        
         case KEY_DOWN:
             iluminar++;
             if(iluminar == 10) iluminar = 0; //Si llega al final mueve el cursor al inicio del menu
             break;
-        }
-
-        if(eleccion == 10) //Si se ingreso un enter, significa que se usara una funcion
-        {   
-            if(iluminar == 9) break; //Posicion donde esta el fin del programa
-            funcionesOpcion(iluminar,mapaPersonajes, mapaLogros, mapaItems); //Accede a la funcion presentada
+		case 10: //Tecla ENTER
+			if(iluminar == 9) return;
+			funcionesOpcion(iluminar, mapaPersonajes, mapaLogros, mapaItems);
+            break;
         }
 
     }
@@ -119,9 +116,11 @@ void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaI
 
 void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems)
 {
+	//Opciones dentro de este submenú
 	char opciones[6][50] = {"Desbloquear Personaje","Avance de Marcas de Logros","Encontrar Item","Desbloquear Logro","Encontrar Enemigo","Salir del Menu"};
     int eleccion = -1, iluminar = 0;
 
+	//Creación de ventana del menú
     WINDOW * ventana = crearVentana(8);
     
     while(eleccion)
@@ -137,6 +136,7 @@ void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * ma
             wattroff(ventana, A_REVERSE);
         }
 
+		//Ingreso de las teclas
         eleccion = wgetch(ventana);
         switch (eleccion)
         {
@@ -144,20 +144,14 @@ void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * ma
             iluminar--;
             if(iluminar == -1) iluminar = 5;
             break;
-        
         case KEY_DOWN:
             iluminar++;
             if(iluminar == 6) iluminar = 0;
             break;
-
-        default:
+        case 10: //Tecla ENTER
+			if(iluminar == 5) return;
+			funcionesOpcion(iluminar + 9, mapaPersonajes, mapaLogros, mapaItems);
             break;
-        }
-
-        if(eleccion == 10) //Muestra el enter
-        {   
-            if(iluminar == 5) break;
-            funcionesOpcion(iluminar + 9, mapaPersonajes, mapaLogros, mapaItems); 
         }
         wrefresh(ventana);
     }

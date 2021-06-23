@@ -66,13 +66,11 @@ void desbloquearPersonajes(HashMap * mapaPersonajes, char * nombrePersonaje)
         else
         {
             printw("\nEl personaje ingresado ya se encuentra desbloqueado\n");
-            return;
         }
     }
     else
     {
         printw("\nEl personaje ingresado no existe\n");
-        return;
     }
     getch();
     endwin();

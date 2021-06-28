@@ -37,7 +37,7 @@ tipoLogro * copiarInformacionLogro(char * lineaLeida)
 
 void importarArchivoLogros(HashMap * mapaLogros){
     FILE * archivo = fopen("Archivos/logros.txt", "r");
-    if(archivo == NULL){printw("HOLA\n"); return;}
+    if(archivo == NULL) return;
 
     char lineaLeida[200];
 

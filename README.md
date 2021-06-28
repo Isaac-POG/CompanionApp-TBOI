@@ -7,6 +7,11 @@ Aplicación para almacenar avances y logros del juego The Binding Of Isaac: Afte
 - José Osega
 - Bryan López
 
+## Requisitos
+---
+
+-libreria ncurses con el comando de linux "sudo apt-get install libncurses5-dev libncursesw5-dev"
+
 ## Linea de Compilador: 
 ---
 

@@ -32,9 +32,10 @@ typedef struct tipoEnemigo
 {
     int ID;
     int encontrado;
-    int nombre;
+    char nombre[40];
     int vida;
-    char ubicacion[50];
+    char ubicacion[240][240];
+    int cantidadUbicacion;
 }tipoEnemigo;
 
 #endif

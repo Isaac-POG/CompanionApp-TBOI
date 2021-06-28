@@ -26,10 +26,11 @@ void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaI
 int main()
 {
 	pantallaInicial();
-
 	//Iniciar la libreria ncurses.h
 	initscr();
-	
+
+	iniciarColores();
+
 	//Creacion de Mapas
 	HashMap * mapaPersonajes = createMap(10);
 	HashMap * mapaLogros = createMap(576);
@@ -51,7 +52,9 @@ int main()
 	free(mapaEnemigos);
 	
 	clear();
+	attron(COLOR_PAIR(4));
 	printw("FIN DEL PROGRAMA\n");
+	attroff(COLOR_PAIR(4));
 	getch();
 
 	//Fin de la libreria ncurses.h
@@ -135,7 +138,7 @@ void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * ma
         //Delimitar el menu
         box(ventana, 0, 0);
         refresh();
-    
+
         for(int i = 0; i < 6; i++)
         {
             if(i == iluminar) wattron(ventana, A_REVERSE);

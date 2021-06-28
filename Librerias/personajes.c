@@ -61,16 +61,24 @@ void desbloquearPersonajes(HashMap * mapaPersonajes, char * nombrePersonaje)
         if(aux->desbloqueado != 1)
         {
             aux->desbloqueado = 1;
+            attron(COLOR_PAIR(2));
+            attron(A_BOLD);
             printw("\n%s ahora esta desbloqueado!\n", aux->nombre);
+            attroff(COLOR_PAIR(2));
+            attroff(A_BOLD);
         }
         else
         {
+            attron(COLOR_PAIR(4));
             printw("\nEl personaje ingresado ya se encuentra desbloqueado\n");
+            attroff(COLOR_PAIR(4));
         }
     }
     else
     {
+        attron(COLOR_PAIR(3));
         printw("\nEl personaje ingresado no existe\n");
+        attroff(COLOR_PAIR(3));
     }
     getch();
     endwin();
@@ -86,20 +94,51 @@ void mostrarPersonajes(HashMap * mapaPersonajes)
         {    
             if(i == aux->ID)
             {
+                attron(A_BOLD);
                 printw("%s ", aux->nombre);
+                attroff(A_BOLD);
                 for(int largo = strlen(aux->nombre) ; largo < 13 ; largo++){
                     printw(" ");
                 }
                 
-                if(aux->desbloqueado == 0) printw("Bloqueado    ");
-                else printw("Desbloqueado ");
+                if(aux->desbloqueado == 0)
+                {
+                    attron(COLOR_PAIR(3));
+                    attron(A_BOLD);
+                    printw("Bloqueado    ");
+                    attroff(COLOR_PAIR(3));
+                    attroff(A_BOLD);
+                } 
+                else
+                {
+                    attron(COLOR_PAIR(2));
+                    attron(A_BOLD);
+                    printw("Desbloqueado ");
+                    attroff(COLOR_PAIR(2));
+                    attroff(A_BOLD);
+                } 
 
                 for(int j = 0; j < 10; j++)
                 {
                     mostrarMarcas(j);
-                    if(aux->marcas[j] == 0) printw("NO      ");
-                    else if(aux->marcas[j] == 1) printw("NORMAL  ");
-                    else printw("DIFICIL ");
+                    if(aux->marcas[j] == 0)
+                    {
+                        attron(COLOR_PAIR(3));
+                        printw("NO      ");
+                        attroff(COLOR_PAIR(3));
+                    } 
+                    else if(aux->marcas[j] == 1)
+                    {
+                        attron(COLOR_PAIR(4));
+                        printw("NORMAL  ");
+                        attroff(COLOR_PAIR(4));
+                    }
+                    else 
+                    {
+                        attron(COLOR_PAIR(2));
+                        printw("DIFICIL ");
+                        attroff(COLOR_PAIR(2));
+                    }
                 }
             }
             aux = nextMap(mapaPersonajes);
@@ -164,7 +203,7 @@ void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
                 
                 do
                 {
-                    printw("\nLo realizo en " "NORMAL " "O ""DIFICIL"": ");
+                    printw("\nLo realizo en ""NORMAL ""O ""DIFICIL"": ");
                     scanw("%19s", respuesta);
                     convertirMayuscula(respuesta);
                     if(strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0) printw("\nNo existe tal opcion\n");
@@ -178,12 +217,18 @@ void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
         }
         else
         {
+            attron(COLOR_PAIR(4));
             printw("\nEl personaje %s no se encuentra desbloqueado\n", aux->nombre);
+            attroff(COLOR_PAIR(4));
         }
     }
     else
     {
+        attron(COLOR_PAIR(3));
+        attron(A_BOLD);
         printw("\nEl personaje ingresado no existe\n");
+        attroff(COLOR_PAIR(3));
+        attroff(A_BOLD);
     }
     getch();
     endwin();

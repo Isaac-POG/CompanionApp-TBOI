@@ -148,8 +148,26 @@ void pantallaInicial()
 	}
 	fclose(archivo);
 
-	printw("\n\n\n                                                               Presione cualquier tecla para continuar\n");
 	getch();
 	clear();
 	endwin();
+}
+
+void iniciarColores()
+{
+	initscr();
+
+	start_color();
+
+	//Letras blancas con fondo negro
+	init_pair(1,COLOR_WHITE,COLOR_BLACK);
+	
+	//Letras verdes con fondo negro
+	init_pair(2,COLOR_GREEN,COLOR_BLACK);
+	
+	//Letras rojas con fondo negro
+	init_pair(3,COLOR_RED,COLOR_BLACK);
+
+	//Letras cian con fondo negro
+	init_pair(4,COLOR_CYAN,COLOR_BLACK);
 }

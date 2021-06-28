@@ -72,9 +72,25 @@ void mostrarTodosItems(HashMap * mapaItems)
 		{
 			if(aux->ID == i)
 			{
+				attron(A_BOLD);
+				attron(COLOR_PAIR(4));
 				wprintw(stdscr,"%s ", aux->nombre);
-				if(aux->encontrado == 0) wprintw(stdscr,"No encontrado \n");
-				else wprintw(stdscr,"Encontrado \n" );
+				attroff(COLOR_PAIR(4));
+				attroff(A_BOLD);
+
+				//Diferenciar entre si se encontro el item o no
+				if(aux->encontrado == 0)
+				{
+					attron(COLOR_PAIR(3));
+					wprintw(stdscr,"No encontrado \n");
+					attroff(COLOR_PAIR(3));
+				} 
+				else
+				{
+					attron(COLOR_PAIR(2));
+					wprintw(stdscr,"Encontrado \n" );
+					attroff(COLOR_PAIR(2));
+				}
 			}
 			aux = nextMap(mapaItems);
 		}
@@ -98,18 +114,26 @@ void encontrarItem(HashMap * mapaItems, char * nombreItem)
 	{
 		if(itemBuscado->encontrado == 0)
 		{
-			printw("\nSe actualizo informacion del item\n");
+			printw("\nSe actualizo informacion del item a\n");
+			attron(A_BOLD);
+			attron(COLOR_PAIR(2));
 			printw("%s ENCONTRADO\n", nombreItem);
+			attroff(A_BOLD);
+			attroff(COLOR_PAIR(2));
 			itemBuscado->encontrado = 1;
 		}
 		else
 		{
-			printw("El item %s ya se habia encontrado", nombreItem);
+			attron(COLOR_PAIR(4));
+			printw("\nEl item %s ya se habia encontrado", nombreItem);
+			attroff(COLOR_PAIR(4));
 		}
 	}
 	else
 	{
+		attron(COLOR_PAIR(3));
 		printw("\nEl item con nombre %s no existe\n", nombreItem);
+		attroff(COLOR_PAIR(3));
 	}
 	getch();
 	endwin();
@@ -123,14 +147,28 @@ void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
 	if(itemBuscado != NULL)
 	{
 		printw("\n%s\n", itemBuscado->nombre);
-		if(itemBuscado->encontrado == 0) printw("No encontrado ");
-		else printw("Encontrado ");
+		if(itemBuscado->encontrado == 0)
+		{
+			attron(COLOR_PAIR(3));
+			wprintw(stdscr,"No encontrado \n");
+			attroff(COLOR_PAIR(3));
+		} 
+		else
+		{
+			attron(COLOR_PAIR(2));
+			wprintw(stdscr,"Encontrado \n");
+			attroff(COLOR_PAIR(2));
+		}
 		printw("Tipo de Objeto: ""%s\n", itemBuscado->tipoEfecto);
 		printw("Efecto: ""%s\n", itemBuscado->efecto);
 	}
 	else
 	{
+		attron(A_BOLD);
+		attron(COLOR_PAIR(3));
 		printw("\nEl item con nombre %s no existe\n", nombreItem);
+		attroff(A_BOLD);
+		attroff(COLOR_PAIR(3));
 	}
 	getch();
 	endwin();

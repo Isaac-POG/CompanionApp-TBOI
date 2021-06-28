@@ -77,6 +77,11 @@ void mostrarTodosItems(HashMap * mapaItems)
 				wprintw(stdscr,"%s ", aux->nombre);
 				attroff(COLOR_PAIR(4));
 				attroff(A_BOLD);
+				if(strlen(aux->nombre) < 22){
+                    for(int k = strlen(aux->nombre); k < 22; k++){
+                        wprintw(stdscr," ");
+                    }
+                }
 
 				//Diferenciar entre si se encontro el item o no
 				if(aux->encontrado == 0)

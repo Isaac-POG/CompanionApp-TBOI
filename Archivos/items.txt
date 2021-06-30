@@ -1,4 +1,4 @@
-ID;ENCONTRADO;NOMBRE;EFECTO;TIPO
+Id;Encontrado;Nombre;Efecto;Tipo
 1;0;THE SAD ONION;Da lagrimas +0.7.;PASIVO
 2;0;THE INNER EYE;Da triple disparo pero disminuye la cadencia.;PASIVO
 3;0;SPOON BENDER;Las lagrimas siguen a los enemigos.;PASIVO

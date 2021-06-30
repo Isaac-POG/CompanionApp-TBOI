@@ -115,7 +115,7 @@ void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaI
             iluminar++;
             if(iluminar == 10) iluminar = 0; //Si llega al final mueve el cursor al inicio del menu
             break;
-		case 10: //Tecla ENTER
+		case 10: //Si se apreta la tecla ENTER, significa que se quiere usar una opcion del menu
 			if(iluminar == 9) return;
 			funcionesOpcion(iluminar, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos);
             break;
@@ -152,13 +152,13 @@ void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * ma
         {
         case KEY_UP:
             iluminar--;
-            if(iluminar == -1) iluminar = 5;
+            if(iluminar == -1) iluminar = 5; //Si llega hasta arriba, mueve el cursor al final del menu
             break;
         case KEY_DOWN:
             iluminar++;
-            if(iluminar == 6) iluminar = 0;
+            if(iluminar == 6) iluminar = 0; //Si llega al final mueve el cursor al inicio del menu
             break;
-        case 10: //Tecla ENTER
+ 		case 10: //Si se apreta la tecla ENTER, significa que se quiere usar una opcion del menu
 			if(iluminar == 5) return;
 			funcionesOpcion(iluminar + 9, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos);
             break;

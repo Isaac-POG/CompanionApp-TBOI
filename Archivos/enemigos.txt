@@ -1,4 +1,4 @@
-id;encontrado;nombre;vida;ubicacion
+Id;Encontrado;Nombre;Vida;Ubicacion
 0;0;Frowning Gaper;10;"Basement;Cellar;Burning Basement;Chest"
 1;0;Gaper;10;"Basement;Cellar;Burning Basement"
 2;0;Flaming Gaper;9;Burning Basement

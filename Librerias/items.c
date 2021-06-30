@@ -7,6 +7,7 @@
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
 
+//Copia la informacion de la lineaLeida a un tipoItem
 tipoItem * copiarInformacionItems(char * lineaLeida)
 {
 	tipoItem * aux = malloc (sizeof(tipoItem));
@@ -35,6 +36,7 @@ tipoItem * copiarInformacionItems(char * lineaLeida)
 	return aux;
 }
 
+//Importa el archivo items.txt y almacena su informacion dentro un mapa
 void importarArchivoItems(HashMap * mapaItems)
 {
 	//Se busca el archivo
@@ -57,6 +59,66 @@ void importarArchivoItems(HashMap * mapaItems)
 	fclose(archivo);
 }
 
+//Guarda la informacion actualizada durante la ejecucion del programa dentro del archivo items.txt
+void guardarInfoItems(HashMap * mapaItems)
+{
+	FILE * archivo = fopen("Archivos/items.txt", "w");
+    if(archivo == NULL) return;
+
+    fprintf(archivo,"Id;Encontrado;Nombre;Efecto;Tipo\n");
+    
+    for(int i = 1; i < 553; i++)
+    {
+        tipoItem * aux = firstMap(mapaItems);
+        while(aux != NULL)
+        {    
+            if(i == aux->ID)
+            {
+                fprintf(archivo, "%i;%i;%s;%s;%s\n", aux->ID, aux->encontrado, aux->nombre, aux->efecto, aux->tipoEfecto);
+            }
+            aux = nextMap(mapaItems);
+        }
+    }
+    fclose(archivo);
+}
+
+//Busca un Item a través de su nombre dentro del mapaItems e indica su información
+void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
+{
+	initscr();
+	tipoItem * itemBuscado = searchMap(mapaItems, nombreItem);
+	
+	if(itemBuscado != NULL)
+	{
+		printw("\n%s\n", itemBuscado->nombre);
+		if(itemBuscado->encontrado == 0)
+		{
+			attron(COLOR_PAIR(3));
+			wprintw(stdscr,"No encontrado \n");
+			attroff(COLOR_PAIR(3));
+		} 
+		else
+		{
+			attron(COLOR_PAIR(2));
+			wprintw(stdscr,"Encontrado \n");
+			attroff(COLOR_PAIR(2));
+		}
+		printw("Tipo de Objeto: ""%s\n", itemBuscado->tipoEfecto);
+		printw("Efecto: ""%s\n", itemBuscado->efecto);
+	}
+	else
+	{
+		attron(A_BOLD);
+		attron(COLOR_PAIR(3));
+		printw("\nEl item con nombre %s no existe\n", nombreItem);
+		attroff(A_BOLD);
+		attroff(COLOR_PAIR(3));
+	}
+	getch();
+	endwin();
+}
+
+//Muestra todos los items del juego, indicando si el usuario los encontro o no
 void mostrarTodosItems(HashMap * mapaItems)
 {
 	//Inicio del Ncurses.h
@@ -110,6 +172,7 @@ void mostrarTodosItems(HashMap * mapaItems)
 	endwin();
 }
 
+//Busca un item que el usuario haya encontrado, para actualizar el estado del item
 void encontrarItem(HashMap * mapaItems, char * nombreItem)
 {
 	initscr();
@@ -142,61 +205,4 @@ void encontrarItem(HashMap * mapaItems, char * nombreItem)
 	}
 	getch();
 	endwin();
-}
-
-void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
-{
-	initscr();
-	tipoItem * itemBuscado = searchMap(mapaItems, nombreItem);
-	
-	if(itemBuscado != NULL)
-	{
-		printw("\n%s\n", itemBuscado->nombre);
-		if(itemBuscado->encontrado == 0)
-		{
-			attron(COLOR_PAIR(3));
-			wprintw(stdscr,"No encontrado \n");
-			attroff(COLOR_PAIR(3));
-		} 
-		else
-		{
-			attron(COLOR_PAIR(2));
-			wprintw(stdscr,"Encontrado \n");
-			attroff(COLOR_PAIR(2));
-		}
-		printw("Tipo de Objeto: ""%s\n", itemBuscado->tipoEfecto);
-		printw("Efecto: ""%s\n", itemBuscado->efecto);
-	}
-	else
-	{
-		attron(A_BOLD);
-		attron(COLOR_PAIR(3));
-		printw("\nEl item con nombre %s no existe\n", nombreItem);
-		attroff(A_BOLD);
-		attroff(COLOR_PAIR(3));
-	}
-	getch();
-	endwin();
-}
-
-void guardarInfoItems(HashMap * mapaItems)
-{
-	FILE * archivo = fopen("Archivos/items.txt", "w");
-    if(archivo == NULL) return;
-
-    fprintf(archivo,"ID;ENCONTRADO;NOMBRE;EFECTO;TIPO\n");
-    
-    for(int i = 1; i < 553; i++)
-    {
-        tipoItem * aux = firstMap(mapaItems);
-        while(aux != NULL)
-        {    
-            if(i == aux->ID)
-            {
-                fprintf(archivo, "%i;%i;%s;%s;%s\n", aux->ID, aux->encontrado, aux->nombre, aux->efecto, aux->tipoEfecto);
-            }
-            aux = nextMap(mapaItems);
-        }
-    }
-    fclose(archivo);
 }

@@ -2,9 +2,9 @@
 #define ITEMS_H
 
 void importarArchivoItems(HashMap *);
+void guardarInfoItems(HashMap *);
+void buscarItemEspecifico(HashMap *, char *);
 void mostrarTodosItems(HashMap *);
 void encontrarItem(HashMap *, char *);
-void buscarItemEspecifico(HashMap *, char *);
-void guardarInfoItems(HashMap *);
 
 #endif

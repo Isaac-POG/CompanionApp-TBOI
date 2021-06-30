@@ -7,6 +7,7 @@
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
 
+//Se separa la informacion del personaje y se almacena en un tipoPersonaje
 tipoPersonaje * copiarInformacionPersonaje(char * lineaLeida)
 {
     tipoPersonaje * nuevoPersonaje = malloc (sizeof(tipoPersonaje));
@@ -34,9 +35,10 @@ tipoPersonaje * copiarInformacionPersonaje(char * lineaLeida)
 	return nuevoPersonaje;
 }
 
+//Se importa el archivo personajes.txt y almacena su informacion en un mapa
 void importarArchivoPersonajes(HashMap * mapaPersonajes)
 {
-    FILE * archivo = fopen("Archivos/characters.txt", "r");
+    FILE * archivo = fopen("Archivos/personajes.txt", "r");
     if(archivo == NULL) return;
 
     char lineaLeida[100];
@@ -52,38 +54,34 @@ void importarArchivoPersonajes(HashMap * mapaPersonajes)
     fclose(archivo);
 }
 
-void desbloquearPersonajes(HashMap * mapaPersonajes, char * nombrePersonaje)
+//Se guardan los cambios realizados durante la ejecucion del programa, y estos cambios se guardan en personajes.txt
+void guardarInfoPersonajes(HashMap * mapaPersonajes)
 {
-    initscr();
-    tipoPersonaje * aux = searchMap(mapaPersonajes, nombrePersonaje);
-    if(aux != NULL)
+    FILE * archivo = fopen("Archivos/personajes.txt", "w");
+    if(archivo == NULL) return;
+    fprintf(archivo,"ID,Personaje,Desbloqueado,Marcas\n");
+    
+    for(int i = 1; i < 16; i++)
     {
-        if(aux->desbloqueado != 1)
-        {
-            aux->desbloqueado = 1;
-            attron(COLOR_PAIR(2));
-            attron(A_BOLD);
-            printw("\n%s ahora esta desbloqueado!\n", aux->nombre);
-            attroff(COLOR_PAIR(2));
-            attroff(A_BOLD);
+        tipoPersonaje * aux = firstMap(mapaPersonajes);
+        while(aux != NULL)
+        {    
+            if(i == aux->ID)
+            {
+                fprintf(archivo, "%i,%s,%i", aux->ID, aux->nombre, aux->desbloqueado);
+                for(int j = 0; j < 10; j++)
+                {
+                    fprintf(archivo, ",%i", aux->marcas[j]);
+                }
+            }
+            aux = nextMap(mapaPersonajes);
         }
-        else
-        {
-            attron(COLOR_PAIR(4));
-            printw("\nEl personaje ingresado ya se encuentra desbloqueado\n");
-            attroff(COLOR_PAIR(4));
-        }
+        fprintf(archivo,"\n");
     }
-    else
-    {
-        attron(COLOR_PAIR(3));
-        printw("\nEl personaje ingresado no existe\n");
-        attroff(COLOR_PAIR(3));
-    }
-    getch();
-    endwin();
+    fclose(archivo);
 }
 
+//Funcion que muestra a todos los personajes, ordenados de la misma forma que en el juego
 void mostrarPersonajes(HashMap * mapaPersonajes)
 {
     initscr();
@@ -149,32 +147,44 @@ void mostrarPersonajes(HashMap * mapaPersonajes)
     endwin();
 }
 
-void guardarInfoPersonajes(HashMap * mapaPersonajes)
+//Función que actualiza la informacion de desbloqueo de un personaje
+void desbloquearPersonajes(HashMap * mapaPersonajes, char * nombrePersonaje)
 {
-    FILE * archivo = fopen("Archivos/characters.txt", "w");
-    if(archivo == NULL) return;
-    fprintf(archivo,"ID,Personaje,Desbloqueado,Marcas\n");
+    initscr();
+
+    tipoPersonaje * aux = searchMap(mapaPersonajes, nombrePersonaje);
     
-    for(int i = 1; i < 16; i++)
+    if(aux != NULL)
     {
-        tipoPersonaje * aux = firstMap(mapaPersonajes);
-        while(aux != NULL)
-        {    
-            if(i == aux->ID)
-            {
-                fprintf(archivo, "%i,%s,%i", aux->ID, aux->nombre, aux->desbloqueado);
-                for(int j = 0; j < 10; j++)
-                {
-                    fprintf(archivo, ",%i", aux->marcas[j]);
-                }
-            }
-            aux = nextMap(mapaPersonajes);
+        if(aux->desbloqueado != 1)
+        {
+            aux->desbloqueado = 1;
+            attron(COLOR_PAIR(2));
+            attron(A_BOLD);
+            printw("\n%s ahora esta desbloqueado!\n", aux->nombre);
+            attroff(COLOR_PAIR(2));
+            attroff(A_BOLD);
         }
-        fprintf(archivo,"\n");
+        else
+        {
+            attron(COLOR_PAIR(4));
+            printw("\nEl personaje ingresado ya se encuentra desbloqueado\n");
+            attroff(COLOR_PAIR(4));
+        }
     }
-    fclose(archivo);
+    else
+    {
+        attron(COLOR_PAIR(3));
+        printw("\nEl personaje ingresado no existe\n");
+        attroff(COLOR_PAIR(3));
+    }
+
+    getch();
+    
+    endwin();
 }
 
+//Funcion para actualizar la informacion respecto al avance en las marcas de logro de un personaje
 void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
 {
     initscr();

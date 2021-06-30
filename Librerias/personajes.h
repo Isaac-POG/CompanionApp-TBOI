@@ -1,8 +1,8 @@
 #ifndef PERSONAJES_H
 #define PERSONAJES_H
 
-void importarArchivoPersonajes(HashMap *);
-void guardarInfoPersonajes(HashMap *);
+void importarArchivoPersonajes(HashMap *, List *);
+void guardarInfoPersonajes(List *);
 void mostrarPersonajes(HashMap *);
 void desbloquearPersonajes(HashMap *, char *);
 void avanceMarcasLogros(HashMap *, char *);

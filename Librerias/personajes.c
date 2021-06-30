@@ -4,6 +4,7 @@
 #include <ncurses.h>
 
 #include "TDA_Mapa/hashmap.h"
+#include "TDA_Lista/list.h"
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
 
@@ -36,7 +37,7 @@ tipoPersonaje * copiarInformacionPersonaje(char * lineaLeida)
 }
 
 //Se importa el archivo personajes.txt y almacena su informacion en un mapa
-void importarArchivoPersonajes(HashMap * mapaPersonajes)
+void importarArchivoPersonajes(HashMap * mapaPersonajes, List * listaPersonajes)
 {
     FILE * archivo = fopen("Archivos/personajes.txt", "r");
     if(archivo == NULL) return;
@@ -49,34 +50,30 @@ void importarArchivoPersonajes(HashMap * mapaPersonajes)
     {
         tipoPersonaje * nuevoPersonaje = copiarInformacionPersonaje(lineaLeida);
         insertMap(mapaPersonajes, nuevoPersonaje->nombre, nuevoPersonaje);
+        pushBack(listaPersonajes, nuevoPersonaje);
     } 
 
     fclose(archivo);
 }
 
 //Se guardan los cambios realizados durante la ejecucion del programa, y estos cambios se guardan en personajes.txt
-void guardarInfoPersonajes(HashMap * mapaPersonajes)
+void guardarInfoPersonajes(List * listaPersonajes)
 {
     FILE * archivo = fopen("Archivos/personajes.txt", "w");
     if(archivo == NULL) return;
-    fprintf(archivo,"ID,Personaje,Desbloqueado,Marcas\n");
     
+    fprintf(archivo,"ID,Personaje,Desbloqueado,Marcas\n");
+    tipoPersonaje * aux = firstList(listaPersonajes);
+
     for(int i = 1; i < 16; i++)
     {
-        tipoPersonaje * aux = firstMap(mapaPersonajes);
-        while(aux != NULL)
-        {    
-            if(i == aux->ID)
-            {
-                fprintf(archivo, "%i,%s,%i", aux->ID, aux->nombre, aux->desbloqueado);
-                for(int j = 0; j < 10; j++)
-                {
-                    fprintf(archivo, ",%i", aux->marcas[j]);
-                }
-            }
-            aux = nextMap(mapaPersonajes);
+        fprintf(archivo, "%i,%s,%i", aux->ID, aux->nombre, aux->desbloqueado);
+        for(int j = 0; j < 10; j++)
+        {
+            fprintf(archivo, ",%i", aux->marcas[j]);
         }
         fprintf(archivo,"\n");
+        aux = nextList(listaPersonajes);
     }
     fclose(archivo);
 }

@@ -170,18 +170,68 @@ void esperarTecla()
 void pantallaInicial()
 {
 	initscr();
+	int largoPalabra = strlen("The Binding of Isaac");
+	int i;
+
+	//Bajar la cantidad de lineas necesarias para llegar al centro en Y
+	for(i = 0; i < LINES/2 - 1;i++)
+		printw("\n");
+
+	//Moverse para llegar al centro en X
+	attron(A_BOLD);
+	for(i = 0; i < (COLS - largoPalabra)/2;i++)
+		printw(" ");
+	printw("The Binding of Isaac\n");
+	
+	//Moverse para llegar al centro en X
+	for(i = 0; i < (COLS - largoPalabra)/2;i++)
+		printw(" ");
+	printw("    Companion App\n\n");
+
+	//Moverse para llegar al centro en X
+	largoPalabra = strlen("Apriete cualquier tecla para iniciar el programa");
+	for(i = 0; i < (COLS - largoPalabra)/2;i++)
+		printw(" ");
+
+	attron(COLOR_PAIR(4));
+
+	printw("Apriete cualquier tecla para iniciar el programa");
+	getch();
+
+	attroff(A_BOLD);
+	attroff(COLOR_PAIR(4));
+
 	clear();
 
-	FILE * archivo = fopen("Archivos/titulo.txt", "r");
-	char lineaLeida[300];
-	
-	while(fgets(lineaLeida, 299, archivo))
-	{
-		printw("%s", lineaLeida);
-	}
-
-	fclose(archivo);
-
-	esperarTecla();
 	endwin();
+}
+
+void pantallaFinal()
+{
+	clear();
+	int largoPalabra = strlen("Fin del Programa");
+	int i;
+
+	//Bajar la cantidad de lineas necesarias para llegar al centro en Y
+	for(i = 0; i < LINES/2 - 1;i++)
+		printw("\n");
+	
+	attron(COLOR_PAIR(3));
+	for(i = 0; i < (COLS - largoPalabra)/2;i++)
+		printw(" ");
+
+	printw("Fin del Programa\n");
+	attroff(COLOR_PAIR(3));
+	
+	attron(COLOR_PAIR(4));
+	
+	largoPalabra = strlen("Gracias por usar el programa!");
+	
+	for(i = 0; i < (COLS - largoPalabra)/2;i++)
+		printw(" ");
+
+	printw("Gracias por usar el programa!");
+	attroff(COLOR_PAIR(4));
+	
+	getch();
 }

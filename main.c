@@ -55,11 +55,7 @@ int main()
 	free(listaPersonajes);
 	free(listaItems);
 
-	clear();
-	attron(COLOR_PAIR(4));
-	printw("FIN DEL PROGRAMA\n");
-	attroff(COLOR_PAIR(4));
-	getch();
+	pantallaFinal();
 
 	//Fin de la libreria ncurses.h
 	endwin();

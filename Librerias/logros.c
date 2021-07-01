@@ -52,9 +52,12 @@ void importarArchivoLogros(HashMap * mapaLogros){
     fclose(archivo);
 }
 
-void mostrarLogros(HashMap * mapaLogros){
+void mostrarLogros(HashMap * mapaLogros)
+{
     initscr();
+
     scrollok(stdscr, TRUE);
+
     tipoLogro * aux = firstMap(mapaLogros);
     
     for(int j=1; j<404 ; j++){
@@ -76,11 +79,10 @@ void mostrarLogros(HashMap * mapaLogros){
             
             aux = nextMap(mapaLogros);
         }
-        if(j % 20 == 0 || j == 403) 
+        if(j % (stdscr->_maxy - 1) == 0 || j == 403) 
         {
-            printw("\nIngrese cualquier tecla para avanzar");
-            getch();
-            clear();
+            wrefresh(stdscr);
+            esperarTecla();
             wrefresh(stdscr);
         }
     }
@@ -106,7 +108,7 @@ void buscarLogroEspecifico(HashMap * mapaLogros, int id)
     printw("\nNombre: %s",aux->nombre);
     printw("\nDescripcion: %s\n",aux->descripcion);
     printw("Como conseguir:\n%s",aux->comoConseguir);
-    getch();
+    esperarTecla();
     endwin();
 }
 
@@ -132,6 +134,6 @@ void desbloquearLogro(HashMap * mapaLogros, int id){
         printw("Bloqueado");
     }
     printw("\nNombre: %s",aux->nombre);
-    getch();
+    esperarTecla();
     endwin();
 }

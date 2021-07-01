@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <ncurses.h>
 
+#include "TDA_Lista/list.h"
 #include "TDA_Mapa/hashmap.h"
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
@@ -37,7 +38,7 @@ tipoItem * copiarInformacionItems(char * lineaLeida)
 }
 
 //Importa el archivo items.txt y almacena su informacion dentro un mapa
-void importarArchivoItems(HashMap * mapaItems)
+void importarArchivoItems(HashMap * mapaItems, List * listaItems)
 {
 	//Se busca el archivo
 	FILE * archivo = fopen("Archivos/items.txt", "r");
@@ -53,6 +54,7 @@ void importarArchivoItems(HashMap * mapaItems)
 	{
 		tipoItem * nuevoItem = copiarInformacionItems(lineaLeida);
 		insertMap(mapaItems, nuevoItem->nombre, nuevoItem);
+		pushBack(listaItems, nuevoItem);
 	}
 
 	//Se cierra el archivo
@@ -60,24 +62,18 @@ void importarArchivoItems(HashMap * mapaItems)
 }
 
 //Guarda la informacion actualizada durante la ejecucion del programa dentro del archivo items.txt
-void guardarInfoItems(HashMap * mapaItems)
+void guardarInfoItems(List * listaItems)
 {
 	FILE * archivo = fopen("Archivos/items.txt", "w");
     if(archivo == NULL) return;
 
     fprintf(archivo,"Id;Encontrado;Nombre;Efecto;Tipo\n");
     
-    for(int i = 1; i < 553; i++)
-    {
-        tipoItem * aux = firstMap(mapaItems);
-        while(aux != NULL)
-        {    
-            if(i == aux->ID)
-            {
-                fprintf(archivo, "%i;%i;%s;%s;%s\n", aux->ID, aux->encontrado, aux->nombre, aux->efecto, aux->tipoEfecto);
-            }
-            aux = nextMap(mapaItems);
-        }
+    tipoItem * aux = firstList(listaItems);
+    while(aux != NULL)
+    {    
+        fprintf(archivo, "%i;%i;%s;%s;%s\n", aux->ID, aux->encontrado, aux->nombre, aux->efecto, aux->tipoEfecto);
+        aux = nextList(listaItems);
     }
     fclose(archivo);
 }
@@ -114,12 +110,13 @@ void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
 		attroff(A_BOLD);
 		attroff(COLOR_PAIR(3));
 	}
-	getch();
+
+	esperarTecla();
 	endwin();
 }
 
 //Muestra todos los items del juego, indicando si el usuario los encontro o no
-void mostrarTodosItems(HashMap * mapaItems)
+void mostrarTodosItems(List * listaItems)
 {
 	//Inicio del Ncurses.h
 	initscr();
@@ -127,48 +124,50 @@ void mostrarTodosItems(HashMap * mapaItems)
 	//Activar el scroll
 	scrollok(stdscr, TRUE);
 
-	for(int i = 1; i < 553; i++)
+	tipoItem * aux = firstList(listaItems);
+	int i = 1;
+	printw("Nombre                 Encontrado\n");			
+	while(aux != NULL)
 	{
-		tipoItem * aux = firstMap(mapaItems);
-		while(aux != NULL)
-		{
-			if(aux->ID == i)
-			{
-				attron(A_BOLD);
-				attron(COLOR_PAIR(4));
-				wprintw(stdscr,"%s ", aux->nombre);
-				attroff(COLOR_PAIR(4));
-				attroff(A_BOLD);
-				if(strlen(aux->nombre) < 22){
-                    for(int k = strlen(aux->nombre); k < 22; k++){
-                        wprintw(stdscr," ");
-                    }
-                }
+		attron(A_BOLD);
+		attron(COLOR_PAIR(4));
 
-				//Diferenciar entre si se encontro el item o no
-				if(aux->encontrado == 0)
-				{
-					attron(COLOR_PAIR(3));
-					wprintw(stdscr,"No encontrado \n");
-					attroff(COLOR_PAIR(3));
-				} 
-				else
-				{
-					attron(COLOR_PAIR(2));
-					wprintw(stdscr,"Encontrado \n" );
-					attroff(COLOR_PAIR(2));
-				}
-			}
-			aux = nextMap(mapaItems);
-		}
-		if(i % 20 == 0 || i == 552)
+		wprintw(stdscr,"%s ",aux->nombre);
+
+		attroff(COLOR_PAIR(4));
+		attroff(A_BOLD);
+
+		if(strlen(aux->nombre) < 22)
 		{
-			printw("\nIngrese cualquier tecla para avanzar");
-			getch();
-			clear();
-			wrefresh(stdscr);
+            for(int k = strlen(aux->nombre); k < 22; k++) wprintw(stdscr," ");
+        }
+
+		//Diferenciar entre si el usuario encontro o no el item
+		if(aux->encontrado == 0)
+		{
+			attron(COLOR_PAIR(3));
+			wprintw(stdscr,"No encontrado \n");
+			attroff(COLOR_PAIR(3));
+		} 
+		else
+		{
+			attron(COLOR_PAIR(2));
+			wprintw(stdscr,"Encontrado \n" );
+			attroff(COLOR_PAIR(2));
 		}
+
+		//Pausa para poder ver los items, la cantidad depende del tamaño de la terminal
+		if(i % (stdscr->_maxy - 2) == 0 || i == 546)
+		{
+			wrefresh(stdscr);
+			esperarTecla();
+			printw("Nombre                 Encontrado\n");
+		}
+
+		aux = nextList(listaItems);
+		i++;
 	}
+
 	endwin();
 }
 
@@ -203,6 +202,7 @@ void encontrarItem(HashMap * mapaItems, char * nombreItem)
 		printw("\nEl item con nombre %s no existe\n", nombreItem);
 		attroff(COLOR_PAIR(3));
 	}
-	getch();
+
+	esperarTecla();
 	endwin();
 }

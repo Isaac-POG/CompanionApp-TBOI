@@ -3,14 +3,44 @@
 #include <string.h>
 #include <ctype.h>
 
+WINDOW * crearVentana(int cantOpciones)
+{
+	//Limpiar pantalla
+	clear();
+
+	//Dependiendo del tamaño de la terminal, ajustarlo para nuestro uso y centrarlo
+    WINDOW * ventana = newwin(cantOpciones, COLS/2, (LINES - cantOpciones)/2, (COLS)/4);
+
+    //Activar las teclas de flechas
+    keypad(ventana, TRUE);
+	return ventana;
+}
+
+void iniciarColores()
+{
+	initscr();
+
+	start_color();
+
+	//Letras blancas con fondo negro
+	init_pair(1,COLOR_WHITE,COLOR_BLACK);
+	
+	//Letras verdes con fondo negro
+	init_pair(2,COLOR_GREEN,COLOR_BLACK);
+	
+	//Letras rojas con fondo negro
+	init_pair(3,COLOR_RED,COLOR_BLACK);
+
+	//Letras cian con fondo negro
+	init_pair(4,COLOR_CYAN,COLOR_BLACK);
+}
+
 void convertirMayuscula(char * cadena)
 {
 	int largo = strlen(cadena);
 	
 	for(int i = 0; i < largo; i++)
-	{
 		cadena[i] = toupper(cadena[i]);
-	}
 }
 
 int valorNumericoMarca(char * nombreMarca)
@@ -62,6 +92,9 @@ int valorNumericoMarca(char * nombreMarca)
 void mostrarMarcas(int i)
 {
 	initscr();
+
+	attron(COLOR_PAIR(4));
+
 	switch (i)
 	{
 	case 0:
@@ -95,6 +128,9 @@ void mostrarMarcas(int i)
 		printw("/Delirium ");
 		break;
 	}
+
+	attroff(COLOR_PAIR(4));
+
 	endwin();
 }
 
@@ -113,24 +149,21 @@ void mostrarPersonaje(char * nombre, int * marcas)
 	endwin();
 }
 
-void mostrarNombres()
+void esperarTecla()
 {
 	initscr();
-	printw("[""ISAAC""] ");
-	printw("[""MAGDALANE""] ");
-	printw("[""CAIN""] ");
-	printw("[""JUDAS""] ");
-	printw("[""???""] ");
-	printw("[""EVE""] ");
-	printw("[""SAMSON""] ");
-	printw("[""AZAZEL""] ");
-	printw("[""LAZARUS""] ");
-	printw("[""EDEN""] ");
-	printw("[""THE LOST""] ");
-	printw("[""LILITH""] ");
-	printw("[""THE KEEPER""] ");
-	printw("[""APOLLYON""] ");
-	printw("[""THE FORGOTTEN""]\n");
+	
+	attron(A_BOLD);
+	attron(COLOR_PAIR(4));
+
+	printw("\nApriete cualquier tecla para avanzar");
+	getch();
+
+	attroff(A_BOLD);
+	attroff(COLOR_PAIR(4));
+
+	clear();
+
 	endwin();
 }
 
@@ -146,28 +179,9 @@ void pantallaInicial()
 	{
 		printw("%s", lineaLeida);
 	}
+
 	fclose(archivo);
 
-	getch();
-	clear();
+	esperarTecla();
 	endwin();
-}
-
-void iniciarColores()
-{
-	initscr();
-
-	start_color();
-
-	//Letras blancas con fondo negro
-	init_pair(1,COLOR_WHITE,COLOR_BLACK);
-	
-	//Letras verdes con fondo negro
-	init_pair(2,COLOR_GREEN,COLOR_BLACK);
-	
-	//Letras rojas con fondo negro
-	init_pair(3,COLOR_RED,COLOR_BLACK);
-
-	//Letras cian con fondo negro
-	init_pair(4,COLOR_CYAN,COLOR_BLACK);
 }

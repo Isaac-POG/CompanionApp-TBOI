@@ -1,10 +1,10 @@
 #ifndef ITEMS_H
 #define ITEMS_H
 
-void importarArchivoItems(HashMap *);
-void guardarInfoItems(HashMap *);
+void importarArchivoItems(HashMap *, List *);
+void guardarInfoItems(List *);
 void buscarItemEspecifico(HashMap *, char *);
-void mostrarTodosItems(HashMap *);
+void mostrarTodosItems(List *);
 void encontrarItem(HashMap *, char *);
 
 #endif

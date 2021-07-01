@@ -538,7 +538,7 @@ Id;Encontrado;Nombre;Efecto;Tipo
 542;0;SLIPPED RIB;Un familiar que orbita alrededor de isaac y refleja proyectles.;PASIVO
 543;0;HALLOWED GROUND;Un familiar caca blanca sigue a isaac, y se convierte en una caca blanca cuando isaac recibe dano. mientras este en su aura, mejora su cadencia y puede anular el dano.;PASIVO
 544;0;POINTY RIB;Un familiar que ataca frente a isaac, causando dano igual al dano de isaac.;PASIVO
-545;0;BOOK OF THE DEAS;Al activarlo, tiene una probabilidad de hacer aparecer un bony aliado o hueso orbital por cada enemigo matado en la habitacion actual.;ACTIVO
+545;0;BOOK OF THE DEADS;Al activarlo, tiene una probabilidad de hacer aparecer un bony aliado o hueso orbital por cada enemigo matado en la habitacion actual.;ACTIVO
 546;0;DAD'S RING;Crea un anillo de luz alrededor de isaac que petrifica a los enemigos con los que entra en contacto.;PASIVO
 547;0;DIVORCE PAPERS;Da un corazon de hueso, lagrimas +0.7 y suelta mysterious paper.;PASIVO
 548;0;JAW BONE;Un familiar que vuela por la habitacion mientras isaac este disparando, causando 7 de dano y trayendo recursos.;PASIVO

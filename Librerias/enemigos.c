@@ -94,7 +94,8 @@ void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
     tipoEnemigo * aux = searchMap(mapaEnemigos,nombreEnemigo);
     if(!aux){
         printw("\nEl enemigo que ingreso no existe\n");
-        getch();
+        esperarTecla();
+        endwin();
         return;
     }
     printw("\nID: %d ",aux->ID);
@@ -118,7 +119,7 @@ void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
         printw("\n");
     }
 
-    getch();
+    esperarTecla();
     endwin();
 }
 
@@ -145,12 +146,10 @@ void mostrarEnemigos(HashMap * mapaEnemigos){
 			}
 			aux = nextMap(mapaEnemigos);
 		}
-		if(i % 20 == 0 || i == 282)
+		if(i % (stdscr->_maxy - 1) == 0 || i == 282)
 		{
-			printw("\nIngrese cualquier tecla para avanzar");
-			getch();
-			clear();
 			wrefresh(stdscr);
+			esperarTecla();
 		}
 	}
     endwin();
@@ -177,6 +176,6 @@ void encontrarEnemigo(HashMap * mapaEnemigos, char * nombreEnemigo){
 	{
 		printw("\nEl item con nombre %s no existe\n", nombreEnemigo);
 	}
-	getch();
+	esperarTecla();
 	endwin();
 }

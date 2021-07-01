@@ -79,68 +79,69 @@ void guardarInfoPersonajes(List * listaPersonajes)
 }
 
 //Funcion que muestra a todos los personajes, ordenados de la misma forma que en el juego
-void mostrarPersonajes(HashMap * mapaPersonajes)
+void mostrarPersonajes(List * listaPersonajes)
 {
     initscr();
-    for(int i = 1; i < 16; i++)
-    {
-        tipoPersonaje * aux = firstMap(mapaPersonajes);
-        while(aux != NULL)
-        {    
-            if(i == aux->ID)
+    tipoPersonaje * aux = firstList(listaPersonajes);
+    while(aux != NULL)
+    {    
+        attron(A_BOLD);
+        printw("%s ", aux->nombre);
+        attroff(A_BOLD);
+        for(int largo = strlen(aux->nombre) ; largo < 13 ; largo++){
+            printw(" ");
+        }
+        
+        if(aux->desbloqueado == 0)
+        {
+            attron(COLOR_PAIR(3));
+            attron(A_BOLD);
+            printw("Bloqueado    ");
+            attroff(COLOR_PAIR(3));
+            attroff(A_BOLD);
+        } 
+        else
+        {
+            attron(COLOR_PAIR(2));
+            attron(A_BOLD);
+            printw("Desbloqueado ");
+            attroff(COLOR_PAIR(2));
+            attroff(A_BOLD);
+        } 
+
+        for(int j = 0; j < 10; j++)
+        {
+            mostrarMarcas(j);
+            if(aux->marcas[j] == 0)
             {
                 attron(A_BOLD);
-                printw("%s ", aux->nombre);
+                attron(COLOR_PAIR(3));
+                printw("NO      ");
                 attroff(A_BOLD);
-                for(int largo = strlen(aux->nombre) ; largo < 13 ; largo++){
-                    printw(" ");
-                }
-                
-                if(aux->desbloqueado == 0)
-                {
-                    attron(COLOR_PAIR(3));
-                    attron(A_BOLD);
-                    printw("Bloqueado    ");
-                    attroff(COLOR_PAIR(3));
-                    attroff(A_BOLD);
-                } 
-                else
-                {
-                    attron(COLOR_PAIR(2));
-                    attron(A_BOLD);
-                    printw("Desbloqueado ");
-                    attroff(COLOR_PAIR(2));
-                    attroff(A_BOLD);
-                } 
-
-                for(int j = 0; j < 10; j++)
-                {
-                    mostrarMarcas(j);
-                    if(aux->marcas[j] == 0)
-                    {
-                        attron(COLOR_PAIR(3));
-                        printw("NO      ");
-                        attroff(COLOR_PAIR(3));
-                    } 
-                    else if(aux->marcas[j] == 1)
-                    {
-                        attron(COLOR_PAIR(4));
-                        printw("NORMAL  ");
-                        attroff(COLOR_PAIR(4));
-                    }
-                    else 
-                    {
-                        attron(COLOR_PAIR(2));
-                        printw("DIFICIL ");
-                        attroff(COLOR_PAIR(2));
-                    }
-                }
+                attroff(COLOR_PAIR(3));
+            } 
+            else if(aux->marcas[j] == 1)
+            {
+                attron(A_BOLD);
+                attron(COLOR_PAIR(4));
+                printw("NORMAL  ");
+                attroff(A_BOLD);
+                attroff(COLOR_PAIR(4));
             }
-            aux = nextMap(mapaPersonajes);
+            else 
+            {
+                attron(A_BOLD);
+                attron(COLOR_PAIR(2));
+                printw("DIFICIL ");
+                attroff(A_BOLD);
+                attroff(COLOR_PAIR(2));
+            }
         }
         printw("\n");
+        aux = nextList(listaPersonajes);
     }
-    getch();
+    
+    esperarTecla();
     endwin();
 }
 
@@ -176,7 +177,7 @@ void desbloquearPersonajes(HashMap * mapaPersonajes, char * nombrePersonaje)
         attroff(COLOR_PAIR(3));
     }
 
-    getch();
+    esperarTecla();
     
     endwin();
 }
@@ -237,6 +238,7 @@ void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
         attroff(COLOR_PAIR(3));
         attroff(A_BOLD);
     }
-    getch();
+
+    esperarTecla();
     endwin();
 }

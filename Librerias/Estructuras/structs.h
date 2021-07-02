@@ -3,7 +3,6 @@
 
 typedef struct tipoPersonaje
 {
-    int ID;
     int desbloqueado;
     char nombre[13];
     int marcas[10];

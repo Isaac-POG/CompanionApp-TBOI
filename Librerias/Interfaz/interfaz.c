@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
+//Funcion para crear el espacio usado por el menu
 WINDOW * crearVentana(int cantOpciones)
 {
 	//Limpiar pantalla
@@ -16,6 +17,7 @@ WINDOW * crearVentana(int cantOpciones)
 	return ventana;
 }
 
+//Funcion para iniciar los colores que usamos en el programa
 void iniciarColores()
 {
 	initscr();
@@ -36,6 +38,7 @@ void iniciarColores()
 	endwin();
 }
 
+//Funcion para convertir cualquier cadena en una cadena compuesta de puras mayusculas
 void convertirMayuscula(char * cadena)
 {
 	int largo = strlen(cadena);
@@ -44,6 +47,7 @@ void convertirMayuscula(char * cadena)
 		cadena[i] = toupper(cadena[i]);
 }
 
+//Funcion para indicar la posicion de la marca de logro
 int valorNumericoMarca(char * nombreMarca)
 {
 	convertirMayuscula(nombreMarca);
@@ -90,6 +94,7 @@ int valorNumericoMarca(char * nombreMarca)
 	else return 10;
 }
 
+//Funcion para mostrar los nombres de las marcas de logro
 void mostrarMarcas(int i)
 {
 	initscr();
@@ -137,11 +142,14 @@ void mostrarMarcas(int i)
 	endwin();
 }
 
+//Funcion para mostrar de dos formas la informacion de los personajes
 void mostrarPersonaje(char * nombre, int desbloqueado, int * marcas, int tipoMostrar)
 {
 	initscr();
+
 	printw("%s ", nombre);
-	
+
+	//Segun la funcion que necesita mostrar la informacion se muestra de una u otra forma	
 	if(tipoMostrar == 0)
 	{
 		for(int i = 0; i < 10; i++)
@@ -211,24 +219,29 @@ void mostrarPersonaje(char * nombre, int desbloqueado, int * marcas, int tipoMos
 	endwin();
 }
 
+//Funcion para esperar que el usuario avance
 void esperarTecla()
 {
 	initscr();
 	
+	//Se pone la letra en negrita y en color cian
 	attron(A_BOLD);
 	attron(COLOR_PAIR(4));
 
+	//Espera que se apriete cualquier tecla
 	printw("\nApriete cualquier tecla para avanzar");
 	getch();
 
 	attroff(A_BOLD);
 	attroff(COLOR_PAIR(4));
 
+	//Limpia la pantalla
 	clear();
 
 	endwin();
 }
 
+//Funcion para mostrar la pantalla de inicio del programa
 void pantallaInicial()
 {
 	initscr();
@@ -268,6 +281,7 @@ void pantallaInicial()
 	endwin();
 }
 
+//Funcion para mostrar la pantalla final del programa
 void pantallaFinal()
 {
 	clear();

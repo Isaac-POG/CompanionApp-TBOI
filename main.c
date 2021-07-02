@@ -184,18 +184,18 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		getch();
 		break;	
 	case 2:
-		printw("\nIngrese el nombre del item: ");
+		printw("Ingrese el nombre del item: ");
 		scanw("%39[^\n]s", nombreBuscado);
 		convertirMayuscula(nombreBuscado);
 		buscarItemEspecifico(mapaItems, nombreBuscado);
 		break;
 	case 3:
-		printw("\nIngrese el ID del logro: ");
+		printw("Ingrese el ID del logro: ");
 		scanw("%i", &idBuscado);
 		buscarLogroEspecifico(mapaLogros, idBuscado);
 		break;
 	case 4:
-		printw("\nIngrese el nombre del enemigo: ");
+		printw("Ingrese el nombre del enemigo: ");
 		scanw("%39[^\n]s", nombreBuscado);
 		convertirMayuscula(nombreBuscado);
 		buscarEnemigoEspecifico(mapaEnemigos, nombreBuscado);
@@ -213,27 +213,24 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		mostrarEnemigos(mapaEnemigos);
 		break;
 	case 9:
-		desbloquearPersonajes(mapaPersonajes,listaPersonajes);
+		desbloquearPersonajes(listaPersonajes,mapaPersonajes);
 		break;
 	case 10:
-		printw("\nIngrese el nombre del personaje: ");
-		scanw("%39[^\n]s", nombreBuscado);
-		convertirMayuscula(nombreBuscado);
-		avanceMarcasLogros(mapaPersonajes, nombreBuscado);
+		avanceMarcasLogros(listaPersonajes,mapaPersonajes);
 		break;
 	case 11:
-		printw("\nIngrese el nombre del Item que encontro: ");
+		printw("Ingrese el nombre del Item que encontro: ");
 		scanw("%39[^\n]s", nombreBuscado);
 		convertirMayuscula(nombreBuscado);
 		encontrarItem(mapaItems, nombreBuscado);
 		break;
 	case 12:
-		printw("\nIngrese el ID del logro que desbloqueo: ");
+		printw("Ingrese el ID del logro que desbloqueo: ");
 		scanw("%i", &idBuscado);
 		desbloquearLogro(mapaLogros, idBuscado);
 		break;
 	case 13:
-		printw("\nIngrese el nombre del enemigo que encontro: ");
+		printw("Ingrese el nombre del enemigo que encontro: ");
 		scanw("%39[^\n]s", nombreBuscado);
 		convertirMayuscula(nombreBuscado);
 		encontrarEnemigo(mapaEnemigos,nombreBuscado);

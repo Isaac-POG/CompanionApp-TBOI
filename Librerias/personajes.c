@@ -14,12 +14,8 @@ tipoPersonaje * copiarInformacionPersonaje(char * lineaLeida)
     tipoPersonaje * nuevoPersonaje = malloc (sizeof(tipoPersonaje));
 	char * fragmento;
 
-    //ID Personaje
-	fragmento = strtok(lineaLeida, ",");
-	nuevoPersonaje->ID = strtol(fragmento, NULL, 10);
-
 	//Nombre Personaje
-	fragmento = strtok(NULL, ",");
+	fragmento = strtok(lineaLeida, ",");
 	strcpy(nuevoPersonaje->nombre, fragmento);
 
 	//Personaje desbloqueado
@@ -39,13 +35,16 @@ tipoPersonaje * copiarInformacionPersonaje(char * lineaLeida)
 //Se importa el archivo personajes.txt y almacena su informacion en un mapa
 void importarArchivoPersonajes(HashMap * mapaPersonajes, List * listaPersonajes)
 {
+    //Se abre el archivo que almacena la informacion
     FILE * archivo = fopen("Archivos/personajes.txt", "r");
     if(archivo == NULL) return;
 
     char lineaLeida[100];
 
+    //Se elimina la primera linea
     fgets(lineaLeida, 99, archivo);
 
+    //Se copia la informacion en el mapa y en la lista
     while(fgets(lineaLeida, 99, archivo))
     {
         tipoPersonaje * nuevoPersonaje = copiarInformacionPersonaje(lineaLeida);
@@ -53,21 +52,25 @@ void importarArchivoPersonajes(HashMap * mapaPersonajes, List * listaPersonajes)
         pushBack(listaPersonajes, nuevoPersonaje);
     } 
 
+    //Se cierra el archivo
     fclose(archivo);
 }
 
 //Se guardan los cambios realizados durante la ejecucion del programa, y estos cambios se guardan en personajes.txt
 void guardarInfoPersonajes(List * listaPersonajes)
 {
+    //Se abre el archivo que contiene a los personajes
     FILE * archivo = fopen("Archivos/personajes.txt", "w");
     if(archivo == NULL) return;
     
-    fprintf(archivo,"ID,Personaje,Desbloqueado,Marcas\n");
+    //Se copia la primera linea
+    fprintf(archivo,"Personaje,Desbloqueado,Marcas\n");
     tipoPersonaje * aux = firstList(listaPersonajes);
 
+    //Se recorre la lista para copiar la información actualizada
     while(aux != NULL)
     {
-        fprintf(archivo, "%i,%s,%i", aux->ID, aux->nombre, aux->desbloqueado);
+        fprintf(archivo, "%s,%i", aux->nombre, aux->desbloqueado);
         for(int j = 0; j < 10; j++)
         {
             fprintf(archivo, ",%i", aux->marcas[j]);
@@ -75,6 +78,8 @@ void guardarInfoPersonajes(List * listaPersonajes)
         fprintf(archivo,"\n");
         aux = nextList(listaPersonajes);
     }
+
+    //Se cierra el archivo
     fclose(archivo);
 }
 
@@ -95,6 +100,7 @@ void mostrarPersonajes(HashMap * mapaPersonajes, List * listaPersonajes)
         auxRecorrido = nextList(listaPersonajes);
     }
 
+    //Se crea la opcion para salir del menu
     strcpy(personajes[j], "Salir del Menu");
     j++;
 
@@ -150,13 +156,12 @@ void mostrarPersonajes(HashMap * mapaPersonajes, List * listaPersonajes)
 }
 
 //Función que actualiza la informacion de desbloqueo de un personaje
-void desbloquearPersonajes(HashMap * mapaPersonajes, List * listaPersonajes)
+void desbloquearPersonajes(List * listaPersonajes, HashMap * mapaPersonajes)
 {
     initscr();
 
     char personajes[16][25];
     int j = 0, eleccion = -1, iluminar = 0;
-
     tipoPersonaje * auxRecorrido = firstList(listaPersonajes);
     
     //Se almacena en un arreglo de cadenas, todos los personajes que no se hayan desbloqueado
@@ -170,7 +175,7 @@ void desbloquearPersonajes(HashMap * mapaPersonajes, List * listaPersonajes)
         auxRecorrido = nextList(listaPersonajes);
     }
 
-    //Si estan todos desbloqueados
+    //Si estan todos los personajes desbloqueados
     if(j == 0)
     {
         printw("Ha desbloqueado todos los personajes\n");
@@ -179,6 +184,7 @@ void desbloquearPersonajes(HashMap * mapaPersonajes, List * listaPersonajes)
         return;
     }
 
+    //Se crea la opcion salir menu
     strcpy(personajes[j], "Salir del Menu");
     j++;
 
@@ -218,78 +224,153 @@ void desbloquearPersonajes(HashMap * mapaPersonajes, List * listaPersonajes)
             if(iluminar == j) iluminar = 0; //Si llega al final mueve el cursor al inicio del menu
             break;
         case 10: //Si se apreta la tecla ENTER, significa que se quiere usar una opcion del menu
-            if(iluminar != j - 1)
+            if(iluminar != j - 1) //Si el usuario no se encuentra en la ultima opcion
             {
+                //Se desbloquea al personaje
                 tipoPersonaje * nuevoPersonaje = searchMap(mapaPersonajes, personajes[iluminar]);
                 nuevoPersonaje->desbloqueado = 1;
                 clear();
                 printw("%s ahora se encuentra DESBLOQUEADO", nuevoPersonaje->nombre);
                 esperarTecla();
-                endwin();
             }
+            endwin();
             return;
         }
 
     }
 }
 
-//Funcion para actualizar la informacion respecto al avance en las marcas de logro de un personaje
-void avanceMarcasLogros(HashMap * mapaPersonajes, char * nombrePersonaje)
+//Funcion para calcular el avance de las marcas de cada personaje
+int calculoMarcas(tipoPersonaje * personajeActual)
 {
-    initscr();
-    tipoPersonaje * aux = searchMap(mapaPersonajes, nombrePersonaje);
-    int  opcion;
-    char respuesta[20];
-
-    if(aux != NULL)
+    int calculoMarcas = 0;
+    
+    //Se recorre el arreglo marcas
+    for(int i = 0; i < 10; i++)
     {
-        if(aux->desbloqueado == 1)
-        {
-            mostrarPersonaje(aux->nombre, aux->desbloqueado,aux->marcas, 0);
+        if(personajeActual->marcas[i] == 1) calculoMarcas += 1; //Dificultad normal
+        else if (personajeActual->marcas[i] == 2) calculoMarcas += 2; //Dificultad dificil
+    }
 
-            do
+    return calculoMarcas;
+}
+
+//Funcion para actualizar la informacion respecto al avance en las marcas de logro de un personaje
+void avanceMarcasLogros(List * listaPersonajes, HashMap * mapaPersonajes)
+{
+    char personajes[16][25];
+    char respuesta[20];
+    int opcion;
+    int j = 0, eleccion = -1, iluminar = 0;
+
+    tipoPersonaje * auxRecorrido = firstList(listaPersonajes);
+    
+    //Se almacena en un arreglo de cadenas, todos los personajes desbloqueados y que no esten completados
+    while(auxRecorrido != NULL)
+    {
+        if(auxRecorrido->desbloqueado == 1 && calculoMarcas(auxRecorrido) != 20) 
+        {
+            strcpy(personajes[j], auxRecorrido->nombre);
+            j++;
+        }
+        auxRecorrido = nextList(listaPersonajes);
+    }
+
+    //Si no se puede avanzar más con los personajes actuales
+    if(j == 0)
+    {
+        printw("Ha logrado avanzar en marcas de logros con todos los personajes desbloqueados\n");
+        esperarTecla();
+        endwin();
+        return;
+    }
+
+    //Se crea una opcion para salir del menu
+    strcpy(personajes[j], "Salir del Menu");
+    j++;
+
+    //Se crea la ventana que contendra al menu
+    WINDOW * ventana;
+    
+    while(eleccion)
+    {
+        //Establecer el tamaño del menu
+        ventana = crearVentana(j + 2);
+        
+        //Delimitar el menu
+        box(ventana, 0, 0);
+        refresh();
+        
+        //Muestra los posibles personajes
+        for(int i = 0; i < j; i++)
+        {
+            //Si es la posicion actual, la ilumina
+            if(i == iluminar) wattron(ventana, A_REVERSE);
+
+            //Si no, la muestra como texto plano
+            mvwprintw(ventana, i+1, 1, personajes[i]);
+            wattroff(ventana, A_REVERSE);
+        }
+
+        //El usuario ingresa alguna entrada desde el teclado (sin necesidad de usar enter)
+        eleccion = wgetch(ventana);
+
+        switch (eleccion) //Dependiendo de la elección
+        {
+        case KEY_UP:
+            iluminar--;
+            if(iluminar == -1) iluminar = j - 1; //Si llega hasta arriba, mueve el cursor al final del menu
+            break;
+        case KEY_DOWN:
+            iluminar++;
+            if(iluminar == j) iluminar = 0; //Si llega al final mueve el cursor al inicio del menu
+            break;
+        case 10: //Si se apreta la tecla ENTER, significa que se quiere usar una opcion del menu
+            if(iluminar != j - 1) //Si no es la opcion salir menu
             {
-                printw("\nCual marca logro: ");
-                scanw("%19[^\n]s", respuesta);
-                convertirMayuscula(respuesta);
-                opcion = valorNumericoMarca(respuesta);
-                if(opcion < 0 || opcion > 9) printw("\nNo existe tal marca\n");
-            } while (opcion < 0 || opcion > 9);
-            
-            if(aux->marcas[opcion - 1] == 2) printw("\nLa marca ya se logro\n");
-            else
-            {
+                //Se busca el personaje en el mapa, y se muestra por pantalla
+                tipoPersonaje * nuevoPersonaje = searchMap(mapaPersonajes, personajes[iluminar]);
+                clear();
+                mostrarPersonaje(nuevoPersonaje->nombre, nuevoPersonaje->desbloqueado,nuevoPersonaje->marcas, 0);
                 
+                //El usuario ingresa el logro que quiere actualizar
                 do
                 {
-                    printw("\nLo realizo en ""NORMAL ""O ""DIFICIL"": ");
-                    scanw("%19s", respuesta);
+                    printw("\nCual marca logro: ");
+                    scanw("%19[^\n]s", respuesta);
                     convertirMayuscula(respuesta);
-                    if(strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0) printw("\nNo existe tal opcion\n");
-                } while (strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0);
+                    opcion = valorNumericoMarca(respuesta);
+                    if(opcion < 0 || opcion > 9) printw("\nNo existe tal marca\n");
+                } while (opcion < 0 || opcion > 9);
+            
+                //Si se completo en su maxima dificultad, la funcion termina
+                if(nuevoPersonaje->marcas[opcion] == 2)
+                {
+                    printw("\nLa marca ya se completo en su maxima dificultad\n");
+                    esperarTecla();
+                    endwin();
+                    return;
+                }
+                else //Si no, se pregunta en que dificultad se hizo, para actualizarlo y mostrarlo por pantalla
+                {
+                    do
+                    {
+                        printw("\nLo realizo en ""NORMAL ""O ""DIFICIL"": ");
+                        scanw("%19s", respuesta);
+                        convertirMayuscula(respuesta);
+                        if(strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0) printw("\nNo existe tal opcion\n");
+                    } while (strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0);
+                    
+                    if(strcmp("NORMAL", respuesta) == 0) nuevoPersonaje->marcas[opcion] = 1;
+                    else nuevoPersonaje->marcas[opcion] = 2;
+                }
                 
-                if(strcmp("NORMAL", respuesta) == 0) aux->marcas[opcion] = 1;
-                else aux->marcas[opcion] = 2;
+                clear();
+                mostrarPersonaje(nuevoPersonaje->nombre, nuevoPersonaje->desbloqueado,nuevoPersonaje->marcas, 0);
+                esperarTecla();
             }
-                
-            mostrarPersonaje(aux->nombre, aux->desbloqueado,aux->marcas, 0);
-        }
-        else
-        {
-            attron(COLOR_PAIR(4));
-            printw("\nEl personaje %s no se encuentra desbloqueado\n", aux->nombre);
-            attroff(COLOR_PAIR(4));
+            endwin();
+            return;
         }
     }
-    else
-    {
-        attron(COLOR_PAIR(3));
-        attron(A_BOLD);
-        printw("\nEl personaje ingresado no existe\n");
-        attroff(COLOR_PAIR(3));
-        attroff(A_BOLD);
-    }
-
-    esperarTecla();
-    endwin();
 }

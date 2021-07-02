@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ncurses.h>
 
+#include "TDA_Lista/list.h"
 #include "TDA_Mapa/hashmap.h"
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
@@ -35,7 +36,7 @@ tipoLogro * copiarInformacionLogro(char * lineaLeida)
 	return nuevoLogro;
 }
 
-void importarArchivoLogros(HashMap * mapaLogros){
+void importarArchivoLogros(HashMap * mapaLogros, List * listaLogros){
     FILE * archivo = fopen("Archivos/logros.txt", "r");
     if(archivo == NULL) return;
 
@@ -47,6 +48,7 @@ void importarArchivoLogros(HashMap * mapaLogros){
     {
         tipoLogro * nuevoLogro = copiarInformacionLogro(lineaLeida);
         insertMap(mapaLogros, &nuevoLogro->ID, nuevoLogro);
+        pushBack(listaLogros, nuevoLogro);
     } 
 
     fclose(archivo);
@@ -138,4 +140,18 @@ void desbloquearLogro(HashMap * mapaLogros, int id){
     printw("\nNombre: %s",aux->nombre);
     esperarTecla();
     endwin();
+}
+
+void guardarInfoLogros(List * listaLogros){
+	FILE * archivo = fopen("Archivos/logros.txt", "w");
+    if(archivo == NULL) return;
+    fprintf(archivo,"ID,Desbloqueado,Nombre de Logros,Descripcion,Como conseguirlo\n");
+
+    tipoLogro * aux = firstList(listaLogros);
+    while(aux != NULL){
+        fprintf(archivo,"%d;%d;%s;%s;%s",aux->ID,aux->desbloqueado,aux->nombre,aux->descripcion,aux->comoConseguir);
+        aux = nextList(listaLogros);
+    }
+	
+	fclose(archivo);
 }

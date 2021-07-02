@@ -12,13 +12,13 @@
 /* PROTOTIPADO DE FUNCIONES */
 
 //Funcion para mostrar el menu principal
-void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List *, List *);
+void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List *, List *, List *, List *);
 
 //Funcion para mostrar el subMenu de funciones
-void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List *, List *);
+void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List *, List *, List *, List *);
 
 //Funcion que inicia las funciones principales del programa
-void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List *, List *);
+void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List *, List *, List *, List *);
 
 int main()
 {	
@@ -38,14 +38,16 @@ int main()
 	HashMap * mapaEnemigos = createMap(410);
 	List * listaPersonajes = createList();
 	List * listaItems = createList();
+	List * listaLogros = createList();
+	List * listaEnemigos = createList();
 	
 	//Importacion de Informacion
 	importarArchivoPersonajes(mapaPersonajes, listaPersonajes);
 	importarArchivoItems(mapaItems, listaItems);
-	importarArchivoLogros(mapaLogros);
-	importarArchivoEnemigos(mapaEnemigos);
+	importarArchivoLogros(mapaLogros, listaLogros);
+	importarArchivoEnemigos(mapaEnemigos, listaEnemigos);
 	
-	mostrarMenu(mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems);
+	mostrarMenu(mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
 
 	//Liberar memoria de TDAs
 	free(mapaPersonajes);
@@ -54,6 +56,8 @@ int main()
 	free(mapaEnemigos);
 	free(listaPersonajes);
 	free(listaItems);
+	free(listaLogros);
+	free(listaEnemigos);
 
 	pantallaFinal();
 
@@ -62,7 +66,7 @@ int main()
 	return 0;
 }
 
-void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List * listaPersonajes,List * listaItems)
+void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List * listaPersonajes, List * listaItems, List * listaLogros, List * listaEnemigos)
 {
     char opciones[10][40] = {"Menu de Desbloqueo","Guardar Informacion","Buscar un Item Especifico","Buscar un Logro Especifico","Buscar un Enemigo Especifico","Mostrar Todos los Personajes","Mostrar Todos los Items","Mostrar Todos los Logros","Mostrar Todos los Enemigos","Salir del Programa"};
     int eleccion = -1, iluminar = 0;
@@ -104,14 +108,14 @@ void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaI
             break;
 		case 10: //Si se apreta la tecla ENTER, significa que se quiere usar una opcion del menu
 			if(iluminar == 9) return;
-			funcionesOpcion(iluminar, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems);
+			funcionesOpcion(iluminar, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
             break;
         }
 
     }
 }
 
-void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List * listaPersonajes, List * listaItems)
+void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List * listaPersonajes, List * listaItems, List * listaLogros, List * listaEnemigos)
 {
 	//Opciones dentro de este submenú
 	char opciones[6][50] = {"Desbloquear Personaje","Avance de Marcas de Logros","Encontrar Item","Desbloquear Logro","Encontrar Enemigo","Salir del Menu"};
@@ -150,14 +154,14 @@ void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * ma
             break;
  		case 10: //Si se apreta la tecla ENTER, significa que se quiere usar una opcion del menu
 			if(iluminar == 5) return;
-			funcionesOpcion(iluminar + 9, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems);
+			funcionesOpcion(iluminar + 9, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
             break;
         }
         wrefresh(ventana);
     }
 }
 
-void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List * listaPersonajes, List * listaItems)
+void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List * listaPersonajes, List * listaItems, List * listaLogros, List * listaEnemigos)
 {
 	char nombreBuscado[40];
 	int idBuscado;
@@ -168,11 +172,13 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 	switch (opcion)
 	{
 	case 0:
-		mostrarSubMenu(mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems);
+		mostrarSubMenu(mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
 		break;
 	case 1:
 		guardarInfoPersonajes(listaPersonajes);
 		guardarInfoItems(listaItems);
+		guardarInfoEnemigos(listaEnemigos);
+		guardarInfoLogros(listaLogros);
 		clear();
 		printw("Se guardaron los cambios\nApriete cualquier tecla para avanzar");
 		getch();

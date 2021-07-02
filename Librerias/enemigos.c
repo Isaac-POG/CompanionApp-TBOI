@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ncurses.h>
 
+#include "TDA_Lista/list.h"
 #include "TDA_Mapa/hashmap.h"
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
@@ -72,7 +73,7 @@ tipoEnemigo * copiarInformacionEnemigo(char * lineaLeida)
 	return nuevoEnemigo;
 }
 
-void importarArchivoEnemigos(HashMap * mapaEnemigos){
+void importarArchivoEnemigos(HashMap * mapaEnemigos, List * listaEnemigos){
     FILE * archivo = fopen("Archivos/enemigos.txt", "r");
     if(archivo == NULL)return;
 
@@ -84,6 +85,7 @@ void importarArchivoEnemigos(HashMap * mapaEnemigos){
     {
         tipoEnemigo * nuevoEnemigo = copiarInformacionEnemigo(lineaLeida);
         insertMap(mapaEnemigos, &nuevoEnemigo->nombre, nuevoEnemigo);
+		pushBack(listaEnemigos, nuevoEnemigo);
     } 
 
     fclose(archivo);
@@ -178,4 +180,33 @@ void encontrarEnemigo(HashMap * mapaEnemigos, char * nombreEnemigo){
 	}
 	esperarTecla();
 	endwin();
+}
+
+void guardarInfoEnemigos(List * listaEnemigos){
+	FILE * archivo = fopen("Archivos/enemigos.txt", "w");
+    if(archivo == NULL) return;
+    fprintf(archivo,"id;encontrado;nombre;vida;ubicacion\n");
+	int flag;
+
+	tipoEnemigo* aux = firstList(listaEnemigos);
+	while(aux != NULL){
+		fprintf(archivo,"%d;%d;%s;%d;",aux->ID,aux->encontrado,aux->nombre,aux->vida);
+		if(aux->cantidadUbicacion == 1){
+			fprintf(archivo,"%s",aux->ubicacion[0]);
+		}else{
+			fprintf(archivo,"\"");
+			flag = 0;
+			for(int k=0 ; k < aux->cantidadUbicacion ; k++){
+				if(flag == 0){
+					flag = 1;
+				}else{
+					fprintf(archivo,";");
+				}
+				fprintf(archivo,"%s",aux->ubicacion[k]);
+			}
+			fprintf(archivo,"\"\n");
+		}
+		aux = nextList(listaEnemigos);
+	}
+	fclose(archivo);
 }

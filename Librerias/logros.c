@@ -66,14 +66,24 @@ void mostrarLogros(HashMap * mapaLogros)
         aux = firstMap(mapaLogros);
         while(aux){
             if(j == aux->ID){
+                attron(A_BOLD);
+				attron(COLOR_PAIR(4));
+
                 wprintw(stdscr,"ID: %d ",aux->ID);
+                
+                attroff(COLOR_PAIR(4));
+
                 if(aux->ID < 10) wprintw(stdscr,"  ");
                 else if(aux->ID < 100) wprintw(stdscr," ");
 
                 if(aux->desbloqueado){
+                    attron(COLOR_PAIR(2));
                     wprintw(stdscr,"Desbloqueado");
+                    attroff(COLOR_PAIR(2));
                 }else{
+                    attron(COLOR_PAIR(3));
                     wprintw(stdscr,"Bloqueado   ");
+                    attroff(COLOR_PAIR(3));
                 }
                 wprintw(stdscr," -> %s\n",aux->nombre);
                 break;
@@ -88,6 +98,7 @@ void mostrarLogros(HashMap * mapaLogros)
             wrefresh(stdscr);
         }
     }
+    attroff(A_BOLD);
     endwin();
 }
 
@@ -95,21 +106,38 @@ void buscarLogroEspecifico(HashMap * mapaLogros, int id)
 {
     initscr();
     tipoLogro * aux = searchMap(mapaLogros,&id);
+    attron(A_BOLD);
+
     if(!aux){
+        attron(COLOR_PAIR(3));
         printw("\nEl logro que ingreso no existe\n");
+        attroff(COLOR_PAIR(3));
+        attroff(A_BOLD);
         getch();
         return;
     }
+
+    attron(COLOR_PAIR(4));
     printw("\nID: %d ",aux->ID);
+    attroff(COLOR_PAIR(4));
 
     if(aux->desbloqueado){
+        attron(COLOR_PAIR(2));
         printw("Desbloqueado");
+        attroff(COLOR_PAIR(2));
     }else{
+        attron(COLOR_PAIR(3));
         printw("Bloqueado");
+        attroff(COLOR_PAIR(3));
     }
     printw("\nNombre: %s",aux->nombre);
     printw("\nDescripcion: %s\n",aux->descripcion);
+
+    attron(COLOR_PAIR(2));
     printw("Como conseguir:\n%s",aux->comoConseguir);
+    attron(COLOR_PAIR(2));
+
+    attroff(A_BOLD);
     esperarTecla();
     endwin();
 }

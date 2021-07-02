@@ -94,21 +94,34 @@ void importarArchivoEnemigos(HashMap * mapaEnemigos, List * listaEnemigos){
 void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
     initscr();
     tipoEnemigo * aux = searchMap(mapaEnemigos,nombreEnemigo);
+	attron(A_BOLD);
+
     if(!aux){
+		attron(COLOR_PAIR(3));
         printw("\nEl enemigo que ingreso no existe\n");
+		attroff(COLOR_PAIR(3));
         esperarTecla();
         endwin();
         return;
     }
+
+	attron(COLOR_PAIR(4));
     printw("\nID: %d ",aux->ID);
+	attroff(COLOR_PAIR(4));
 
     if(aux->encontrado){
+		attron(COLOR_PAIR(2));
         printw("Encontrado");
+		attroff(COLOR_PAIR(2));
     }else{
+		attron(COLOR_PAIR(3));
         printw("No encontrado");
+		attroff(COLOR_PAIR(3));
     }
+
     printw("\nNombre: %s",aux->nombre);
-    printw("\nVida: %d\n",aux->vida);
+    printw("\nVida: %d",aux->vida);
+
     if(aux->cantidadUbicacion == 1){
         printw("\nUbicacion: %s\n",aux->ubicacion[0]);
     }else{
@@ -120,7 +133,7 @@ void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
         }
         printw("\n");
     }
-
+	attroff(A_BOLD);
     esperarTecla();
     endwin();
 }
@@ -136,15 +149,26 @@ void mostrarEnemigos(HashMap * mapaEnemigos){
 		{
 			if(aux->ID == i)
 			{
+				attron(A_BOLD);
+				attron(COLOR_PAIR(4));
 				wprintw(stdscr,"%s ", aux->nombre);
+				attroff(COLOR_PAIR(4));
                 if(strlen(aux->nombre) < 22){
                     for(int k = strlen(aux->nombre); k < 22; k++){
                         wprintw(stdscr," ");
                     }
                 }
                 
-				if(aux->encontrado == 0) wprintw(stdscr,"No encontrado \n");
-				else wprintw(stdscr,"Encontrado \n" );
+				if(aux->encontrado == 0){
+					attron(COLOR_PAIR(3));
+					wprintw(stdscr,"No encontrado \n");
+					attroff(COLOR_PAIR(3));
+				}
+				else{
+					attron(COLOR_PAIR(2));
+					wprintw(stdscr,"Encontrado \n" );
+					attroff(COLOR_PAIR(2));
+				}
 			}
 			aux = nextMap(mapaEnemigos);
 		}
@@ -154,6 +178,7 @@ void mostrarEnemigos(HashMap * mapaEnemigos){
 			esperarTecla();
 		}
 	}
+	attroff(A_BOLD);
     endwin();
 }
 

@@ -233,7 +233,7 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		desbloquearLogro(mapaLogros, idBuscado);
 		break;
 	case 13:
-		printw("\nIngrese el nombre del Item que encontro: ");
+		printw("\nIngrese el nombre del enemigo que encontro: ");
 		scanw("%39[^\n]s", nombreBuscado);
 		convertirMayuscula(nombreBuscado);
 		encontrarEnemigo(mapaEnemigos,nombreBuscado);

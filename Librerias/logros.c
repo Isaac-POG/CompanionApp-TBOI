@@ -118,10 +118,12 @@ void desbloquearLogro(HashMap * mapaLogros, int id){
     
     if(!aux){
         printw("\nEl logro que ingreso no existe\n");
+        esperarTecla();
         return;
     }
     if(aux->desbloqueado){
         printw("\nEl logro ya estaba desbloqueado de antes\n");
+        esperarTecla();
         return;
     }
     aux->desbloqueado = 1;

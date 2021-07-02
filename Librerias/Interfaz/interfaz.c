@@ -21,9 +21,6 @@ void iniciarColores()
 	initscr();
 
 	start_color();
-
-	//Letras blancas con fondo negro
-	init_pair(1,COLOR_WHITE,COLOR_BLACK);
 	
 	//Letras verdes con fondo negro
 	init_pair(2,COLOR_GREEN,COLOR_BLACK);
@@ -33,6 +30,10 @@ void iniciarColores()
 
 	//Letras cian con fondo negro
 	init_pair(4,COLOR_CYAN,COLOR_BLACK);
+
+	//Letras magenta con fondo negro
+	init_pair(5,COLOR_MAGENTA,COLOR_BLACK);
+	endwin();
 }
 
 void convertirMayuscula(char * cadena)
@@ -93,7 +94,8 @@ void mostrarMarcas(int i)
 {
 	initscr();
 
-	attron(COLOR_PAIR(4));
+	attron(COLOR_PAIR(5));
+	attron(A_ITALIC);
 
 	switch (i)
 	{
@@ -129,21 +131,81 @@ void mostrarMarcas(int i)
 		break;
 	}
 
-	attroff(COLOR_PAIR(4));
+	attroff(COLOR_PAIR(5));
+	attroff(A_ITALIC);
 
 	endwin();
 }
 
-void mostrarPersonaje(char * nombre, int * marcas)
+void mostrarPersonaje(char * nombre, int desbloqueado, int * marcas, int tipoMostrar)
 {
 	initscr();
-	printw("\n%s ", nombre);
-	for(int i = 0; i < 10; i++)
+	printw("%s ", nombre);
+	
+	if(tipoMostrar == 0)
 	{
-		mostrarMarcas(i);
-		if(marcas[i] == 0) printw("NO ");
-		else if(marcas[i] == 1) printw("NORMAL ");
-		else printw("DIFICIL ");
+		for(int i = 0; i < 10; i++)
+		{
+			mostrarMarcas(i);
+			if(marcas[i] == 0)
+			{
+				attron(COLOR_PAIR(3));
+				printw("NO ");
+				attroff(COLOR_PAIR(3));
+			} 
+			else if(marcas[i] == 1) 
+			{
+				attron(COLOR_PAIR(4));
+				printw("NORMAL ");
+				attroff(COLOR_PAIR(4));
+			}
+			else
+			{
+				attron(COLOR_PAIR(2));
+			 	printw("DIFICIL ");
+			 	attroff(COLOR_PAIR(2));
+			}
+		}
+	}
+	else
+	{
+		if(desbloqueado == 0)
+		{
+			attron(COLOR_PAIR(3));
+			printw("BLOQUEADO ");
+			attroff(COLOR_PAIR(3));
+		} 
+		else 
+		{
+			attron(COLOR_PAIR(2));
+			printw("DESBLOQUEADO ");
+			attroff(COLOR_PAIR(2));
+		}
+		
+		printw("\n\n");
+		for(int i = 0; i < 10; i++)
+		{
+			mostrarMarcas(i);
+			if(marcas[i] == 0)
+			{
+				attron(COLOR_PAIR(3));
+				printw("NO ");
+				attroff(COLOR_PAIR(3));
+			} 
+			else if(marcas[i] == 1) 
+			{
+				attron(COLOR_PAIR(4));
+				printw("NORMAL ");
+				attroff(COLOR_PAIR(4));
+			}
+			else
+			{
+				attron(COLOR_PAIR(2));
+			 	printw("DIFICIL ");
+			 	attroff(COLOR_PAIR(2));
+			}
+			printw("\n");
+		}
 	}
 	printw("\n");
 	endwin();

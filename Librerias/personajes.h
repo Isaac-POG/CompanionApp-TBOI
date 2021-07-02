@@ -3,8 +3,8 @@
 
 void importarArchivoPersonajes(HashMap *, List *);
 void guardarInfoPersonajes(List *);
-void mostrarPersonajes(List *);
-void desbloquearPersonajes(HashMap *, char *);
+void mostrarPersonajes(HashMap *, List *);
+void desbloquearPersonajes(HashMap *, List *);
 void avanceMarcasLogros(HashMap *, char *);
 
 #endif

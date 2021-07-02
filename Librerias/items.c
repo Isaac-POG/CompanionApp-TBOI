@@ -126,7 +126,9 @@ void mostrarTodosItems(List * listaItems)
 
 	tipoItem * aux = firstList(listaItems);
 	int i = 1;
+
 	printw("Nombre                 Encontrado\n");			
+	
 	while(aux != NULL)
 	{
 		attron(A_BOLD);

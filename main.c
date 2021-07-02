@@ -195,7 +195,7 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		buscarEnemigoEspecifico(mapaEnemigos, nombreBuscado);
 		break;
 	case 5:
-		mostrarPersonajes(listaPersonajes);
+		mostrarPersonajes(mapaPersonajes, listaPersonajes);
 		break;
 	case 6:
 		mostrarTodosItems(listaItems);
@@ -207,10 +207,7 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		mostrarEnemigos(mapaEnemigos);
 		break;
 	case 9:
-		printw("\nIngrese el nombre del personaje a desbloquear: ");
-		scanw("%39[^\n]s", nombreBuscado);
-		convertirMayuscula(nombreBuscado);
-		desbloquearPersonajes(mapaPersonajes, nombreBuscado);
+		desbloquearPersonajes(mapaPersonajes,listaPersonajes);
 		break;
 	case 10:
 		printw("\nIngrese el nombre del personaje: ");

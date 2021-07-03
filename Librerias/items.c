@@ -49,7 +49,7 @@ void importarArchivoItems(HashMap * mapaItems, List * listaItems)
 	//Se elimina la primera linea del archivo
 	fgets(lineaLeida, 399, archivo);
 	
-	//Se copia la informacion de los items
+	//Se copia la informacion de los items en el mapa y la lista
 	while(fgets(lineaLeida, 399, archivo))
 	{
 		tipoItem * nuevoItem = copiarInformacionItems(lineaLeida);
@@ -64,17 +64,22 @@ void importarArchivoItems(HashMap * mapaItems, List * listaItems)
 //Guarda la informacion actualizada durante la ejecucion del programa dentro del archivo items.txt
 void guardarInfoItems(List * listaItems)
 {
+	//Se abre el archivo que contiene la informacion de los items
 	FILE * archivo = fopen("Archivos/items.txt", "w");
     if(archivo == NULL) return;
 
+	//Se copia la primera linea
     fprintf(archivo,"Id;Encontrado;Nombre;Efecto;Tipo\n");
     
+	//Se recorre la lista para copiar la informacion
     tipoItem * aux = firstList(listaItems);
     while(aux != NULL)
     {    
         fprintf(archivo, "%i;%i;%s;%s;%s\n", aux->ID, aux->encontrado, aux->nombre, aux->efecto, aux->tipoEfecto);
         aux = nextList(listaItems);
     }
+
+	//Se cierra el archivo
     fclose(archivo);
 }
 
@@ -84,6 +89,7 @@ void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
 	initscr();
 	tipoItem * itemBuscado = searchMap(mapaItems, nombreItem);
 	
+	//Se busca el item, si existe se muestra, sino, se indica que el item no existe
 	if(itemBuscado != NULL)
 	{
 		printw("\n%s\n", itemBuscado->nombre);
@@ -129,6 +135,7 @@ void mostrarTodosItems(List * listaItems)
 
 	printw("Nombre                 Encontrado\n");			
 	
+	//Se recorre la lista hasta que se llegue al final
 	while(aux != NULL)
 	{
 		attron(A_BOLD);
@@ -179,6 +186,7 @@ void encontrarItem(HashMap * mapaItems, char * nombreItem)
 	initscr();
 	tipoItem * itemBuscado = searchMap(mapaItems, nombreItem);
 
+	//Se busca el item en el mapa, si existe se actualiza la informacion, si no se le indica al usuario que no existe
 	if(itemBuscado != NULL)
 	{
 		if(itemBuscado->encontrado == 0)

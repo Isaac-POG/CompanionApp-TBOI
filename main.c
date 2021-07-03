@@ -12,10 +12,10 @@
 /* PROTOTIPADO DE FUNCIONES */
 
 //Funcion para mostrar el menu principal
-void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List *, List *, List *, List *);
+int mostrarMenu();
 
 //Funcion para mostrar el subMenu de funciones
-void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List *, List *, List *, List *);
+int mostrarSubMenu();
 
 //Funcion que inicia las funciones principales del programa
 void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List *, List *, List *, List *);
@@ -46,8 +46,29 @@ int main()
 	importarArchivoItems(mapaItems, listaItems);
 	importarArchivoLogros(mapaLogros, listaLogros);
 	importarArchivoEnemigos(mapaEnemigos, listaEnemigos);
+
+	int eleccionUsuario = 0;
 	
-	mostrarMenu(mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
+	//Forma de repetir el menu
+	while(eleccionUsuario != 9)
+	{
+		eleccionUsuario = mostrarMenu();
+		if(eleccionUsuario == 9) break;
+
+		funcionesOpcion(eleccionUsuario, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
+		
+		if(eleccionUsuario == 0)
+		{
+			int eleccionSubMenu = 0;
+			while(eleccionSubMenu != 14)
+			{
+				eleccionSubMenu = mostrarSubMenu();
+				if(eleccionSubMenu == 14) break;
+		
+				funcionesOpcion(eleccionSubMenu, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
+			}
+		}
+	}
 
 	//Liberar memoria de TDAs
 	free(mapaPersonajes);
@@ -66,7 +87,7 @@ int main()
 	return 0;
 }
 
-void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List * listaPersonajes, List * listaItems, List * listaLogros, List * listaEnemigos)
+int mostrarMenu()
 {
     char opciones[10][40] = {"Menu de Desbloqueo","Guardar Informacion","Buscar un Item Especifico","Buscar un Logro Especifico","Buscar un Enemigo Especifico","Mostrar Todos los Personajes","Mostrar Todos los Items","Mostrar Todos los Logros","Mostrar Todos los Enemigos","Salir del Programa"};
     int eleccion = -1, iluminar = 0;
@@ -107,15 +128,14 @@ void mostrarMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaI
             if(iluminar == 10) iluminar = 0; //Si llega al final mueve el cursor al inicio del menu
             break;
 		case 10: //Si se apreta la tecla ENTER, significa que se quiere usar una opcion del menu
-			if(iluminar == 9) return;
-			funcionesOpcion(iluminar, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
+			return iluminar;
             break;
         }
 
     }
 }
 
-void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List * listaPersonajes, List * listaItems, List * listaLogros, List * listaEnemigos)
+int mostrarSubMenu()
 {
 	//Opciones dentro de este submenú
 	char opciones[6][50] = {"Desbloquear Personaje","Avance de Marcas de Logros","Encontrar Item","Desbloquear Logro","Encontrar Enemigo","Salir del Menu"};
@@ -153,9 +173,7 @@ void mostrarSubMenu(HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * ma
             if(iluminar == 6) iluminar = 0; //Si llega al final mueve el cursor al inicio del menu
             break;
  		case 10: //Si se apreta la tecla ENTER, significa que se quiere usar una opcion del menu
-			if(iluminar == 5) return;
-			funcionesOpcion(iluminar + 9, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
-            break;
+            return iluminar + 9;
         }
         wrefresh(ventana);
     }
@@ -171,9 +189,6 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 
 	switch (opcion)
 	{
-	case 0:
-		mostrarSubMenu(mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
-		break;
 	case 1:
 		guardarInfoPersonajes(listaPersonajes);
 		guardarInfoItems(listaItems);
@@ -184,18 +199,18 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		getch();
 		break;	
 	case 2:
-		printw("\nIngrese el nombre del item: ");
+		printw("Ingrese el nombre del item: ");
 		scanw("%39[^\n]s", nombreBuscado);
 		convertirMayuscula(nombreBuscado);
 		buscarItemEspecifico(mapaItems, nombreBuscado);
 		break;
 	case 3:
-		printw("\nIngrese el ID del logro: ");
+		printw("Ingrese el ID del logro: ");
 		scanw("%i", &idBuscado);
 		buscarLogroEspecifico(mapaLogros, idBuscado);
 		break;
 	case 4:
-		printw("\nIngrese el nombre del enemigo: ");
+		printw("Ingrese el nombre del enemigo: ");
 		scanw("%39[^\n]s", nombreBuscado);
 		convertirMayuscula(nombreBuscado);
 		buscarEnemigoEspecifico(mapaEnemigos, nombreBuscado);
@@ -213,27 +228,24 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		mostrarEnemigos(mapaEnemigos);
 		break;
 	case 9:
-		desbloquearPersonajes(mapaPersonajes,listaPersonajes);
+		desbloquearPersonajes(listaPersonajes,mapaPersonajes);
 		break;
 	case 10:
-		printw("\nIngrese el nombre del personaje: ");
-		scanw("%39[^\n]s", nombreBuscado);
-		convertirMayuscula(nombreBuscado);
-		avanceMarcasLogros(mapaPersonajes, nombreBuscado);
+		avanceMarcasLogros(listaPersonajes,mapaPersonajes);
 		break;
 	case 11:
-		printw("\nIngrese el nombre del Item que encontro: ");
+		printw("Ingrese el nombre del Item que encontro: ");
 		scanw("%39[^\n]s", nombreBuscado);
 		convertirMayuscula(nombreBuscado);
 		encontrarItem(mapaItems, nombreBuscado);
 		break;
 	case 12:
-		printw("\nIngrese el ID del logro que desbloqueo: ");
+		printw("Ingrese el ID del logro que desbloqueo: ");
 		scanw("%i", &idBuscado);
 		desbloquearLogro(mapaLogros, idBuscado);
 		break;
 	case 13:
-		printw("\nIngrese el nombre del enemigo que encontro: ");
+		printw("Ingrese el nombre del enemigo que encontro: ");
 		scanw("%39[^\n]s", nombreBuscado);
 		convertirMayuscula(nombreBuscado);
 		encontrarEnemigo(mapaEnemigos,nombreBuscado);

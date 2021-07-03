@@ -222,7 +222,7 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		mostrarTodosItems(listaItems);
 		break;
 	case 7:
-		mostrarLogros(mapaLogros);
+		mostrarLogros(listaLogros);
 		break;
 	case 8:
 		mostrarEnemigos(listaEnemigos);

@@ -190,7 +190,7 @@ void mostrarEnemigos(List * listaEnemigos){
 		}
 
 		//Pausa para poder ver los enemigos, la cantidad depende del tamaño de la terminal
-		if(i % (stdscr->_maxy - 2) == 0 || i == 282)
+		if(i % (stdscr->_maxy - 1) == 0 || i == 282)
 		{
 			wrefresh(stdscr);
 			esperarTecla();

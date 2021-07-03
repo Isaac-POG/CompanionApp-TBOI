@@ -37,67 +37,67 @@ tipoLogro * copiarInformacionLogro(char * lineaLeida)
 }
 
 void importarArchivoLogros(HashMap * mapaLogros, List * listaLogros){
+    //Se busca el archivo
     FILE * archivo = fopen("Archivos/logros.txt", "r");
     if(archivo == NULL) return;
 
     char lineaLeida[200];
 
+    //Se ignora la primera linea
     fgets(lineaLeida, 199, archivo);
 
+    //Se copia la informacion
     while(fgets(lineaLeida, 199, archivo))
     {
         tipoLogro * nuevoLogro = copiarInformacionLogro(lineaLeida);
         insertMap(mapaLogros, &nuevoLogro->ID, nuevoLogro);
         pushBack(listaLogros, nuevoLogro);
-    } 
-
+    }
+    //Se cierra el archivo
     fclose(archivo);
 }
 
-void mostrarLogros(HashMap * mapaLogros)
+void mostrarLogros(List * listaLogros)
 {
     initscr();
 
     scrollok(stdscr, TRUE);
 
-    tipoLogro * aux = firstMap(mapaLogros);
-    
-    for(int j=1; j<404 ; j++){
-        aux = firstMap(mapaLogros);
-        while(aux){
-            if(j == aux->ID){
-                attron(A_BOLD);
-				attron(COLOR_PAIR(4));
+    tipoLogro * aux = firstList(listaLogros);
+    int j = 1;
 
-                wprintw(stdscr,"ID: %d ",aux->ID);
-                
-                attroff(COLOR_PAIR(4));
+    while(aux != NULL){
+        attron(A_BOLD);
+        attron(COLOR_PAIR(4));
 
-                if(aux->ID < 10) wprintw(stdscr,"  ");
-                else if(aux->ID < 100) wprintw(stdscr," ");
+        wprintw(stdscr,"ID: %d ",aux->ID);
+        
+        attroff(COLOR_PAIR(4));
 
-                if(aux->desbloqueado){
-                    attron(COLOR_PAIR(2));
-                    wprintw(stdscr,"Desbloqueado");
-                    attroff(COLOR_PAIR(2));
-                }else{
-                    attron(COLOR_PAIR(3));
-                    wprintw(stdscr,"Bloqueado   ");
-                    attroff(COLOR_PAIR(3));
-                }
-                wprintw(stdscr," -> %s\n",aux->nombre);
-                break;
-            }
-            
-            aux = nextMap(mapaLogros);
+        if(aux->ID < 10) wprintw(stdscr,"  ");
+        else if(aux->ID < 100) wprintw(stdscr," ");
+
+        if(aux->desbloqueado){
+            attron(COLOR_PAIR(2));
+            wprintw(stdscr,"Desbloqueado");
+            attroff(COLOR_PAIR(2));
+        }else{
+            attron(COLOR_PAIR(3));
+            wprintw(stdscr,"Bloqueado   ");
+            attroff(COLOR_PAIR(3));
         }
+        wprintw(stdscr," -> %s\n",aux->nombre);
+
         if(j % (stdscr->_maxy - 1) == 0 || j == 403) 
         {
             wrefresh(stdscr);
             esperarTecla();
-            wrefresh(stdscr);
         }
+        
+        aux = nextList(listaLogros);
+        j++;
     }
+    
     attroff(A_BOLD);
     endwin();
 }

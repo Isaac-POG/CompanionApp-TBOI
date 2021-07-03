@@ -23,7 +23,7 @@ typedef struct tipoLogro
     int ID;
     int desbloqueado;
     char nombre[40];
-    char descripcion[40];
+    char descripcion[200];
     char comoConseguir[200];
 }tipoLogro;
 

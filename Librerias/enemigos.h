@@ -2,7 +2,6 @@
 #define ENEMIGOS_H
 
 void importarArchivoEnemigos(HashMap *, List *);
-void mostrarLogros(HashMap *);
 void buscarEnemigoEspecifico(HashMap *, char *);
 void mostrarEnemigos(List *);
 void encontrarEnemigo(HashMap *, char *);

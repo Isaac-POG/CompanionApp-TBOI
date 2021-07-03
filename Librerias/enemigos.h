@@ -4,7 +4,7 @@
 void importarArchivoEnemigos(HashMap *, List *);
 void mostrarLogros(HashMap *);
 void buscarEnemigoEspecifico(HashMap *, char *);
-void mostrarEnemigos(HashMap *);
+void mostrarEnemigos(List *);
 void encontrarEnemigo(HashMap *, char *);
 void guardarInfoEnemigos(List *);
 

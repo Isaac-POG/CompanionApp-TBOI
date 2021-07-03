@@ -33,6 +33,8 @@ tipoEnemigo * copiarInformacionEnemigo(char * lineaLeida)
     //Ubicacion del Enemigo
 	fragmento = strtok(NULL, ";");
     convertirMayuscula(fragmento);
+
+	//Caso en que tenga mas de 2 ubicaciones
     if(fragmento[0] == '"'){
         //Eliminacion de las comillas iniciales
 		memmove(fragmento, fragmento + 1, strlen(fragmento));
@@ -43,7 +45,7 @@ tipoEnemigo * copiarInformacionEnemigo(char * lineaLeida)
 		short largo; //Almacenar largo de la cadena
 		short cantidad = 1; //Contador
 
-		//Reiteracion que finaliza cuando no posea mas tipos
+		//Reiteracion que finaliza cuando no posea mas ubicaciones
 		do
 		{
 			fragmento = strtok(NULL, ";");
@@ -66,6 +68,7 @@ tipoEnemigo * copiarInformacionEnemigo(char * lineaLeida)
 		strcpy(nuevoEnemigo->ubicacion[cantidad - 1], fragmento);
         nuevoEnemigo->cantidadUbicacion = cantidad;
     }else{
+		//Caso en que solo tenga 1 ubicacion
         strcpy(nuevoEnemigo->ubicacion[0], fragmento);
         nuevoEnemigo->cantidadUbicacion = 1;
     }
@@ -74,20 +77,23 @@ tipoEnemigo * copiarInformacionEnemigo(char * lineaLeida)
 }
 
 void importarArchivoEnemigos(HashMap * mapaEnemigos, List * listaEnemigos){
+	//Se busca el archivo
     FILE * archivo = fopen("Archivos/enemigos.txt", "r");
     if(archivo == NULL)return;
 
     char lineaLeida[300];
 
+	//Se ignora la primera linea
     fgets(lineaLeida, 299, archivo);
 
+	//Se copia la informacion
     while(fgets(lineaLeida, 299, archivo))
     {
         tipoEnemigo * nuevoEnemigo = copiarInformacionEnemigo(lineaLeida);
         insertMap(mapaEnemigos, &nuevoEnemigo->nombre, nuevoEnemigo);
 		pushBack(listaEnemigos, nuevoEnemigo);
     } 
-
+	//Se cierra el archivo
     fclose(archivo);
 }
 
@@ -138,98 +144,113 @@ void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
     endwin();
 }
 
-void mostrarEnemigos(HashMap * mapaEnemigos){
-    initscr();
+void mostrarEnemigos(List * listaEnemigos){
+    //Inicio del Ncurses.h
+	initscr();
+
+	//Activar el scroll
     scrollok(stdscr, TRUE);
 
-	for(int i = 1; i < 283; i++)
+	tipoEnemigo * aux = firstList(listaEnemigos);
+	int i = 1;
+
+	while(aux != NULL)
 	{
-		tipoEnemigo * aux = firstMap(mapaEnemigos);
-		while(aux != NULL)
-		{
-			if(aux->ID == i)
-			{
-				attron(A_BOLD);
-				attron(COLOR_PAIR(4));
-				wprintw(stdscr,"%s ", aux->nombre);
-				attroff(COLOR_PAIR(4));
-                if(strlen(aux->nombre) < 22){
-                    for(int k = strlen(aux->nombre); k < 22; k++){
-                        wprintw(stdscr," ");
-                    }
-                }
-                
-				if(aux->encontrado == 0){
-					attron(COLOR_PAIR(3));
-					wprintw(stdscr,"No encontrado \n");
-					attroff(COLOR_PAIR(3));
-				}
-				else{
-					attron(COLOR_PAIR(2));
-					wprintw(stdscr,"Encontrado \n" );
-					attroff(COLOR_PAIR(2));
-				}
-			}
-			aux = nextMap(mapaEnemigos);
+		attron(A_BOLD);
+		attron(COLOR_PAIR(4));
+		wprintw(stdscr,"%s ", aux->nombre);
+		attroff(COLOR_PAIR(4));
+		
+		if(strlen(aux->nombre) < 22){
+			for(int k = strlen(aux->nombre); k < 22; k++) wprintw(stdscr," ");
 		}
-		if(i % (stdscr->_maxy - 1) == 0 || i == 282)
+		
+		if(aux->encontrado == 0){
+			attron(COLOR_PAIR(3));
+			wprintw(stdscr,"No encontrado \n");
+			attroff(COLOR_PAIR(3));
+		}
+		else{
+			attron(COLOR_PAIR(2));
+			wprintw(stdscr,"Encontrado \n" );
+			attroff(COLOR_PAIR(2));
+		}
+
+		if(i % (stdscr->_maxy - 2) == 0 || i == 282)
 		{
 			wrefresh(stdscr);
 			esperarTecla();
 		}
+		
+		aux = nextList(listaEnemigos);
+		i++;
 	}
+	
 	attroff(A_BOLD);
     endwin();
 }
 
 void encontrarEnemigo(HashMap * mapaEnemigos, char * nombreEnemigo){
     initscr();
+	
+	//Se busca el nombre del enemigo en el mapa
 	tipoEnemigo * enemigoBuscado = searchMap(mapaEnemigos, nombreEnemigo);
 
 	if(enemigoBuscado != NULL)
 	{
+		//Caso en que no se ha encontrado
+
 		if(enemigoBuscado->encontrado == 0)
 		{
+			//Caso en el que no se encuentre
 			printw("\nSe actualizo informacion del item\n");
 			printw("%s ENCONTRADO\n", nombreEnemigo);
-			enemigoBuscado->encontrado = 1;
+			enemigoBuscado->encontrado = 1; //Cambiar a si se encuentra
 		}
 		else
 		{
+			//Caso en el cual ya se habia encontrado anteriormente
 			printw("El item %s ya se habia encontrado", nombreEnemigo);
 		}
 	}
 	else
 	{
+		//Caso en que el nombre no exista
 		printw("\nEl item con nombre %s no existe\n", nombreEnemigo);
 	}
+
 	esperarTecla();
 	endwin();
 }
 
 void guardarInfoEnemigos(List * listaEnemigos){
+	//Abrir el archivo de enemigos, en este archivo se guardaran los datos actualizados
 	FILE * archivo = fopen("Archivos/enemigos.txt", "w");
     if(archivo == NULL) return;
+
+	//Se guarda la primera linea
     fprintf(archivo,"id;encontrado;nombre;vida;ubicacion\n");
-	int flag;
+	int flag; //Servira para imprimir los punto coma (;) en el caso de que tenga 2 o mas ubicaciones
 
 	tipoEnemigo* aux = firstList(listaEnemigos);
 	while(aux != NULL){
+		//Se guardan los datos
 		fprintf(archivo,"%d;%d;%s;%d;",aux->ID,aux->encontrado,aux->nombre,aux->vida);
+
+		//Caso en el que solo tenga 1 ubicacion
 		if(aux->cantidadUbicacion == 1){
-			fprintf(archivo,"%s",aux->ubicacion[0]);
+			fprintf(archivo,"%s",aux->ubicacion[0]); //Se guarda la unica ubicacion
 		}else{
-			fprintf(archivo,"\"");
-			flag = 0;
+			fprintf(archivo,"\""); //Se guarda la doble comilla inicial
+			flag = 0; //Inicia en 0, para que el punto coma (;) no se guarde la primera vez
 			for(int k=0 ; k < aux->cantidadUbicacion ; k++){
-				if(flag == 0){
-					flag = 1;
-				}else{
-					fprintf(archivo,";");
-				}
-				fprintf(archivo,"%s",aux->ubicacion[k]);
+
+				if(flag == 0) flag = 1;
+				else fprintf(archivo,";");
+
+				fprintf(archivo,"%s",aux->ubicacion[k]); //Se guardan las ubicaciones
 			}
-			fprintf(archivo,"\"\n");
+			fprintf(archivo,"\"\n"); //Se guarda la doble comilla final
 		}
 		aux = nextList(listaEnemigos);
 	}

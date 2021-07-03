@@ -1,6 +1,8 @@
 #ifndef PERSONAJES_H
 #define PERSONAJES_H
 
+float calculoPorcentajePersonaje(List *);
+
 void importarArchivoPersonajes(HashMap *, List *);
 
 void guardarInfoPersonajes(List *);

@@ -8,6 +8,39 @@
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
 
+//Funcion para calcular el avance de las marcas de cada personaje
+int calculoMarcas(tipoPersonaje * personajeActual)
+{
+    int calculoMarcas = 0;
+    
+    //Se recorre el arreglo marcas
+    for(int i = 0; i < 10; i++)
+    {
+        if(personajeActual->marcas[i] == 1) calculoMarcas += 1; //Dificultad normal
+        else if (personajeActual->marcas[i] == 2) calculoMarcas += 2; //Dificultad dificil
+    }
+
+    return calculoMarcas;
+}
+
+float calculoPorcentajePersonaje(List * listaPersonajes)
+{
+    tipoPersonaje * aux = firstList(listaPersonajes);
+    float contadorTotal = 0;
+
+    while(aux != NULL)
+    {
+        if(aux->desbloqueado == 1)
+        {
+            contadorTotal++; //1 punto por tener desbloqueado al personaje
+            contadorTotal += calculoMarcas(aux);
+        }
+        aux = nextList(listaPersonajes);
+    }
+
+    return contadorTotal;
+}
+
 //Se separa la informacion del personaje y se almacena en un tipoPersonaje
 tipoPersonaje * copiarInformacionPersonaje(char * lineaLeida)
 {
@@ -145,7 +178,7 @@ void mostrarPersonajes(HashMap * mapaPersonajes, List * listaPersonajes)
                 tipoPersonaje * nuevoPersonaje = searchMap(mapaPersonajes, personajes[iluminar]);
                 clear();
                 mostrarPersonaje(nuevoPersonaje->nombre, nuevoPersonaje->desbloqueado, nuevoPersonaje->marcas, 1);
-                esperarTecla();
+                esperarTecla(0);
             }
             else return;
             break;
@@ -179,7 +212,7 @@ void desbloquearPersonajes(List * listaPersonajes, HashMap * mapaPersonajes)
     if(j == 0)
     {
         printw("Ha desbloqueado todos los personajes\n");
-        esperarTecla();
+        esperarTecla(0);
         endwin();
         return;
     }
@@ -213,7 +246,7 @@ void desbloquearPersonajes(List * listaPersonajes, HashMap * mapaPersonajes)
         //El usuario ingresa alguna entrada desde el teclado (sin necesidad de usar enter)
         eleccion = wgetch(ventana);
 
-        switch (eleccion) //Dependiendo de la elección
+        switch (eleccion) //Dependiendo de la tecla ingresada
         {
         case KEY_UP:
             iluminar--;
@@ -230,29 +263,27 @@ void desbloquearPersonajes(List * listaPersonajes, HashMap * mapaPersonajes)
                 tipoPersonaje * nuevoPersonaje = searchMap(mapaPersonajes, personajes[iluminar]);
                 nuevoPersonaje->desbloqueado = 1;
                 clear();
-                printw("%s ahora se encuentra DESBLOQUEADO", nuevoPersonaje->nombre);
-                esperarTecla();
+
+                //Mensaje de desbloqueo con colores
+                attron(COLOR_PAIR(5));
+                printw("%s",nuevoPersonaje->nombre);
+                attroff(COLOR_PAIR(5));
+                
+                printw(" ahora se encuentra ");
+                
+                attron(COLOR_PAIR(2));
+                attron(A_BOLD);
+                printw("DESBLOQUEADO");
+                attroff(COLOR_PAIR(2));
+                attroff(A_BOLD);
+
+                esperarTecla(0);
             }
             endwin();
             return;
         }
 
     }
-}
-
-//Funcion para calcular el avance de las marcas de cada personaje
-int calculoMarcas(tipoPersonaje * personajeActual)
-{
-    int calculoMarcas = 0;
-    
-    //Se recorre el arreglo marcas
-    for(int i = 0; i < 10; i++)
-    {
-        if(personajeActual->marcas[i] == 1) calculoMarcas += 1; //Dificultad normal
-        else if (personajeActual->marcas[i] == 2) calculoMarcas += 2; //Dificultad dificil
-    }
-
-    return calculoMarcas;
 }
 
 //Funcion para actualizar la informacion respecto al avance en las marcas de logro de un personaje
@@ -280,7 +311,7 @@ void avanceMarcasLogros(List * listaPersonajes, HashMap * mapaPersonajes)
     if(j == 0)
     {
         printw("Ha logrado avanzar en marcas de logros con todos los personajes desbloqueados\n");
-        esperarTecla();
+        esperarTecla(0);
         endwin();
         return;
     }
@@ -315,7 +346,7 @@ void avanceMarcasLogros(List * listaPersonajes, HashMap * mapaPersonajes)
         //El usuario ingresa alguna entrada desde el teclado (sin necesidad de usar enter)
         eleccion = wgetch(ventana);
 
-        switch (eleccion) //Dependiendo de la elección
+        switch (eleccion) //Dependiendo de la tecla apretada
         {
         case KEY_UP:
             iluminar--;
@@ -336,7 +367,7 @@ void avanceMarcasLogros(List * listaPersonajes, HashMap * mapaPersonajes)
                 //El usuario ingresa el logro que quiere actualizar
                 do
                 {
-                    printw("\nCual marca logro: ");
+                    printw("\nNombre de la marca que logro: ");
                     scanw("%19[^\n]s", respuesta);
                     convertirMayuscula(respuesta);
                     opcion = valorNumericoMarca(respuesta);
@@ -347,7 +378,7 @@ void avanceMarcasLogros(List * listaPersonajes, HashMap * mapaPersonajes)
                 if(nuevoPersonaje->marcas[opcion] == 2)
                 {
                     printw("\nLa marca ya se completo en su maxima dificultad\n");
-                    esperarTecla();
+                    esperarTecla(0);
                     endwin();
                     return;
                 }
@@ -355,7 +386,18 @@ void avanceMarcasLogros(List * listaPersonajes, HashMap * mapaPersonajes)
                 {
                     do
                     {
-                        printw("\nLo realizo en ""NORMAL ""O ""DIFICIL"": ");
+                        printw("\nLo realizo en ");
+                        
+                        attron(COLOR_PAIR(5));
+                        printw("NORMAL ");
+                        attroff(COLOR_PAIR(5));
+                        
+                        printw("O ");
+
+                        attron(COLOR_PAIR(5));
+                        printw("DIFICIL"": ");
+                        attroff(COLOR_PAIR(5));
+                        
                         scanw("%19s", respuesta);
                         convertirMayuscula(respuesta);
                         if(strcmp(respuesta, "NORMAL") != 0 && strcmp(respuesta,"DIFICIL") != 0) printw("\nNo existe tal opcion\n");
@@ -367,7 +409,7 @@ void avanceMarcasLogros(List * listaPersonajes, HashMap * mapaPersonajes)
                 
                 clear();
                 mostrarPersonaje(nuevoPersonaje->nombre, nuevoPersonaje->desbloqueado,nuevoPersonaje->marcas, 0);
-                esperarTecla();
+                esperarTecla(0);
             }
             endwin();
             return;

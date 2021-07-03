@@ -8,6 +8,24 @@
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
 
+//Funcion para calcular la cantidad de items encontrados
+float calculoPorcentajeItems(List * listaItems)
+{
+    tipoItem * aux = firstList(listaItems);
+    float contadorTotal = 0;
+
+    while(aux != NULL)
+    {
+        if(aux->encontrado == 1)
+        {
+            contadorTotal++; //1 punto por tener desbloqueado al personaje
+        }
+        aux = nextList(listaItems);
+    }
+
+    return contadorTotal;
+}
+
 //Copia la informacion de la lineaLeida a un tipoItem
 tipoItem * copiarInformacionItems(char * lineaLeida)
 {
@@ -92,11 +110,12 @@ void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
 	//Se busca el item, si existe se muestra, sino, se indica que el item no existe
 	if(itemBuscado != NULL)
 	{
+		attron(A_BOLD);
 		printw("\n%s\n", itemBuscado->nombre);
 		if(itemBuscado->encontrado == 0)
 		{
 			attron(COLOR_PAIR(3));
-			wprintw(stdscr,"No encontrado \n");
+			printw("No encontrado \n");
 			attroff(COLOR_PAIR(3));
 		} 
 		else
@@ -105,8 +124,19 @@ void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
 			wprintw(stdscr,"Encontrado \n");
 			attroff(COLOR_PAIR(2));
 		}
-		printw("Tipo de Objeto: ""%s\n", itemBuscado->tipoEfecto);
-		printw("Efecto: ""%s\n", itemBuscado->efecto);
+
+		attron(COLOR_PAIR(4));
+		printw("Tipo de Objeto: ");
+		attroff(COLOR_PAIR(4));
+		
+		printw("%s\n", itemBuscado->tipoEfecto);
+		
+		attron(COLOR_PAIR(5));
+		printw("Efecto:");
+		attroff(COLOR_PAIR(5));
+
+		printw(" %s\n", itemBuscado->efecto);
+		attroff(A_BOLD);
 	}
 	else
 	{
@@ -117,7 +147,7 @@ void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
 		attroff(COLOR_PAIR(3));
 	}
 
-	esperarTecla();
+	esperarTecla(0);
 	endwin();
 }
 
@@ -169,7 +199,7 @@ void mostrarTodosItems(List * listaItems)
 		if(i % (stdscr->_maxy - 2) == 0 || i == 546)
 		{
 			wrefresh(stdscr);
-			esperarTecla();
+			esperarTecla(0);
 			printw("Nombre                 Encontrado\n");
 		}
 
@@ -191,10 +221,10 @@ void encontrarItem(HashMap * mapaItems, char * nombreItem)
 	{
 		if(itemBuscado->encontrado == 0)
 		{
-			printw("\nSe actualizo informacion del item a\n");
+			printw("\nSe actualizo informacion del item\n");
 			attron(A_BOLD);
 			attron(COLOR_PAIR(2));
-			printw("%s ENCONTRADO\n", nombreItem);
+			printw("%s a ENCONTRADO\n", nombreItem);
 			attroff(A_BOLD);
 			attroff(COLOR_PAIR(2));
 			itemBuscado->encontrado = 1;
@@ -213,6 +243,6 @@ void encontrarItem(HashMap * mapaItems, char * nombreItem)
 		attroff(COLOR_PAIR(3));
 	}
 
-	esperarTecla();
+	esperarTecla(0);
 	endwin();
 }

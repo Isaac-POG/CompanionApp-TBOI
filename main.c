@@ -1,5 +1,7 @@
 #include <stdlib.h>
+#include <math.h>
 #include <ncurses.h>
+#include <string.h>
 
 #include "Librerias/Interfaz/interfaz.h"
 #include "Librerias/TDA_Mapa/hashmap.h"
@@ -19,6 +21,9 @@ int mostrarSubMenu();
 
 //Funcion que inicia las funciones principales del programa
 void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List *, List *, List *, List *);
+
+//Funcion para calcular los porcentajes de avance de los distintos aspectos
+void calculoDePorcentajes(List *, List *);
 
 int main()
 {	
@@ -49,21 +54,22 @@ int main()
 
 	int eleccionUsuario = 0;
 	
-	//Forma de repetir el menu
-	while(eleccionUsuario != 9)
+	//Forma de repetir el menu principal
+	while(eleccionUsuario != 10)
 	{
 		eleccionUsuario = mostrarMenu();
-		if(eleccionUsuario == 9) break;
+		if(eleccionUsuario == 10) break;
 
 		funcionesOpcion(eleccionUsuario, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
 		
+		//Forma de repetir el submenu
 		if(eleccionUsuario == 0)
 		{
 			int eleccionSubMenu = 0;
-			while(eleccionSubMenu != 14)
+			while(eleccionSubMenu != 15)
 			{
 				eleccionSubMenu = mostrarSubMenu();
-				if(eleccionSubMenu == 14) break;
+				if(eleccionSubMenu == 15) break;
 		
 				funcionesOpcion(eleccionSubMenu, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
 			}
@@ -87,9 +93,40 @@ int main()
 	return 0;
 }
 
+void calculoDePorcentajes(List * listaPersonajes, List * listaItems)
+{
+	clear();
+	float porcentajePersonaje = calculoPorcentajePersonaje(listaPersonajes);
+	float porcentajeItems = calculoPorcentajeItems(listaItems);
+	porcentajePersonaje = ((porcentajePersonaje)/175) * 100;
+	porcentajeItems = ((porcentajeItems)/546) * 100;
+
+	attron(COLOR_PAIR(5));
+	attron(A_BOLD);
+	centrarEnY(7);
+	
+	centrarEnX(strlen("Tabla de Porcentajes"));
+	printw("Tabla de Porcentajes\n\n");
+	attroff(COLOR_PAIR(5));
+
+	centrarEnX(strlen("Porcentaje Personajes:    %%"));
+	printw("Porcentaje Personajes: %.1f%%\n", porcentajePersonaje);
+
+	centrarEnX(strlen("Porcentaje Items:    %%"));
+	printw("Porcentaje Items: %.1f%%\n", porcentajeItems);
+	
+	centrarEnX(strlen("Porcentaje Total:    %%"));
+	printw("Porcentaje Total: %.1f%%\n\n", (porcentajeItems + porcentajePersonaje)/2);
+
+	attroff(A_BOLD);
+	refresh();
+	esperarTecla(1);
+
+}
+
 int mostrarMenu()
 {
-    char opciones[10][40] = {"Menu de Desbloqueo","Guardar Informacion","Buscar un Item Especifico","Buscar un Logro Especifico","Buscar un Enemigo Especifico","Mostrar Todos los Personajes","Mostrar Todos los Items","Mostrar Todos los Logros","Mostrar Todos los Enemigos","Salir del Programa"};
+    char opciones[11][40] = {"Menu de Desbloqueo","Guardar Informacion","Buscar un Item Especifico","Buscar un Logro Especifico","Buscar un Enemigo Especifico","Mostrar Todos los Personajes","Mostrar Todos los Items","Mostrar Todos los Logros","Mostrar Todos los Enemigos","Mostrar Porcentajes","Salir del Programa"};
     int eleccion = -1, iluminar = 0;
 
     WINDOW * ventana;
@@ -97,14 +134,14 @@ int mostrarMenu()
     while(eleccion)
     {
     	//Establecer el tamaño del menu
-    	ventana = crearVentana(12);
+    	ventana = crearVentana(13);
         
         //Delimitar el menu
         box(ventana, 0, 0);
         refresh();
         
         //Muestra las opciones
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 11; i++)
         {
         	//Si es la posicion actual, la ilumina
             if(i == iluminar) wattron(ventana, A_REVERSE);
@@ -121,11 +158,11 @@ int mostrarMenu()
         {
         case KEY_UP:
             iluminar--;
-            if(iluminar == -1) iluminar = 9; //Si llega hasta arriba, mueve el cursor al final del menu
+            if(iluminar == -1) iluminar = 10; //Si llega hasta arriba, mueve el cursor al final del menu
             break;
         case KEY_DOWN:
             iluminar++;
-            if(iluminar == 10) iluminar = 0; //Si llega al final mueve el cursor al inicio del menu
+            if(iluminar == 11) iluminar = 0; //Si llega al final mueve el cursor al inicio del menu
             break;
 		case 10: //Si se apreta la tecla ENTER, significa que se quiere usar una opcion del menu
 			return iluminar;
@@ -173,7 +210,7 @@ int mostrarSubMenu()
             if(iluminar == 6) iluminar = 0; //Si llega al final mueve el cursor al inicio del menu
             break;
  		case 10: //Si se apreta la tecla ENTER, significa que se quiere usar una opcion del menu
-            return iluminar + 9;
+            return iluminar + 10;
         }
         wrefresh(ventana);
     }
@@ -228,23 +265,26 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		mostrarEnemigos(listaEnemigos);
 		break;
 	case 9:
-		desbloquearPersonajes(listaPersonajes,mapaPersonajes);
+		calculoDePorcentajes(listaPersonajes, listaItems);
 		break;
 	case 10:
-		avanceMarcasLogros(listaPersonajes,mapaPersonajes);
+		desbloquearPersonajes(listaPersonajes,mapaPersonajes);
 		break;
 	case 11:
+		avanceMarcasLogros(listaPersonajes,mapaPersonajes);
+		break;
+	case 12:
 		printw("Ingrese el nombre del Item que encontro: ");
 		scanw("%39[^\n]s", nombreBuscado);
 		convertirMayuscula(nombreBuscado);
 		encontrarItem(mapaItems, nombreBuscado);
 		break;
-	case 12:
+	case 13:
 		printw("Ingrese el ID del logro que desbloqueo: ");
 		scanw("%i", &idBuscado);
 		desbloquearLogro(mapaLogros, idBuscado);
 		break;
-	case 13:
+	case 14:
 		printw("Ingrese el nombre del enemigo que encontro: ");
 		scanw("%39[^\n]s", nombreBuscado);
 		convertirMayuscula(nombreBuscado);

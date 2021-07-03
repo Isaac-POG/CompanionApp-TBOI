@@ -91,7 +91,7 @@ void mostrarLogros(List * listaLogros)
         if(j % (stdscr->_maxy - 1) == 0 || j == 403) 
         {
             wrefresh(stdscr);
-            esperarTecla();
+            esperarTecla(0);
         }
         
         aux = nextList(listaLogros);
@@ -138,7 +138,7 @@ void buscarLogroEspecifico(HashMap * mapaLogros, int id)
     attron(COLOR_PAIR(2));
 
     attroff(A_BOLD);
-    esperarTecla();
+    esperarTecla(0);
     endwin();
 }
 
@@ -148,12 +148,12 @@ void desbloquearLogro(HashMap * mapaLogros, int id){
     
     if(!aux){
         printw("\nEl logro que ingreso no existe\n");
-        esperarTecla();
+        esperarTecla(0);
         return;
     }
     if(aux->desbloqueado){
         printw("\nEl logro ya estaba desbloqueado de antes\n");
-        esperarTecla();
+        esperarTecla(0);
         return;
     }
     aux->desbloqueado = 1;
@@ -166,7 +166,7 @@ void desbloquearLogro(HashMap * mapaLogros, int id){
         printw("Bloqueado");
     }
     printw("\nNombre: %s",aux->nombre);
-    esperarTecla();
+    esperarTecla(0);
     endwin();
 }
 

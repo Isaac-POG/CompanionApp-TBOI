@@ -17,5 +17,9 @@ void pantallaFinal();
 
 void iniciarColores();
 
-void esperarTecla();
+void esperarTecla(int);
+
+void centrarEnY(int);
+
+void centrarEnX(int);
 #endif

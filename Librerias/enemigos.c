@@ -109,7 +109,7 @@ void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
 		attron(COLOR_PAIR(3));
         printw("\nEl enemigo que ingreso no existe\n");
 		attroff(COLOR_PAIR(3));
-        esperarTecla();
+        esperarTecla(0);
         endwin();
         return;
     }
@@ -147,7 +147,7 @@ void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
     }
 
 	attroff(A_BOLD);
-    esperarTecla();
+    esperarTecla(0);
     endwin();
 }
 
@@ -193,7 +193,7 @@ void mostrarEnemigos(List * listaEnemigos){
 		if(i % (stdscr->_maxy - 1) == 0 || i == 282)
 		{
 			wrefresh(stdscr);
-			esperarTecla();
+			esperarTecla(0);
 		}
 		
 		aux = nextList(listaEnemigos);
@@ -233,7 +233,7 @@ void encontrarEnemigo(HashMap * mapaEnemigos, char * nombreEnemigo){
 		printw("\nEl item con nombre %s no existe\n", nombreEnemigo);
 	}
 
-	esperarTecla();
+	esperarTecla(0);
 	endwin();
 }
 

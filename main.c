@@ -225,7 +225,7 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		mostrarLogros(mapaLogros);
 		break;
 	case 8:
-		mostrarEnemigos(mapaEnemigos);
+		mostrarEnemigos(listaEnemigos);
 		break;
 	case 9:
 		desbloquearPersonajes(listaPersonajes,mapaPersonajes);

@@ -98,11 +98,14 @@ void importarArchivoEnemigos(HashMap * mapaEnemigos, List * listaEnemigos){
 }
 
 void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
-    initscr();
+    //Inicio ncurses
+	initscr();
+
     tipoEnemigo * aux = searchMap(mapaEnemigos,nombreEnemigo);
 	attron(A_BOLD);
 
     if(!aux){
+		//Caso de enemigo no encontrado
 		attron(COLOR_PAIR(3));
         printw("\nEl enemigo que ingreso no existe\n");
 		attroff(COLOR_PAIR(3));
@@ -115,6 +118,7 @@ void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
     printw("\nID: %d ",aux->ID);
 	attroff(COLOR_PAIR(4));
 
+	//Diferenciar si fue encontrado el enemigo
     if(aux->encontrado){
 		attron(COLOR_PAIR(2));
         printw("Encontrado");
@@ -125,20 +129,23 @@ void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
 		attroff(COLOR_PAIR(3));
     }
 
+	//Mostrar sus datos
     printw("\nNombre: %s",aux->nombre);
     printw("\nVida: %d",aux->vida);
 
+	//Mostrar su(s) ubicacion(es)
     if(aux->cantidadUbicacion == 1){
         printw("\nUbicacion: %s\n",aux->ubicacion[0]);
     }else{
-        int i;
         printw("\nUbicaciones: ");
-        for(i = 0; i < aux->cantidadUbicacion ; i++){
+
+        for(int i = 0; i < aux->cantidadUbicacion ; i++){
             if(i != 0) printw(", ");
             printw("%s",aux->ubicacion[i]);
         }
         printw("\n");
     }
+
 	attroff(A_BOLD);
     esperarTecla();
     endwin();
@@ -154,28 +161,35 @@ void mostrarEnemigos(List * listaEnemigos){
 	tipoEnemigo * aux = firstList(listaEnemigos);
 	int i = 1;
 
+	//Se recorre toda la lista
 	while(aux != NULL)
 	{
 		attron(A_BOLD);
 		attron(COLOR_PAIR(4));
+
 		wprintw(stdscr,"%s ", aux->nombre);
+
 		attroff(COLOR_PAIR(4));
 		
+		//Coloca espacios faltantes para que se muestre ordenados.
 		if(strlen(aux->nombre) < 22){
 			for(int k = strlen(aux->nombre); k < 22; k++) wprintw(stdscr," ");
 		}
 		
 		if(aux->encontrado == 0){
+			//Caso en el que no se ha encontrado el enemigo
 			attron(COLOR_PAIR(3));
 			wprintw(stdscr,"No encontrado \n");
 			attroff(COLOR_PAIR(3));
 		}
 		else{
+			//Caso en el que se ha encontrado el enemigo
 			attron(COLOR_PAIR(2));
 			wprintw(stdscr,"Encontrado \n" );
 			attroff(COLOR_PAIR(2));
 		}
 
+		//Pausa para poder ver los enemigos, la cantidad depende del tamaño de la terminal
 		if(i % (stdscr->_maxy - 2) == 0 || i == 282)
 		{
 			wrefresh(stdscr);
@@ -237,12 +251,13 @@ void guardarInfoEnemigos(List * listaEnemigos){
 		//Se guardan los datos
 		fprintf(archivo,"%d;%d;%s;%d;",aux->ID,aux->encontrado,aux->nombre,aux->vida);
 
-		//Caso en el que solo tenga 1 ubicacion
+		//Diferenciar en si tiene 1 ubicacion o mas
 		if(aux->cantidadUbicacion == 1){
 			fprintf(archivo,"%s",aux->ubicacion[0]); //Se guarda la unica ubicacion
 		}else{
 			fprintf(archivo,"\""); //Se guarda la doble comilla inicial
 			flag = 0; //Inicia en 0, para que el punto coma (;) no se guarde la primera vez
+			
 			for(int k=0 ; k < aux->cantidadUbicacion ; k++){
 
 				if(flag == 0) flag = 1;

@@ -16,24 +16,26 @@ int calculoMarcas(tipoPersonaje * personajeActual)
     //Se recorre el arreglo marcas
     for(int i = 0; i < 10; i++)
     {
-        if(personajeActual->marcas[i] == 1) calculoMarcas += 1; //Dificultad normal
-        else if (personajeActual->marcas[i] == 2) calculoMarcas += 2; //Dificultad dificil
+        if(personajeActual->marcas[i] == 1) calculoMarcas += 1; //Se añade uno, por la dificultad normal
+        else if (personajeActual->marcas[i] == 2) calculoMarcas += 2; //Se añade dos, por la dificultad dificil
     }
 
     return calculoMarcas;
 }
 
+//Funcion para calcular el total del avance del jugador respecto a los personajes
 float calculoTotalPersonajes(List * listaPersonajes)
 {
     tipoPersonaje * aux = firstList(listaPersonajes);
     float contadorTotal = 0;
 
+    //Se recorre la lista
     while(aux != NULL)
     {
-        if(aux->desbloqueado == 1)
+        if(aux->desbloqueado == 1) //Solo se cuentan a los personajes desbloqueados
         {
             contadorTotal++; //1 punto por tener desbloqueado al personaje
-            contadorTotal += calculoMarcas(aux);
+            contadorTotal += calculoMarcas(aux); //Se calcula el puntaje de las marcas de logros
         }
         aux = nextList(listaPersonajes);
     }

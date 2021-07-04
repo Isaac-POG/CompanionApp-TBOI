@@ -14,12 +14,11 @@ float calculoTotalItems(List * listaItems)
     tipoItem * aux = firstList(listaItems);
     float contadorTotal = 0;
 
+	//Se recorre la lista
     while(aux != NULL)
     {
-        if(aux->encontrado == 1)
-        {
-            contadorTotal++; //1 punto por tener desbloqueado al personaje
-        }
+		//Solo se cuentan a los items que el jugador ha encontrado
+        if(aux->encontrado == 1) contadorTotal++; 
         aux = nextList(listaItems);
     }
 
@@ -107,10 +106,11 @@ void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
 	initscr();
 	tipoItem * itemBuscado = searchMap(mapaItems, nombreItem);
 	
+	attron(A_BOLD);
+
 	//Se busca el item, si existe se muestra, sino, se indica que el item no existe
 	if(itemBuscado != NULL)
 	{
-		attron(A_BOLD);
 		printw("\n%s\n", itemBuscado->nombre);
 		if(itemBuscado->encontrado == 0)
 		{
@@ -136,16 +136,14 @@ void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
 		attroff(COLOR_PAIR(5));
 
 		printw(" %s\n", itemBuscado->efecto);
-		attroff(A_BOLD);
 	}
 	else
 	{
-		attron(A_BOLD);
 		attron(COLOR_PAIR(3));
 		printw("\nEl item con nombre %s no existe\n", nombreItem);
-		attroff(A_BOLD);
 		attroff(COLOR_PAIR(3));
 	}
+	attroff(A_BOLD);
 
 	esperarTecla(0);
 	endwin();
@@ -154,7 +152,7 @@ void buscarItemEspecifico(HashMap * mapaItems, char * nombreItem)
 //Muestra todos los items del juego, indicando si el usuario los encontro o no
 void mostrarTodosItems(List * listaItems)
 {
-	//Inicio del Ncurses.h
+	//Inicio de Ncurses.h
 	initscr();
 
 	//Activar el scroll

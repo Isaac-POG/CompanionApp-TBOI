@@ -147,27 +147,29 @@ void mostrarPersonaje(char * nombre, int desbloqueado, int * marcas, int tipoMos
 {
 	initscr();
 
+	//Muestro el nombre
 	printw("%s ", nombre);
 
 	//Segun la funcion que necesita mostrar la informacion se muestra de una u otra forma	
 	if(tipoMostrar == 0)
 	{
+		//Muestro las marcas de logros
 		for(int i = 0; i < 10; i++)
 		{
 			mostrarMarcas(i);
-			if(marcas[i] == 0)
+			if(marcas[i] == 0) //No se ha completado
 			{
 				attron(COLOR_PAIR(3));
 				printw("NO ");
 				attroff(COLOR_PAIR(3));
 			} 
-			else if(marcas[i] == 1) 
+			else if(marcas[i] == 1) //Se completo en normal
 			{
 				attron(COLOR_PAIR(4));
 				printw("NORMAL ");
 				attroff(COLOR_PAIR(4));
 			}
-			else
+			else //Se completo en dificil
 			{
 				attron(COLOR_PAIR(2));
 			 	printw("DIFICIL ");
@@ -177,13 +179,13 @@ void mostrarPersonaje(char * nombre, int desbloqueado, int * marcas, int tipoMos
 	}
 	else
 	{
-		if(desbloqueado == 0)
+		if(desbloqueado == 0) //No se encuentra desbloqueado el personaje
 		{
 			attron(COLOR_PAIR(3));
 			printw("BLOQUEADO ");
 			attroff(COLOR_PAIR(3));
 		} 
-		else 
+		else //Se encuentra desbloqueado
 		{
 			attron(COLOR_PAIR(2));
 			printw("DESBLOQUEADO ");
@@ -194,19 +196,19 @@ void mostrarPersonaje(char * nombre, int desbloqueado, int * marcas, int tipoMos
 		for(int i = 0; i < 10; i++)
 		{
 			mostrarMarcas(i);
-			if(marcas[i] == 0)
+			if(marcas[i] == 0) //No se ha completado
 			{
 				attron(COLOR_PAIR(3));
 				printw("NO ");
 				attroff(COLOR_PAIR(3));
 			} 
-			else if(marcas[i] == 1) 
+			else if(marcas[i] == 1) //Se completo en normal
 			{
 				attron(COLOR_PAIR(4));
 				printw("NORMAL ");
 				attroff(COLOR_PAIR(4));
 			}
-			else
+			else //Se completo en dificil
 			{
 				attron(COLOR_PAIR(2));
 			 	printw("DIFICIL ");
@@ -219,6 +221,7 @@ void mostrarPersonaje(char * nombre, int desbloqueado, int * marcas, int tipoMos
 	endwin();
 }
 
+//Funcion para centrar el texto en el eje Y segun el tamaño de la terminal
 void centrarEnY(int cantLineas)
 {
 	int i;
@@ -227,9 +230,12 @@ void centrarEnY(int cantLineas)
 		printw("\n");
 }
 
+//Funcion para centrar el texto en el eje X segun el tamaño de la terminal
 void centrarEnX(int largoPalabra)
 {
 	int i;
+
+	//Mover hacia la derecha la cantidad de veces necesarias
 	for(i = 0; i < (COLS - largoPalabra)/2;i++)
 		printw(" ");
 }
@@ -277,6 +283,7 @@ void pantallaFinal()
 	centrarEnY(0);
 	centrarEnX(largoPalabra);
 
+	attron(A_BOLD);
 	attron(COLOR_PAIR(3));
 	printw("Fin del Programa\n");
 	attroff(COLOR_PAIR(3));
@@ -288,7 +295,7 @@ void pantallaFinal()
 	attron(COLOR_PAIR(4));
 	printw("Gracias por usar el programa!");
 	attroff(COLOR_PAIR(4));
-	
+	attroff(A_BOLD);
 	getch();
 }
 

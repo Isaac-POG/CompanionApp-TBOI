@@ -8,6 +8,20 @@
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
 
+float calculoTotalEnemigos(List * listaEnemigos)
+{
+	float totalEnemigos = 0;
+	tipoEnemigo * aux = firstList(listaEnemigos);
+
+	while(aux != NULL)
+	{
+		if(aux->encontrado == 1) totalEnemigos++;
+		aux = nextList(listaEnemigos);
+	}
+
+	return totalEnemigos;
+}
+
 tipoEnemigo * copiarInformacionEnemigo(char * lineaLeida)
 {
     tipoEnemigo * nuevoEnemigo = malloc (sizeof(tipoEnemigo));

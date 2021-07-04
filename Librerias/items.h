@@ -1,7 +1,7 @@
 #ifndef ITEMS_H
 #define ITEMS_H
 
-float calculoPorcentajeItems(List *);
+float calculoTotalItems(List *);
 
 void importarArchivoItems(HashMap *, List *);
 

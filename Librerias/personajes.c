@@ -23,7 +23,7 @@ int calculoMarcas(tipoPersonaje * personajeActual)
     return calculoMarcas;
 }
 
-float calculoPorcentajePersonaje(List * listaPersonajes)
+float calculoTotalPersonajes(List * listaPersonajes)
 {
     tipoPersonaje * aux = firstList(listaPersonajes);
     float contadorTotal = 0;

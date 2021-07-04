@@ -9,7 +9,7 @@
 #include "Estructuras/structs.h"
 
 //Funcion para calcular la cantidad de items encontrados
-float calculoPorcentajeItems(List * listaItems)
+float calculoTotalItems(List * listaItems)
 {
     tipoItem * aux = firstList(listaItems);
     float contadorTotal = 0;

@@ -23,7 +23,7 @@ int mostrarSubMenu();
 void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, HashMap * mapaItems, HashMap * mapaEnemigos, List *, List *, List *, List *);
 
 //Funcion para calcular los porcentajes de avance de los distintos aspectos
-void calculoDePorcentajes(List *, List *);
+void calculoDePorcentajes(List *, List *, List *, List *);
 
 int main()
 {	
@@ -54,15 +54,16 @@ int main()
 
 	int eleccionUsuario = 0;
 	
-	//Forma de repetir el menu principal
+	//Mientras no se elija la opcion 10 (Salir del Programa), se repetira el menu
 	while(eleccionUsuario != 10)
 	{
 		eleccionUsuario = mostrarMenu();
 		if(eleccionUsuario == 10) break;
 
+		//Si no sale del menú, significa que retorno una funcion del programa
 		funcionesOpcion(eleccionUsuario, mapaPersonajes, mapaLogros, mapaItems, mapaEnemigos, listaPersonajes, listaItems, listaLogros, listaEnemigos);
 		
-		//Forma de repetir el submenu
+		//Mientras no se elija la opcion 6 del subMenu (Salir del Menu), se repetira el menu
 		if(eleccionUsuario == 0)
 		{
 			int eleccionSubMenu = 0;
@@ -76,7 +77,7 @@ int main()
 		}
 	}
 
-	//Liberar memoria de TDAs
+	//Liberar memoria de los TDAs usados
 	free(mapaPersonajes);
 	free(mapaLogros);
 	free(mapaItems);
@@ -86,6 +87,7 @@ int main()
 	free(listaLogros);
 	free(listaEnemigos);
 
+	//Se muestra la pantalla final
 	pantallaFinal();
 
 	//Fin de la libreria ncurses.h
@@ -93,18 +95,21 @@ int main()
 	return 0;
 }
 
-void calculoDePorcentajes(List * listaPersonajes, List * listaItems)
+void calculoDePorcentajes(List * listaPersonajes, List * listaItems, List * listaLogros, List * listaEnemigos)
 {
 	clear();
-	float porcentajePersonaje = calculoPorcentajePersonaje(listaPersonajes);
-	float porcentajeItems = calculoPorcentajeItems(listaItems);
-	porcentajePersonaje = ((porcentajePersonaje)/175) * 100;
-	porcentajeItems = ((porcentajeItems)/546) * 100;
+
+	//Calculo de los porcentajes
+	float porcentajePersonaje = (calculoTotalPersonajes(listaPersonajes)/175) * 100;
+	float porcentajeItems = (calculoTotalItems(listaItems)/546) * 100;
+	float porcentajeLogros = (calculoTotalLogros(listaLogros)/403) * 100;
+	float porcentajeEnemigos = (calculoTotalEnemigos(listaEnemigos)/280) * 100;
 
 	attron(COLOR_PAIR(5));
 	attron(A_BOLD);
 	centrarEnY(7);
 	
+	//Mostrar por pantalla el resultado
 	centrarEnX(strlen("Tabla de Porcentajes"));
 	printw("Tabla de Porcentajes\n\n");
 	attroff(COLOR_PAIR(5));
@@ -114,9 +119,15 @@ void calculoDePorcentajes(List * listaPersonajes, List * listaItems)
 
 	centrarEnX(strlen("Porcentaje Items:    %%"));
 	printw("Porcentaje Items: %.1f%%\n", porcentajeItems);
-	
+
+	centrarEnX(strlen("Porcentaje Logros:    %%"));
+	printw("Porcentaje Logros: %.1f%%\n", porcentajeLogros);
+
+	centrarEnX(strlen("Porcentaje Enemigos:    %%"));
+	printw("Porcentaje Enemigos: %.1f%%\n", porcentajeEnemigos);
+
 	centrarEnX(strlen("Porcentaje Total:    %%"));
-	printw("Porcentaje Total: %.1f%%\n\n", (porcentajeItems + porcentajePersonaje)/2);
+	printw("Porcentaje Total: %.1f%%\n\n", (porcentajeItems + porcentajePersonaje + porcentajeLogros + porcentajeEnemigos)/4);
 
 	attroff(A_BOLD);
 	refresh();
@@ -265,7 +276,7 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		mostrarEnemigos(listaEnemigos);
 		break;
 	case 9:
-		calculoDePorcentajes(listaPersonajes, listaItems);
+		calculoDePorcentajes(listaPersonajes, listaItems, listaLogros, listaEnemigos);
 		break;
 	case 10:
 		desbloquearPersonajes(listaPersonajes,mapaPersonajes);

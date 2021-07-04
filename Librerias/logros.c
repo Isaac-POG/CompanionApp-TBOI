@@ -8,6 +8,20 @@
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
 
+float calculoTotalLogros(List * listaLogros)
+{
+    tipoLogro * aux = firstList(listaLogros);
+    float totalLogros = 0;
+    
+    while (aux != NULL)
+    {
+        if(aux->desbloqueado == 1) totalLogros++;
+        aux = nextList(listaLogros);
+    }
+    
+    return totalLogros;
+}
+
 tipoLogro * copiarInformacionLogro(char * lineaLeida)
 {
     tipoLogro * nuevoLogro = malloc (sizeof(tipoLogro));

@@ -129,7 +129,7 @@ void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
     }
 
 	attron(COLOR_PAIR(4));
-    printw("\nID: %d ",aux->ID);
+	printw("\nNombre: %s ",aux->nombre);
 	attroff(COLOR_PAIR(4));
 
 	//Diferenciar si fue encontrado el enemigo
@@ -144,7 +144,7 @@ void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
     }
 
 	//Mostrar sus datos
-    printw("\nNombre: %s",aux->nombre);
+	printw("\nID: %d ",aux->ID);
     printw("\nVida: %d",aux->vida);
 
 	//Mostrar su(s) ubicacion(es)

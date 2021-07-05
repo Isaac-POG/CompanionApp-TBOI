@@ -192,14 +192,11 @@ void desbloquearLogro(HashMap * mapaLogros, int id)
 
     printw("\nID: %d ",aux->ID);
 
-    //Diferenciar si se encuentra desbloqueado el logro
-    if(aux->desbloqueado){
-        printw("Desbloqueado");
-    }else{
-        printw("Bloqueado");
-    }
+    attron(COLOR_PAIR(2));
+    printw("Desbloqueado");
+    attroff(COLOR_PAIR(2));
 
-    printw("\nNombre: %s",aux->nombre);
+    printw("\nNombre: %s\n",aux->nombre);
     esperarTecla(0);
     endwin();
 }

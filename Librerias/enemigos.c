@@ -232,13 +232,13 @@ void encontrarEnemigo(HashMap * mapaEnemigos, char * nombreEnemigo){
 
 	if(enemigoBuscado != NULL)
 	{
-		//Caso en que no se ha encontrado
-
 		if(enemigoBuscado->encontrado == 0)
 		{
-			//Caso en el que no se encuentre
+			//Caso en que no se ha encontrado
 			printw("\nSe actualizo informacion del item\n");
+			attron(COLOR_PAIR(2));
 			printw("%s ENCONTRADO\n", nombreEnemigo);
+			attroff(COLOR_PAIR(2));
 			enemigoBuscado->encontrado = 1; //Cambiar a si se encuentra
 		}
 		else

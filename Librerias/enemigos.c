@@ -8,6 +8,7 @@
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
 
+//Calcula el porcentaje avanzado en enemigos
 float calculoTotalEnemigos(List * listaEnemigos)
 {
 	float totalEnemigos = 0;
@@ -22,6 +23,7 @@ float calculoTotalEnemigos(List * listaEnemigos)
 	return totalEnemigos;
 }
 
+//Copia la informacion de la lineaLeida a un tipoEnemigo
 tipoEnemigo * copiarInformacionEnemigo(char * lineaLeida)
 {
     tipoEnemigo * nuevoEnemigo = malloc (sizeof(tipoEnemigo));
@@ -90,6 +92,7 @@ tipoEnemigo * copiarInformacionEnemigo(char * lineaLeida)
 	return nuevoEnemigo;
 }
 
+//Importa el archivo enemigos
 void importarArchivoEnemigos(HashMap * mapaEnemigos, List * listaEnemigos){
 	//Se busca el archivo
     FILE * archivo = fopen("Archivos/enemigos.txt", "r");
@@ -111,6 +114,7 @@ void importarArchivoEnemigos(HashMap * mapaEnemigos, List * listaEnemigos){
     fclose(archivo);
 }
 
+//Busca un enemigo ingresado por el usuario
 void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
     //Inicio ncurses
 	initscr();
@@ -165,6 +169,7 @@ void buscarEnemigoEspecifico(HashMap * mapaEnemigos, char * nombreEnemigo){
     endwin();
 }
 
+//Muestra todos los enemigos
 void mostrarEnemigos(List * listaEnemigos){
     //Inicio del Ncurses.h
 	initscr();
@@ -218,6 +223,7 @@ void mostrarEnemigos(List * listaEnemigos){
     endwin();
 }
 
+//El usuario indica si encontro el enemigo
 void encontrarEnemigo(HashMap * mapaEnemigos, char * nombreEnemigo){
     initscr();
 	
@@ -251,6 +257,7 @@ void encontrarEnemigo(HashMap * mapaEnemigos, char * nombreEnemigo){
 	endwin();
 }
 
+//Se guarda toda la informacion de los enemigos
 void guardarInfoEnemigos(List * listaEnemigos){
 	//Abrir el archivo de enemigos, en este archivo se guardaran los datos actualizados
 	FILE * archivo = fopen("Archivos/enemigos.txt", "w");

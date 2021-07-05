@@ -8,6 +8,7 @@
 #include "Interfaz/interfaz.h"
 #include "Estructuras/structs.h"
 
+//Calcula el porcentaje avanzado en los logros
 float calculoTotalLogros(List * listaLogros)
 {
     tipoLogro * aux = firstList(listaLogros);
@@ -22,6 +23,7 @@ float calculoTotalLogros(List * listaLogros)
     return totalLogros;
 }
 
+//Copia la informacion de la lineaLeida a un tipoLogro
 tipoLogro * copiarInformacionLogro(char * lineaLeida)
 {
     tipoLogro * nuevoLogro = malloc (sizeof(tipoLogro));
@@ -50,6 +52,7 @@ tipoLogro * copiarInformacionLogro(char * lineaLeida)
 	return nuevoLogro;
 }
 
+//Importa el archivo logros
 void importarArchivoLogros(HashMap * mapaLogros, List * listaLogros){
     //Se busca el archivo
     FILE * archivo = fopen("Archivos/logros.txt", "r");
@@ -71,6 +74,7 @@ void importarArchivoLogros(HashMap * mapaLogros, List * listaLogros){
     fclose(archivo);
 }
 
+//Muestra todos los logros
 void mostrarLogros(List * listaLogros)
 {
     //Inicio de la ncureses
@@ -120,6 +124,7 @@ void mostrarLogros(List * listaLogros)
     endwin();
 }
 
+//Busca un logro ingresado por el usuario
 void buscarLogroEspecifico(HashMap * mapaLogros, int id)
 {
     //inicio de la ncurses
@@ -163,6 +168,7 @@ void buscarLogroEspecifico(HashMap * mapaLogros, int id)
     endwin();
 }
 
+//El usuario indica si desbloqueo el logro
 void desbloquearLogro(HashMap * mapaLogros, int id)
 {
     //Inicio de la ncureses
@@ -198,6 +204,7 @@ void desbloquearLogro(HashMap * mapaLogros, int id)
     endwin();
 }
 
+//Se guarda toda la informacion de los logros
 void guardarInfoLogros(List * listaLogros)
 {
     //Se busca el archivo logros.txt para escribir los datos actualizados

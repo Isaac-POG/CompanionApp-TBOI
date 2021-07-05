@@ -73,24 +73,27 @@ void importarArchivoLogros(HashMap * mapaLogros, List * listaLogros){
 
 void mostrarLogros(List * listaLogros)
 {
+    //Inicio de la ncureses
     initscr();
-
+    //Activar el scroll
     scrollok(stdscr, TRUE);
 
     tipoLogro * aux = firstList(listaLogros);
-    int j = 1;
+    int j = 1; //Variable para mostrar por pantalla los logros que quepan en la ventana
 
     while(aux != NULL){
-        attron(A_BOLD);
-        attron(COLOR_PAIR(4));
+        attron(A_BOLD); //Letra en negrita
+        attron(COLOR_PAIR(4)); //Letra en color
 
         wprintw(stdscr,"ID: %d ",aux->ID);
         
-        attroff(COLOR_PAIR(4));
+        attroff(COLOR_PAIR(4)); //Desactivar la letra en color
 
+        //Sirve para mostrar los logros ordenados
         if(aux->ID < 10) wprintw(stdscr,"  ");
         else if(aux->ID < 100) wprintw(stdscr," ");
 
+        //Diferenciar si el logro se encuentra desbloqueado o no
         if(aux->desbloqueado){
             attron(COLOR_PAIR(2));
             wprintw(stdscr,"Desbloqueado");
@@ -102,6 +105,7 @@ void mostrarLogros(List * listaLogros)
         }
         wprintw(stdscr," -> %s\n",aux->nombre);
 
+        //Funciona para mostrar por pantalla los logros que quepan en la ventana de la terminal.
         if(j % (stdscr->_maxy - 1) == 0 || j == 403) 
         {
             wrefresh(stdscr);
@@ -118,16 +122,18 @@ void mostrarLogros(List * listaLogros)
 
 void buscarLogroEspecifico(HashMap * mapaLogros, int id)
 {
+    //inicio de la ncurses
     initscr();
+
     tipoLogro * aux = searchMap(mapaLogros,&id);
-    attron(A_BOLD);
+    attron(A_BOLD); //Letras en negrita
 
     if(!aux){
-        attron(COLOR_PAIR(3));
+        attron(COLOR_PAIR(3)); //Letras en color
         printw("\nEl logro que ingreso no existe\n");
-        attroff(COLOR_PAIR(3));
-        attroff(A_BOLD);
-        getch();
+        attroff(COLOR_PAIR(3)); //Desactivar letras en color
+        attroff(A_BOLD); //Desactivar letras en negrita
+        esperarTecla(0); //"Presione una tecla para avanzar"
         return;
     }
 
@@ -135,6 +141,7 @@ void buscarLogroEspecifico(HashMap * mapaLogros, int id)
     printw("\nID: %d ",aux->ID);
     attroff(COLOR_PAIR(4));
 
+    //Diferenciar si el logro esta desbloqueado o no
     if(aux->desbloqueado){
         attron(COLOR_PAIR(2));
         printw("Desbloqueado");
@@ -156,15 +163,20 @@ void buscarLogroEspecifico(HashMap * mapaLogros, int id)
     endwin();
 }
 
-void desbloquearLogro(HashMap * mapaLogros, int id){
+void desbloquearLogro(HashMap * mapaLogros, int id)
+{
+    //Inicio de la ncureses
     initscr();
     tipoLogro * aux = searchMap(mapaLogros,&id);
     
+    //Verificar si el logro existe
     if(!aux){
         printw("\nEl logro que ingreso no existe\n");
         esperarTecla(0);
         return;
     }
+
+    //Verificar si el logro se encuentra desbloqueado
     if(aux->desbloqueado){
         printw("\nEl logro ya estaba desbloqueado de antes\n");
         esperarTecla(0);
@@ -174,21 +186,28 @@ void desbloquearLogro(HashMap * mapaLogros, int id){
 
     printw("\nID: %d ",aux->ID);
 
+    //Diferenciar si se encuentra desbloqueado el logro
     if(aux->desbloqueado){
         printw("Desbloqueado");
     }else{
         printw("Bloqueado");
     }
+
     printw("\nNombre: %s",aux->nombre);
     esperarTecla(0);
     endwin();
 }
 
-void guardarInfoLogros(List * listaLogros){
+void guardarInfoLogros(List * listaLogros)
+{
+    //Se busca el archivo logros.txt para escribir los datos actualizados
 	FILE * archivo = fopen("Archivos/logros.txt", "w");
     if(archivo == NULL) return;
+
+    //La primera linea
     fprintf(archivo,"ID,Desbloqueado,Nombre de Logros,Descripcion,Como conseguirlo\n");
 
+    //Se guarda toda la informacion de los logros
     tipoLogro * aux = firstList(listaLogros);
     while(aux != NULL){
         fprintf(archivo,"%d;%d;%s;%s;%s",aux->ID,aux->desbloqueado,aux->nombre,aux->descripcion,aux->comoConseguir);

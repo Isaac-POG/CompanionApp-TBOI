@@ -8,7 +8,7 @@ Aplicación del **Grupo James Bond**, para poder almacenar los avances realizado
 
 ---
 
-- José Osega
+- José Osega, como aspecto positivo, trabajó desde el principio, optimista y vio varias posibilidades de implementar un programa bonito.
 - Bryan López
 
 ### Requisitos para poder ejecutar el programa

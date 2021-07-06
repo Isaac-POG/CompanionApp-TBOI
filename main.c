@@ -235,7 +235,7 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 	clear();
 	echo();
 
-	switch (opcion)
+	switch (opcion) //Segun la opcion se elige una funcion u otra de las mostradas en el menu (Exceptuando los salir de)
 	{
 	case 1:
 		guardarInfoPersonajes(listaPersonajes);

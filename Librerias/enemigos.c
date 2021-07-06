@@ -243,14 +243,18 @@ void encontrarEnemigo(HashMap * mapaEnemigos, char * nombreEnemigo){
 		}
 		else
 		{
+			attron(COLOR_PAIR(5));
 			//Caso en el cual ya se habia encontrado anteriormente
-			printw("El item %s ya se habia encontrado", nombreEnemigo);
+			printw("\nEl item %s ya se habia encontrado\n", nombreEnemigo);
+			attroff(COLOR_PAIR(5));
 		}
 	}
 	else
 	{
 		//Caso en que el nombre no exista
+		attron(COLOR_PAIR(3));
 		printw("\nEl item con nombre %s no existe\n", nombreEnemigo);
+		attroff(COLOR_PAIR(3));
 	}
 
 	esperarTecla(0);

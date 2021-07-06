@@ -100,7 +100,7 @@ void calculoDePorcentajes(List * listaPersonajes, List * listaItems, List * list
 	clear();
 
 	//Calculo de los porcentajes
-	float porcentajePersonaje = (calculoTotalPersonajes(listaPersonajes)/175) * 100;
+	float porcentajePersonaje = (calculoTotalPersonajes(listaPersonajes)/315) * 100;
 	float porcentajeItems = (calculoTotalItems(listaItems)/546) * 100;
 	float porcentajeLogros = (calculoTotalLogros(listaLogros)/403) * 100;
 	float porcentajeEnemigos = (calculoTotalEnemigos(listaEnemigos)/280) * 100;

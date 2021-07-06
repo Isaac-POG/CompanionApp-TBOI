@@ -2,16 +2,16 @@
 
 ![image](https://sm.ign.com/ign_es/screenshot/default/the-binding-of-isaac-rebirth-afterbirth-3591010_pyut.jpg)
 
-Aplicación del **Grupo James Bond**, para poder almacenar los avances realizados en el juego The Binding of Isaac: Afterbirth+ y que además el usuario puede revisar la informacion respectiva de los ítems y los logros.
+Aplicación del **Grupo James Bond**, para poder almacenar los avances realizados en el juego *The Binding of Isaac: Afterbirth+* y que además permite al usuario poder revisar la informacion respectiva de los personajes, ítems, logros y enemigos.
 
 ## Integrantes
 
 ---
 
-- José Osega, como aspecto positivo, trabajó desde el principio, optimista y vio varias posibilidades de implementar un programa bonito.
-- Bryan López
+- José Osega, como aspectos positivos, trabajó desde el principio, optimista y vio varias posibilidades de implementar un programa bonito.
+- Bryan López, como aspectos positivos, entendio de forma rápida la incorporación de la libreria **ncurses** al programa, dio ideas de como utilizar la misma en otras funciones, buscando que quedará mas bonito el programa. Como punto a mejorar, debe de confiar mas en sus habilidades al programar y en la de su compañero.
 
-### Requisitos para poder ejecutar el programa
+### Requisitos para poder compilar el programa
 
 ---
 

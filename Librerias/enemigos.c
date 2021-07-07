@@ -235,7 +235,7 @@ void encontrarEnemigo(HashMap * mapaEnemigos, char * nombreEnemigo){
 		if(enemigoBuscado->encontrado == 0)
 		{
 			//Caso en que no se ha encontrado
-			printw("\nSe actualizo informacion del item\n");
+			printw("\nSe actualizo informacion del enemigo\n");
 			attron(COLOR_PAIR(2));
 			printw("%s ENCONTRADO\n", nombreEnemigo);
 			attroff(COLOR_PAIR(2));
@@ -245,7 +245,7 @@ void encontrarEnemigo(HashMap * mapaEnemigos, char * nombreEnemigo){
 		{
 			attron(COLOR_PAIR(5));
 			//Caso en el cual ya se habia encontrado anteriormente
-			printw("\nEl item %s ya se habia encontrado\n", nombreEnemigo);
+			printw("\nEl enemigo %s ya se habia encontrado\n", nombreEnemigo);
 			attroff(COLOR_PAIR(5));
 		}
 	}
@@ -253,7 +253,7 @@ void encontrarEnemigo(HashMap * mapaEnemigos, char * nombreEnemigo){
 	{
 		//Caso en que el nombre no exista
 		attron(COLOR_PAIR(3));
-		printw("\nEl item con nombre %s no existe\n", nombreEnemigo);
+		printw("\nEl enemigo con nombre %s no existe\n", nombreEnemigo);
 		attroff(COLOR_PAIR(3));
 	}
 

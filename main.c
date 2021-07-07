@@ -243,7 +243,9 @@ void funcionesOpcion(int opcion,HashMap * mapaPersonajes, HashMap * mapaLogros, 
 		guardarInfoEnemigos(listaEnemigos);
 		guardarInfoLogros(listaLogros);
 		clear();
+		attron(COLOR_PAIR(4));
 		printw("Se guardaron los cambios\nApriete cualquier tecla para avanzar");
+		attroff(COLOR_PAIR(4));
 		getch();
 		break;	
 	case 2:

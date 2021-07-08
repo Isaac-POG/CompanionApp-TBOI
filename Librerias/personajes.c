@@ -376,6 +376,7 @@ void avanceMarcasLogros(List * listaPersonajes, HashMap * mapaPersonajes)
                     if(opcion < 0 || opcion > 9) printw("\nNo existe tal marca\n");
                 } while (opcion < 0 || opcion > 9);
             
+                clear();
                 //Si se completo en su maxima dificultad, la funcion termina
                 if(nuevoPersonaje->marcas[opcion] != 2)//Si no, se pregunta en que dificultad se hizo, para actualizarlo y mostrarlo por pantalla
                 {
@@ -401,14 +402,10 @@ void avanceMarcasLogros(List * listaPersonajes, HashMap * mapaPersonajes)
                     if(strcmp("NORMAL", respuesta) == 0) nuevoPersonaje->marcas[opcion] = 1;
                     else nuevoPersonaje->marcas[opcion] = 2;
                 }
-                
-                clear();
+                else printw("La marca ya se completo en su maxima dificultad\n\n");
 
                 mostrarPersonaje(nuevoPersonaje->nombre, nuevoPersonaje->desbloqueado,nuevoPersonaje->marcas, 0);
                 
-                //Si ya se completo en dificil la marca, se muestra el siguiente mensaje
-                if(nuevoPersonaje->marcas[opcion] == 2)
-                    printw("\nLa marca ya se completo en su maxima dificultad\n");
 
                 noecho();
                 esperarTecla(0);
